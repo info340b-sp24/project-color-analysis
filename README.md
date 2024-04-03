@@ -4,4 +4,4 @@ This repository contains code for an interactive information web app, created fo
 
 Group 2
 
-Group Members: Kira Brodsky, Noa Avitan, Hyejin Park
+Group Members: Kira Brodsky, Noa Avitan, Hyejin Park, Jasmine Vuong
