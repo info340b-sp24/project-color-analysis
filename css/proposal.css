@@ -1,0 +1,24 @@
+header {
+	font-weight: 400;
+	font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+h2 {
+	font-weight: 300;
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.5;
+}
+
+p {
+	font-family: 'Roboto', sans-serif;
+}
+
+a {
+	text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+a:hover {
+    text-decoration: underline;
+}
