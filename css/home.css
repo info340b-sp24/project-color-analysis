@@ -1,3 +1,29 @@
 header {
     background-color: #EEE4E1;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'DM sans';
+    text-emphasis: none;
+    font-weight: 400;
+    font-size: 4em;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.title-hero-text {
+    padding-left: 40px;
+}
+
+.block {
+    display: block;
 }
