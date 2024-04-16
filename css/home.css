@@ -186,25 +186,27 @@ button:hover {
 
 @media(min-width: 598px){
 
-    .hero-img {
-        display: block;
-        max-width: 200px;
-    }
 }
 
 @media(min-width: 768px){
 
-    .hero-img {
-        display: block;
-        max-width: 300px;
-    }
+   
 }
 
 @media(min-width: 992px){
 
     .hero-img {
         display: block;
-        max-width: 400px;
+        max-width: 310px;
+    }
+
+}
+
+@media(min-width: 1100px){
+
+    .hero-img {
+        display: block;
+        max-width: 380px;
     }
 
 }
