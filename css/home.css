@@ -18,6 +18,7 @@ h1 {
 p {
     font-family: 'Manrope', sans-serif;
     font-size: .9em;
+    font-weight: 500;
 }
 
 .flex {
@@ -117,20 +118,71 @@ button:hover {
     color: #B1967D;
 }
 
+.card-container {
+    justify-content:center ;
+}
+
 .card {
-    background-color: pink;
-    border-radius: 30px/30px;
-    margin: 20px;
+    border-radius: 10px/10px;
+    margin: 5px;
+    border: none;
+    height: 370px;
+    width: 290px;
+}
+
+/* .img-card {
+    border-radius: 10px/10px;
+} */
+
+.card1 {
+    background-color: #E6BFAE;
+}
+
+.card2 {
+    background-color: #E6D9C9;
+}
+
+.card3 {
+    background-color: #EEE4E1;
+}
+
+.card4 {
+    background-color: #E6BFAE;
+}
+
+.card-img {
+    display: none;
+}
+
+.card-body {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+
+.card-text {
+    line-height: 20px;
+    margin-right: 20px;
 }
 
 .card-instructions {
     justify-content: center;
+    margin: 30px;
 }
 
-.card-text {
-    padding: 50px;
+.step1 {
+    margin-top: 150px;
+    font-size: 4em;
 }
 
+.step2 {
+    margin-top: 170px;
+    font-size: 4em;
+}
+
+.card h2 {
+    font-family: 'DM Sans', sans-serif;
+}
 
 @media(min-width: 598px){
 
@@ -154,6 +206,7 @@ button:hover {
         display: block;
         max-width: 400px;
     }
+
 }
 
 @media(min-width: 1200px){
@@ -162,4 +215,9 @@ button:hover {
         display: block;
         max-width: 500px;
     }
+
+    .card-img {
+        display: block;
+    }
+
 }
