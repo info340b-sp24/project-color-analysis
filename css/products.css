@@ -2,7 +2,13 @@
     margin: 50px;
 }
 
-.season {
+/* .flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+} */
+
+.element-checkbox {
     display: block;
 }
 
@@ -12,4 +18,69 @@
 
 .col2{
     width: 80%;
+}
+
+p, td {
+    font-family: 'Manrope', sans-serif;
+    font-size: .8em;
+}
+
+h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5em;
+
+}
+
+.title-filter {
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+/* .card {
+    border: none;
+} */
+
+.card-body {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.card-text {
+    /* margin-right: 40px; */
+    margin-left: 20px;
+}
+
+.price {
+    font-size: 0.7em;
+    align-self: flex-end;
+    margin-right:20px;
+}
+
+.col-price {
+    vertical-align: text-bottom;
+}
+
+.product-desc {
+    display: flex;
+}
+
+p.filter {
+    display: inline-block;
+    padding: 3px 10px;
+    margin-bottom:0;
+    border: 1px solid black;
+    border-radius: 30px/30px;
+    font-size: 0.7em;
+}
+
+.filters{
+    margin: 15px 15px 20px 15px;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-style: none;
+}
+
+img {
+    /* max-width: 200px; */
 }
