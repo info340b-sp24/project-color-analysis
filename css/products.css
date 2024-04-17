@@ -38,6 +38,7 @@ h1 {
 
 .card {
     /* border: none; */
+    margin-top: 30px;
 
 }
 
@@ -82,3 +83,26 @@ tbody, td, tfoot, th, thead, tr {
     border-style: none;
 }
 
+/* .products-col {
+    margin-top: 30px;
+} */
+
+@media(min-width: 1200px){
+
+    .element-checkbox {
+        display: block;
+    }
+
+    .col1{
+        width: 20%;
+    }
+    
+    .col2{
+        width: 80%;
+    }
+
+    /* .products-col {
+        margin-top: 30px;
+    } */
+
+}
