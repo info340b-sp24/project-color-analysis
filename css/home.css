@@ -19,16 +19,14 @@ p {
     font-family: 'Manrope', sans-serif;
     font-size: .9em;
     font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .flex {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-
-.flex-col {
-    flex-direction: column;
 }
 
 .flex-row {
@@ -42,12 +40,17 @@ p {
 
 .title-hero-text {
     margin-top: 60px;
+    text-align: center;
+
 }
 
 .body-hero-text {
     margin-top: 20px;
-    line-height: 4px;
+    /* line-height: 4px; */
+    margin-right: 20px;
+    text-align: center;
 }
+
 
 .block {
     display: block;
@@ -61,6 +64,7 @@ p {
 
 .quiz-hero-button {
     margin-top: 50px;
+    text-align: center;
 }
 
 .quiz-button {
@@ -185,11 +189,31 @@ button:hover {
 }
 
 @media(min-width: 598px){
+    .title-hero-text {
+        text-align: left;
+    }
 
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
 }
 
 @media(min-width: 768px){
+    .title-hero-text {
+        text-align: left;
+    }
 
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
    
 }
 
@@ -200,6 +224,18 @@ button:hover {
         max-width: 310px;
     }
 
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
+
 }
 
 @media(min-width: 1100px){
@@ -207,6 +243,18 @@ button:hover {
     .hero-img {
         display: block;
         max-width: 380px;
+    }
+
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
     }
 
 }
@@ -220,6 +268,23 @@ button:hover {
 
     .card-img {
         display: block;
+    }
+
+    .body-hero-text {
+        margin-top: 20px;
+        margin-right: 120px;
+    }
+
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
     }
 
 }
