@@ -12,21 +12,30 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="css/products.css">
+    <!-- <link rel="stylesheet" href="css/products.css"> -->
+    <link rel="stylesheet" href="css/home.css">
     <title>Color Analysis Products Page</title>
 </head>
 
-<body>
+<body class="products">
     <div class="content">
+        <div class="quiz-hero-button">
+            <a href="quiz.html"><button class="quiz-button"><strong class="button-text">Products</strong><span
+                        class="material-icons arrow">add</span></button></a>
+            <a href="quiz.html"><button class="quiz-button"><strong class="button-text">Clothing</strong><span
+                        class="material-icons arrow">add</span></button></a>
+        </div>
         <div class="row">
             <div class="col-xl-2 col-lg-2">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-sm-6  seasons">
-                        <h1 class="title-filter">Season</h1>
+                        <h3 class="title-filter">Season</h3>
                         <div class="element-checkbox">
                             <input type="checkbox" id="fall" name="fall" unchecked />
                             <label for="fall">Fall</label>
@@ -45,7 +54,7 @@
                         </div>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-sm-6 temperatures">
-                        <h1 class="title-filter">Temperature</h1>
+                        <h3 class="title-filter">Temperature</h3>
                         <div class="element-checkbox">
                             <input type="checkbox" id="cool" name="cool" unchecked />
                             <label for="cool">Cook</label>
@@ -60,7 +69,7 @@
                         </div>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-sm-6  values">
-                        <h1 class="title-filter">Value</h1>
+                        <h3 class="title-filter">Value</h3>
                         <div class="element-checkbox">
                             <input type="checkbox" id="light" name="light" unchecked />
                             <label for="light">Light</label>
@@ -71,7 +80,7 @@
                         </div>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-sm-6  chromas">
-                        <h1 class="title-filter">Chroma</h1>
+                        <h3 class="title-filter">Chroma</h3>
                         <div class="element-checkbox">
                             <input type="checkbox" id="bright" name="bright" unchecked />
                             <label for="bright">Bright</label>
@@ -86,11 +95,12 @@
             <div class="col-xl-10 col-lg-10 products-col">
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="card">
-                            <div>
-                                <img class="card-img" src="img/Naked2 Basics Eyeshadow Palette.png"
-                                    alt="naked2 basics eyeshadow palette">
-                                <!-- <div class="row product-desc">
+                        <a href="https://www.ulta.com/p/naked2-basics-eyeshadow-palette-xlsImpprod11151037?sku=2278485">
+                            <div class="card">
+                                <div>
+                                    <img class="card-img" src="img/Naked2 Basics Eyeshadow Palette.png"
+                                        alt="naked2 basics eyeshadow palette">
+                                    <!-- <div class="row product-desc">
                                     <div class="col-sm-8">
                                         <p class="card-text">Naked2 Basics Eyeshadow Palette</p>
                                     </div>
@@ -98,59 +108,63 @@
                                         <p class="price bottom-0">$35.00</p>
                                     </div>
                                 </div> -->
-                                <div class="card-body">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td class="align-baseline">Naked2 Basics Eyeshadow Palette
-                                                </td>
-                                                <td class="align-bottom price">$35.00</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="filters">
-                                    <div>
-                                        <p class="filter">Neutral</p>
-                                        <p class="filter">Muted</p>
-                                        <p class="filter">Light</p>
-                                        <p class="filter">Product</p>
-                                        <p class="filter">Autumn</p>
-                                        <p class="filter">Dark</p>
+                                    <div class="card-body">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="align-baseline">Naked2 Basics Eyeshadow Palette
+                                                    </td>
+                                                    <td class="align-bottom price">$35.00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="filters">
+                                        <div>
+                                            <p class="filter">Neutral</p>
+                                            <p class="filter">Muted</p>
+                                            <p class="filter">Light</p>
+                                            <p class="filter">Product</p>
+                                            <p class="filter">Autumn</p>
+                                            <p class="filter">Dark</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="card">
-                            <div>
-                                <div class="img-container">
-                                    <img class="card-img img2" src="img/9T Neutral Territory Artistry Palette.png"
-                                        alt="naked2 basics eyeshadow palette">
-                                </div>
-                                <div class="card-body">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td class="align-baseline">9T Neutral Territory Artistry Palette
-                                                </td>
-                                                <td class="align-bottom price">$9.80</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="filters">
-                                    <div>
-                                        <p class="filter">Neutral</p>
-                                        <p class="filter">Light</p>
-                                        <p class="filter">Product</p>
-                                        <p class="filter">Autumn</p>
-                                        <p class="filter">Dark</p>
+                        <a
+                            href="https://www.ulta.com/p/9t-neutral-territory-artistry-palette-pimprod2022883?sku=2578256&sku=2578256">
+                            <div class="card">
+                                <div>
+                                    <div class="img-container">
+                                        <img class="card-img img2" src="img/9T Neutral Territory Artistry Palette.png"
+                                            alt="naked2 basics eyeshadow palette">
+                                    </div>
+                                    <div class="card-body">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="align-baseline">9T Neutral Territory Artistry Palette
+                                                    </td>
+                                                    <td class="align-bottom price">$9.80</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="filters">
+                                        <div>
+                                            <p class="filter">Neutral</p>
+                                            <p class="filter">Light</p>
+                                            <p class="filter">Product</p>
+                                            <p class="filter">Autumn</p>
+                                            <p class="filter">Dark</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div class="card">

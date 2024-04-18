@@ -126,7 +126,7 @@ button:hover {
     justify-content:center ;
 }
 
-.card {
+.home .card {
     border-radius: 10px/10px;
     margin: 5px;
     border: none;
@@ -154,7 +154,7 @@ button:hover {
     background-color: #E6BFAE;
 }
 
-.card-img {
+.home .card-img {
     display: none;
 }
 
@@ -287,4 +287,106 @@ button:hover {
         text-align: left;
     }
 
+    .products .element-checkbox {
+        display: block;
+    }
+
+    .products .col1{
+        width: 20%;
+    }
+    
+    .products .col2{
+        width: 80%;
+    }
+
+}
+
+/* Products page */
+
+.content {
+    margin: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+.element-checkbox {
+    display: block;
+}
+
+.col1{
+    width: 20%;
+}
+
+.col2{
+    width: 80%;
+}
+
+h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5em;
+
+}
+
+.products p, td {
+    font-family: 'Manrope', sans-serif;
+    font-size: .8em;
+}
+
+.products .title-filter {
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.products .card {
+    /* border: none; */
+    margin-top: 30px;
+
+}
+
+.products .card-body {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.products .card-text {
+    /* margin-right: 40px; */
+    margin-left: 20px;
+}
+
+.products .price {
+    font-size: 0.7em;
+    align-self: flex-end;
+    margin-right:20px;
+}
+
+.products .col-price {
+    vertical-align: text-bottom;
+}
+
+.products .product-desc {
+    display: flex;
+}
+
+.products p.filter {
+    display: inline-block;
+    padding: 3px 10px;
+    margin-bottom:0;
+    border: 1px solid black;
+    border-radius: 30px/30px;
+    font-size: 0.7em;
+}
+
+.products .filters{
+    margin: 15px 15px 20px 15px;
+}
+
+.products tbody, td, tfoot, th, thead, tr {
+    border-style: none;
 }
