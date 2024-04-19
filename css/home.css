@@ -339,6 +339,10 @@ h3 {
     font-size: .8em;
 }
 
+.products td {
+    padding-right: 3px;
+}
+
 .products .title-filter {
     margin-bottom: 5px;
     margin-top: 20px;
@@ -353,6 +357,7 @@ h3 {
 .products .card-body {
     padding-top: 0;
     padding-bottom: 0;
+    margin-left: 0;
 }
 
 .products .card-text {
@@ -389,4 +394,23 @@ h3 {
 
 .products tbody, td, tfoot, th, thead, tr {
     border-style: none;
+}
+
+.products .quiz-button {
+    background-color: white;
+    border-radius: 30px/30px;
+    border: 1px solid black;
+    padding: 5px;
+    padding-left: 17px;
+    padding-right: 17px;
+    font-family: 'Manrope', sans-serif;
+    color: black;
+    float: right;
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
+.add {
+    margin-top: 3px;
+    font-size: 15px;
 }
