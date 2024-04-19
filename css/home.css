@@ -4,9 +4,23 @@
 
 header {
     background-color: #EEE4E1;
-    padding-top: 70px;
     padding-bottom: 70px;
 }
+
+li {
+    display: inline;
+    margin-right: 10px;
+    font-family: 'Manrope', sans-serif;
+    font-size: .9em;
+    font-weight: 300;
+}
+
+nav .p {
+    font-family: 'Manrope', sans-serif;
+    font-size: .9em;
+    font-weight: 300;
+}
+
 
 h1 {
     font-family: 'DM sans', sans-serif;
@@ -18,7 +32,7 @@ h1 {
 p {
     font-family: 'Manrope', sans-serif;
     font-size: .9em;
-    font-weight: 500;
+    font-weight: 400;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -405,7 +419,6 @@ p.filter {
     padding-right: 17px;
     font-family: 'Manrope', sans-serif;
     color: black;
-    float: right;
     margin-left: 5px;
     font-size: 0.8em;
 }
@@ -413,6 +426,23 @@ p.filter {
 .add {
     margin-top: 3px;
     font-size: 15px;
+}
+
+@media (min-width: 1000px) {
+    
+    .products .quiz-button, .filtered .quiz-button {
+        background-color: white;
+        border-radius: 30px/30px;
+        border: 1px solid black;
+        padding: 5px;
+        padding-left: 17px;
+        padding-right: 17px;
+        font-family: 'Manrope', sans-serif;
+        color: black;
+        float: right;
+        margin-left: 5px;
+        font-size: 0.8em;
+    }
 }
 
 /* Filtered page */
