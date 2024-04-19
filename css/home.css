@@ -343,18 +343,18 @@ h3 {
     padding-right: 3px;
 }
 
-.products .title-filter {
+.title-filter {
     margin-bottom: 5px;
     margin-top: 20px;
 }
 
-.products .card {
+.products .card, .filtered .card{
     /* border: none; */
     margin-top: 30px;
 
 }
 
-.products .card-body {
+.products .card-body, .filtered .card-body {
     padding-top: 0;
     padding-bottom: 0;
     margin-left: 0;
@@ -379,7 +379,7 @@ h3 {
     display: flex;
 }
 
-.products p.filter {
+p.filter {
     display: inline-block;
     padding: 3px 10px;
     margin-bottom:0;
@@ -388,7 +388,7 @@ h3 {
     font-size: 0.7em;
 }
 
-.products .filters{
+.filters{
     margin: 15px 15px 20px 15px;
 }
 
@@ -396,7 +396,7 @@ h3 {
     border-style: none;
 }
 
-.products .quiz-button {
+.products .quiz-button, .filtered .quiz-button {
     background-color: white;
     border-radius: 30px/30px;
     border: 1px solid black;
@@ -413,4 +413,20 @@ h3 {
 .add {
     margin-top: 3px;
     font-size: 15px;
+}
+
+/* Filtered page */
+
+.filtered .products-button {
+    background-color: EEE4E1;
+    border-radius: 30px/30px;
+    border: 1px solid black;
+    padding: 5px;
+    padding-left: 17px;
+    padding-right: 17px;
+    font-family: 'Manrope', sans-serif;
+    color: black;
+    float: right;
+    margin-left: 5px;
+    font-size: 0.8em;
 }
