@@ -1,24 +1,571 @@
-header {
+* {
+    margin: 0;
+}
+
+.proposal header {
 	font-weight: 400;
 	font-family: 'Roboto', sans-serif;
     text-align: center;
 }
 
-h2 {
+.proposal h2 {
 	font-weight: 300;
 	font-family: 'Roboto', sans-serif;
 	line-height: 1.5;
-}
-
-p {
-	font-family: 'Roboto', sans-serif;
-}
-
-a {
-	text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+	margin-top: 20px;
 }
 
 a:hover {
     text-decoration: underline;
+	color: black;
+}
+
+.products .card a:hover, .filtered .card a:hover {
+    text-decoration: none;
+}
+
+.home header {
+    background-color: #EEE4E1;
+    padding-bottom: 80px;
+}
+
+.products li, .filtered li, .home li {
+    display: inline-block;
+    margin-right: 30px;
+    font-family: 'Manrope', sans-serif;
+    font-size: .9em;
+    font-weight: 300;
+}
+
+.active {
+    text-decoration: underline;
+}
+
+footer {
+    margin-bottom: 30px;
+}
+
+.footer-icons {
+    max-height: 5px;
+    margin-right: 5px;
+    margin-bottom: 22px;
+    /* display: inline-flex; */
+    vertical-align: middle;
+}
+
+.footer-logo-container {
+    text-align: center;
+}
+
+.footer-logo {
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+.text-contact{
+    font-size: 0.75em;
+}
+
+.nav-pages {
+    text-align: end;
+}
+
+.material-icons.profile {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-left: 0;
+}
+
+nav {
+    font-family: 'Manrope', sans-serif;
+    font-size: .9em;
+    font-weight: 300;
+}
+
+.navbar {
+    padding: 10px 20px 20px 20px;
+}
+
+.margin-link {
+    margin-right: 30px;
+}
+
+.upload-link {
+    margin-right: 100px;
+}
+
+.logo {
+    max-height: 40px;
+}
+
+h1 {
+    font-family: 'DM sans', sans-serif;
+    text-emphasis: none;
+    font-weight: 400;
+    font-size: 4.5em;
+}
+
+p {
+    font-family: 'Manrope', sans-serif;
+    font-size: .9em;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.flex-filters {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    text-align: end;
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    margin-left: 120px;
+}
+
+.title-hero-text {
+    margin-top: 60px;
+    text-align: center;
+
+}
+
+.body-hero-text {
+    margin-top: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+
+.block {
+    display: block;
+    margin-top: -20px;
+}
+
+.hero-img {
+    display: none;
+    margin-right: 90px;
+}
+
+.quiz-hero-button {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.quiz-button {
+    background-color: #0019F5;
+    border-radius: 30px/30px;
+    border: none;
+    padding: 5px;
+    padding-left: 17px;
+    padding-right: 17px;
+    font-family: 'Manrope', sans-serif;
+    color: white;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+button:hover {
+    background-color: #5566FF;
+}
+
+.material-icons {
+    margin-left: 10px;
+}
+
+.arrow {
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.button-text {
+    margin-top: 1px;
+    font-family: 'Manrope', sans-serif;
+    font-size: .9em;
+}
+
+.color-analysis-text {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.color-analysis-question {
+    text-align:center;
+}
+
+.color-analysis-answer {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5em;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    line-height: 30px;
+}
+
+.highlight {
+    color: #B1967D;
+}
+
+.card-container {
+    justify-content:center ;
+}
+
+.home .card {
+    border-radius: 10px/10px;
+    margin: 5px;
+    border: none;
+    height: 370px;
+    width: 290px;
+}
+
+.card1 {
+    background-color: #E6BFAE;
+}
+
+.card2 {
+    background-color: #E6D9C9;
+}
+
+.card3 {
+    background-color: #EEE4E1;
+}
+
+.card4 {
+    background-color: #E6BFAE;
+}
+
+.home .card-img {
+    display: none;
+}
+
+.card-body {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+
+.card-text {
+    line-height: 20px;
+    margin-right: 20px;
+}
+
+.card-instructions {
+    justify-content: center;
+    margin: 30px;
+}
+
+.step1 {
+    margin-top: 150px;
+    font-size: 4em;
+}
+
+.step2 {
+    margin-top: 170px;
+    font-size: 4em;
+}
+
+.card h2 {
+    font-family: 'DM Sans', sans-serif;
+}
+
+.footer-text {
+    text-align: center;
+}
+
+.text-contact{
+    text-align: center;
+    margin-right: 30px;
+}
+
+.links-proposal {
+	margin-top: 20px;
+}
+
+ul {
+    text-align: center;
+}
+
+.proposal ul {
+	text-align: left;
+}
+
+.contact{
+    flex-direction: column;
+    align-items: center;
+}
+
+
+@media(min-width: 598px){
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
+}
+
+@media(min-width: 768px){
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
+   
+}
+
+@media(min-width: 992px){
+
+    .hero-img {
+        display: block;
+        max-width: 310px;
+    }
+
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
+
+}
+
+@media(min-width: 1100px){
+
+    .hero-img {
+        display: block;
+        max-width: 380px;
+    }
+
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
+
+}
+
+@media(min-width: 1200px){
+
+    .hero-img {
+        display: block;
+        max-width: 500px;
+    }
+
+    .home .card-img {
+        display: block;
+    }
+
+    .body-hero-text {
+        margin-top: 20px;
+        margin-right: 120px;
+    }
+
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
+
+    .products .element-checkbox {
+        display: block;
+    }
+
+    .products .col1{
+        width: 20%;
+    }
+    
+    .products .col2{
+        width: 80%;
+    }
+
+}
+
+/* Products page */
+
+.content {
+    margin: 50px;
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+	font-family: 'Manrope', sans-serif;
+    font-size: .9em;
+    font-weight: 300;
+}
+
+.element-checkbox {
+    display: block;
+}
+
+.col1{
+    width: 20%;
+}
+
+.col2{
+    width: 80%;
+}
+
+.products h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5em;
+
+}
+
+.products p, td {
+    font-family: 'Manrope', sans-serif;
+    font-size: .8em;
+}
+
+.products td {
+    padding-right: 3px;
+}
+
+.title-filter {
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.products .card, .filtered .card{
+    /* border: none; */
+    margin-top: 30px;
+
+}
+
+.products .card-body, .filtered .card-body {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 0;
+}
+
+.products .card-text {
+    /* margin-right: 40px; */
+    margin-left: 20px;
+}
+
+.products .price {
+    font-size: 0.7em;
+    align-self: flex-end;
+    margin-right:20px;
+}
+
+.products .col-price {
+    vertical-align: text-bottom;
+}
+
+.products .product-desc {
+    display: flex;
+}
+
+p.filter {
+    display: inline-block;
+    padding: 3px 10px;
+    margin-bottom:0;
+    border: 1px solid black;
+    border-radius: 30px/30px;
+    font-size: 0.7em;
+}
+
+.filters{
+    margin: 15px 15px 20px 15px;
+}
+
+.products tbody, td, tfoot, th, thead, tr {
+    border-style: none;
+}
+
+.products .quiz-button, .filtered .quiz-button {
+    background-color: white;
+    border-radius: 30px/30px;
+    border: 1px solid black;
+    padding: 5px;
+    padding-left: 17px;
+    padding-right: 17px;
+    font-family: 'Manrope', sans-serif;
+    color: black;
+    margin-left: 5px;
+    font-size: 0.8em;
+}
+
+.add {
+    margin-top: 3px;
+    font-size: 15px;
+}
+
+@media (min-width: 1000px) {
+    
+    .products .quiz-button, .filtered .quiz-button {
+        background-color: white;
+        border-radius: 30px/30px;
+        border: 1px solid black;
+        padding: 5px;
+        padding-left: 17px;
+        padding-right: 17px;
+        font-family: 'Manrope', sans-serif;
+        color: black;
+        margin-left: 5px;
+        font-size: 0.8em;
+    }
+}
+
+/* Filtered page */
+
+.filtered .products-button {
+    background-color: EEE4E1;
+    border-radius: 30px/30px;
+    border: 1px solid black;
+    padding: 5px;
+    padding-left: 17px;
+    padding-right: 17px;
+    font-family: 'Manrope', sans-serif;
+    color: black;
+    margin-left: 5px;
+    font-size: 0.8em;
 }
