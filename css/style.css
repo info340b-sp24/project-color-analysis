@@ -15,13 +15,20 @@
 	margin-top: 20px;
 }
 
-a:hover {
+.proposal ul {
+	text-align: left;
+}
+
+/* Home page */
+
+a.proposal-links:hover {
     text-decoration: underline;
 	color: black;
 }
 
-.products .card a:hover, .filtered .card a:hover {
+a:hover {
     text-decoration: none;
+	color: black;
 }
 
 .home header {
@@ -49,7 +56,6 @@ footer {
     max-height: 5px;
     margin-right: 5px;
     margin-bottom: 22px;
-    /* display: inline-flex; */
     vertical-align: middle;
 }
 
@@ -75,6 +81,7 @@ footer {
     vertical-align: middle;
     margin-right: 5px;
     margin-left: 0;
+	display: none;
 }
 
 nav {
@@ -236,7 +243,7 @@ button:hover {
     width: 290px;
 }
 
-.card1 {
+.card1, .card4 {
     background-color: #E6BFAE;
 }
 
@@ -248,10 +255,6 @@ button:hover {
     background-color: #EEE4E1;
 }
 
-.card4 {
-    background-color: #E6BFAE;
-}
-
 .home .card-img {
     display: none;
 }
@@ -260,7 +263,6 @@ button:hover {
     margin-left: 10px;
     margin-top: 10px;
 }
-
 
 .card-text {
     line-height: 20px;
@@ -282,7 +284,7 @@ button:hover {
     font-size: 4em;
 }
 
-.card h2 {
+h2 {
     font-family: 'DM Sans', sans-serif;
 }
 
@@ -301,10 +303,6 @@ button:hover {
 
 ul {
     text-align: center;
-}
-
-.proposal ul {
-	text-align: left;
 }
 
 .contact{
@@ -340,6 +338,13 @@ ul {
         text-align: left;
     }
    
+}
+
+@media (min-width: 990px){
+
+	.material-icons.profile{
+		display: inline;
+	}
 }
 
 @media(min-width: 992px){
@@ -445,14 +450,6 @@ a {
     display: block;
 }
 
-.col1{
-    width: 20%;
-}
-
-.col2{
-    width: 80%;
-}
-
 .products h1 {
     font-family: 'DM Sans', sans-serif;
     font-size: 1.5em;
@@ -474,7 +471,6 @@ a {
 }
 
 .products .card, .filtered .card{
-    /* border: none; */
     margin-top: 30px;
 
 }
