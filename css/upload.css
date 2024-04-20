@@ -1,0 +1,108 @@
+h1 {
+    background-color: #EEE4E1;
+    text-align: center; /* Center text horizontally */
+    font-family: "Manrope";
+    font-weight: 400;
+    padding: 1.25rem;
+}
+
+h2, h3 {
+    font-weight: 400;
+}
+
+body {
+    font-family: "Manrope";
+    font-weight: 400;
+}
+
+.flex-container {
+    display: flex; 
+    width: 100%; /* Set width to 100%*/
+    padding: 1.25rem; /* Add padding */
+}
+
+.flex-item-left {
+    flex: 1; /* Take up all available space */
+    padding: 20px; /* Add padding */
+}
+
+.flex-item-right {
+    flex: 1; /* Take up all available space */
+    padding: 20px; /* Add padding */
+}
+
+.fa-cloud-upload {
+    color: #949494;
+    background-color: #EEEEEE; /* Add background color */
+    padding: 230px 280px;
+    border: 1px solid #949494;
+    border-radius: 1em;
+}
+
+.upload-file-buttons {
+    text-align: center;
+}
+
+.product-info-title {
+    text-align: center;
+}
+
+option {
+    font-family: "Manrope";
+    font-weight: 400;
+}
+
+.reset, .upload-button {
+    font-family: "Manrope";
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    background-color: #E6BEAE;
+    border: none;
+    border-radius: 1em;
+    padding: 5px 15px;
+    margin: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.upload {
+    text-align: center;
+}
+
+.product-name-container {
+    display: flex;
+}  
+
+.type-dropdown-box {
+    font-size: 16px;
+    color: black;
+}
+
+.description-name-container {
+    display: flex;
+    flex-direction: column;
+} 
+
+.product-name-input, .description-input {
+    color: #949494; /* Set text color */
+    font-family: "Manrope";
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid #949494; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    text-align: center;
+    height: 37.5px;
+}
+
+.type, .season, .tone, .value, .chroma {
+    text-align: left;
+    font-family: "Manrope";
+    font-size: 16px;
+    color: #949494; /* Set text color */
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="your name">
+    <meta name="description" content="description of your page">
+    <title>Upload Product</title>
+    <link rel="stylesheet" href="css/upload.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            Upload Product
+        </h1>    
+    </header>
+    
+    <main>
+        <section class="flex-container">
+            <section class="flex-item-left">
+                <section class="icon-item"> 
+                    <i class="fa fa-cloud-upload"></i>
+                </section>
+            
+                <section class="upload-file-buttons">
+                        <input type="file" id="productimage" name="productimage" accept="image/png, image/jpeg" />
+                        <button class="reset">Reset</button>
+                </section>
+            </section>
+
+            <section class="flex-item-right">
+                <h2 class="product-info-title">
+                    Product Information
+                </h2>
+
+                <section>
+                    <section class="product-name-container"> 
+                        <label for="productname" class="product-name">Name</label>
+                        <input type="text" class="product-name-input" placeholder="Name">
+                        
+                    </section>
+
+                    <div class="dropdown-container">
+                        <a class="dropdown-toggle dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="type">
+                        <label for="dropdown-box" class="type-dropdown-box">Type</label>
+                        <select>
+                            <option value="" disabled selected>Type</option>
+                            <option value="makeup">Make-up</option>
+                            <option value="clothing">Clothing</option>
+                        </select>
+                    </div>
+                </section>
+
+                <section class="description-name-container">
+                    <label for="desc" class="description-name">Description</label>
+                    <input type="text" class="description-input" placeholder="Description">
+                </section>
+
+                <section class="categories">
+                    <h3>
+                        Categories
+                    </h3>
+                    <div class="season">
+                        <select>
+                            <option value="" disabled selected>Season</option>
+                            <option value="winter">Winter</option>
+                            <option value="spring">Spring</option>
+                            <option value="summer">Summer</option>
+                            <option value="autumn">Autumn</option>
+                        </select>
+                    </div>
+
+                    <div class="tone">
+                        <select>
+                            <option value="" disabled selected>Tone</option>
+                            <option value="cool">Cool</option>
+                            <option value="warm">Warm</option>
+                        </select>
+                    </div>
+
+                    <div class="value">
+                        <select>
+                            <option value="" disabled selected>Value</option>
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+
+                    <div class="chroma">
+                        <select>
+                            <option value="" disabled selected>Chroma</option>
+                            <option value="bright">Bright</option>
+                            <option value="muted">Muted</option>
+                        </select>
+                    </div>
+                </section>
+                <div class="upload">
+                    <button class="upload-button">Upload Product</button>
+                </div>
+    
+            </section>
+        </section>
+    </main>
+    
+    <footer>
+        Need to insert the footer content here
+    </footer>
+</body>
+
+</html>
