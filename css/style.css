@@ -198,12 +198,11 @@ button:hover {
 }
 
 .arrow {
-    margin-top: 5px;
+    margin-top: 3px;
     font-size: 15px;
 }
 
 .button-text {
-    margin-top: 1px;
     font-family: 'Manrope', sans-serif;
     font-size: .9em;
 }
