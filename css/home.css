@@ -15,6 +15,35 @@ li {
     font-weight: 300;
 }
 
+.contact > li {
+    /* display: inline-flex;
+    vertical-align: middle; */
+}
+
+footer {
+    margin-bottom: 30px;
+}
+
+.footer-icons {
+    max-height: 5px;
+    margin-right: 5px;
+    margin-bottom: 22px;
+    /* display: inline-flex; */
+    vertical-align: middle;
+}
+
+.footer-logo-container {
+    text-align: center;
+}
+
+.footer-logo {
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+.text-contact{
+    font-size: 0.75em;
+}
 
 .nav-pages {
     text-align: end;
@@ -36,8 +65,8 @@ nav .p {
     font-weight: 300;
 }
 
-nav {
-    padding: 10px 20px;
+.navbar {
+    padding: 10px 20px 20px 20px;
     background-color: #EEE4E1;
 }
 
@@ -232,6 +261,25 @@ button:hover {
 .card h2 {
     font-family: 'DM Sans', sans-serif;
 }
+
+.footer-text {
+    text-align: center;
+}
+
+.text-contact{
+    text-align: center;
+    margin-right: 30px;
+}
+
+ul {
+    text-align: center;
+}
+
+.contact{
+    flex-direction: column;
+    align-items: center;
+}
+
 
 @media(min-width: 598px){
     .title-hero-text {
