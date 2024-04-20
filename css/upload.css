@@ -78,6 +78,10 @@ option {
     color: black;
 }
 
+.dropdown-initial{
+    background-color: green;
+}
+
 .description-name-container {
     display: flex;
     flex-direction: column;
