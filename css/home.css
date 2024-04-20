@@ -2,7 +2,7 @@
     margin: 0;
 }
 
-header {
+.home header {
     background-color: #EEE4E1;
     padding-bottom: 80px;
 }
@@ -13,6 +13,10 @@ li {
     font-family: 'Manrope', sans-serif;
     font-size: .9em;
     font-weight: 300;
+}
+
+.active {
+    text-decoration: underline;
 }
 
 .contact > li {
@@ -49,17 +53,21 @@ footer {
     text-align: end;
 }
 
-.profile {
+.material-icons.profile {
     display: inline-flex;
     vertical-align: middle;
-}
-
-.person{
     margin-right: 5px;
+    margin-left: 0;
 }
 
+/* .person{
+    margin-right: 5px;
+    display: inline-flex;
+    vertical-align: middle;
+} */
 
-nav .p {
+
+nav {
     font-family: 'Manrope', sans-serif;
     font-size: .9em;
     font-weight: 300;
@@ -67,7 +75,18 @@ nav .p {
 
 .navbar {
     padding: 10px 20px 20px 20px;
-    background-color: #EEE4E1;
+}
+
+.margin-link {
+    margin-right: 30px;
+}
+
+.upload-link {
+    margin-right: 100px;
+}
+
+.logo {
+    max-height: 40px;
 }
 
 h1 {
@@ -398,6 +417,7 @@ ul {
 
 .content {
     margin: 50px;
+    margin-top: 0;
 }
 
 a {

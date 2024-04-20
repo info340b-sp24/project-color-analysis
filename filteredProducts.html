@@ -22,88 +22,113 @@
     <link rel="stylesheet" href="css/home.css">
     <title>Color Analysis Products Page</title>
 </head>
-
-<body class="filtered">
-    <div class="content">
-        <div class="flex-filters">
-            <div class="col">
-                <a href="products.html"><button class="quiz-button products-button">Products<span
-                            class="material-icons add">close</span></button></a>
-                <a href=""><button class="quiz-button">Clothing<span
-                            class="material-icons add">add</span></button></a>
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div>
+                <a href="index.html"><img src="img/Logo.png" alt="Color Aura logo" class="logo"></a>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-2 col-lg-2">
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-sm-6  seasons">
-                        <h3 class="title-filter">Season</h3>
-                        <div class="element-checkbox">
-                            <input type="checkbox" id="fall" name="fall" unchecked />
-                            <label for="fall">Fall</label>
-                        </div>
-                        <div class="element-checkbox">
-                            <input type="checkbox" id="winter" name="winter" unchecked />
-                            <label for="winter">Winter</label>
-                        </div>
-                        <div class="element-checkbox">
-                            <input type="checkbox" id="spring" name="spring" unchecked />
-                            <label for="spring">Spring</label>
-                        </div>
-                        <div class="element-checkbox">
-                            <input type="checkbox" id="summer" name="summer" unchecked />
-                            <label for="summer">Summer</label>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 col-lg-12 col-sm-6 temperatures">
-                        <h3 class="title-filter">Temperature</h3>
-                        <div class="element-checkbox">
-                            <input type="checkbox" id="cool" name="cool" unchecked />
-                            <label for="cool">Cook</label>
-                        </div>
-                        <div class="element-checkbox">
-                            <input type="checkbox" id="warm" name="warm" unchecked />
-                            <label for="warm">Warm</label>
-                        </div>
-                        <div class="element-checkbox">
-                            <input type="checkbox" id="neutral" name="neutral" unchecked />
-                            <label for="neutral">Neutral</label>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 col-lg-12 col-sm-6  values">
-                        <h3 class="title-filter">Value</h3>
-                        <div class="element-checkbox">
-                            <input type="checkbox" id="light" name="light" unchecked />
-                            <label for="light">Light</label>
-                        </div>
-                        <div class="element-checkbox">
-                            <input type="checkbox" id="dark" name="dark" unchecked />
-                            <label for="dark">Dark</label>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 col-lg-12 col-sm-6  chromas">
-                        <h3 class="title-filter">Chroma</h3>
-                        <div class="element-checkbox">
-                            <input type="checkbox" id="bright" name="bright" unchecked />
-                            <label for="bright">Bright</label>
-                        </div>
-                        <div class="element-checkbox">
-                            <input type="checkbox" id="muted" name="muted" unchecked />
-                            <label for="muted">Muted</label>
-                        </div>
-                    </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link margin-link" aria-current="page" href="quiz.html">Quiz</a>
+                    <a class="nav-link margin-link active" href="products.html">Products</a>
+                    <a class="nav-link margin-link upload-link" href="upload.html">Upload</a>
+                    <a class="nav-link" href="profile.html"><span class="material-icons profile">person</span>Profile</a>
                 </div>
             </div>
-            <div class="col-xl-10 col-lg-10 products-col">
+        </div>
+    </nav>
+</header>
+
+<body class="filtered">
+    <main>
+        <div class="content">
+            <section>
+                <div class="flex-filters">
+                    <div class="col">
+                        <a href="products.html"><button class="quiz-button products-button" aria-label="products">Products<span
+                                    class="material-icons add">close</span></button></a>
+                        <a href=""><button class="quiz-button" aria-label="clothing">Clothing<span
+                                    class="material-icons add">add</span></button></a>
+                    </div>
+                </div>
+            </section>
+            <section>
                 <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <a target="_blank"
-                            href="https://www.ulta.com/p/naked2-basics-eyeshadow-palette-xlsImpprod11151037?sku=2278485">
-                            <div class="card">
-                                <div>
-                                    <img class="card-img" src="img/Naked2 Basics Eyeshadow Palette.png"
-                                        alt="naked2 basics eyeshadow palette">
-                                    <!-- <div class="row product-desc">
+                    <div class="col-xl-2 col-lg-2">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-sm-6  seasons">
+                                <h3 class="title-filter">Season</h3>
+                                <div class="element-checkbox">
+                                    <input type="checkbox" id="fall" name="fall" unchecked />
+                                    <label for="fall">Fall</label>
+                                </div>
+                                <div class="element-checkbox">
+                                    <input type="checkbox" id="winter" name="winter" unchecked />
+                                    <label for="winter">Winter</label>
+                                </div>
+                                <div class="element-checkbox">
+                                    <input type="checkbox" id="spring" name="spring" unchecked />
+                                    <label for="spring">Spring</label>
+                                </div>
+                                <div class="element-checkbox">
+                                    <input type="checkbox" id="summer" name="summer" unchecked />
+                                    <label for="summer">Summer</label>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-sm-6 temperatures">
+                                <h3 class="title-filter">Temperature</h3>
+                                <div class="element-checkbox">
+                                    <input type="checkbox" id="cool" name="cool" unchecked />
+                                    <label for="cool">Cook</label>
+                                </div>
+                                <div class="element-checkbox">
+                                    <input type="checkbox" id="warm" name="warm" unchecked />
+                                    <label for="warm">Warm</label>
+                                </div>
+                                <div class="element-checkbox">
+                                    <input type="checkbox" id="neutral" name="neutral" unchecked />
+                                    <label for="neutral">Neutral</label>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-sm-6  values">
+                                <h3 class="title-filter">Value</h3>
+                                <div class="element-checkbox">
+                                    <input type="checkbox" id="light" name="light" unchecked />
+                                    <label for="light">Light</label>
+                                </div>
+                                <div class="element-checkbox">
+                                    <input type="checkbox" id="dark" name="dark" unchecked />
+                                    <label for="dark">Dark</label>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-sm-6  chromas">
+                                <h3 class="title-filter">Chroma</h3>
+                                <div class="element-checkbox">
+                                    <input type="checkbox" id="bright" name="bright" unchecked />
+                                    <label for="bright">Bright</label>
+                                </div>
+                                <div class="element-checkbox">
+                                    <input type="checkbox" id="muted" name="muted" unchecked />
+                                    <label for="muted">Muted</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-10 products-col">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                <a target="_blank"
+                                    href="https://www.ulta.com/p/naked2-basics-eyeshadow-palette-xlsImpprod11151037?sku=2278485">
+                                    <div class="card">
+                                        <div>
+                                            <img class="card-img" src="img/Naked2 Basics Eyeshadow Palette.png"
+                                                alt="naked2 basics eyeshadow palette">
+                                            <!-- <div class="row product-desc">
                                     <div class="col-sm-8">
                                         <p class="card-text">Naked2 Basics Eyeshadow Palette</p>
                                     </div>
@@ -111,272 +136,280 @@
                                         <p class="price bottom-0">$35.00</p>
                                     </div>
                                 </div> -->
-                                    <div class="card-body">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="align-baseline">Naked2 Basics Eyeshadow Palette
-                                                    </td>
-                                                    <td class="align-bottom price">$35.00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="filters">
-                                        <div>
-                                            <p class="filter">Neutral</p>
-                                            <p class="filter">Muted</p>
-                                            <p class="filter">Light</p>
-                                            <p class="filter">Product</p>
-                                            <p class="filter">Autumn</p>
-                                            <p class="filter">Dark</p>
+                                            <div class="card-body">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="align-baseline">Naked2 Basics Eyeshadow Palette
+                                                            </td>
+                                                            <td class="align-bottom price">$35.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="filters">
+                                                <div>
+                                                    <p class="filter">Neutral</p>
+                                                    <p class="filter">Muted</p>
+                                                    <p class="filter">Light</p>
+                                                    <p class="filter">Product</p>
+                                                    <p class="filter">Autumn</p>
+                                                    <p class="filter">Dark</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <a target="_blank"
-                            href="https://www.ulta.com/p/9t-neutral-territory-artistry-palette-pimprod2022883?sku=2578256&sku=2578256">
-                            <div class="card">
-                                <div>
-                                    <div class="img-container">
-                                        <img class="card-img img2" src="img/9T Neutral Territory Artistry Palette.png"
-                                            alt="9T Neutral Territory Artistry Palette">
-                                    </div>
-                                    <div class="card-body">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="align-baseline">9T Neutral Territory Artistry Palette
-                                                    </td>
-                                                    <td class="align-bottom price">$9.80</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="filters">
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                <a target="_blank"
+                                    href="https://www.ulta.com/p/9t-neutral-territory-artistry-palette-pimprod2022883?sku=2578256&sku=2578256">
+                                    <div class="card">
                                         <div>
-                                            <p class="filter">Neutral</p>
-                                            <p class="filter">Light</p>
-                                            <p class="filter">Product</p>
-                                            <p class="filter">Autumn</p>
-                                            <p class="filter">Dark</p>
+                                            <div class="img-container">
+                                                <img class="card-img img2"
+                                                    src="img/9T Neutral Territory Artistry Palette.png"
+                                                    alt="9T Neutral Territory Artistry Palette">
+                                            </div>
+                                            <div class="card-body">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="align-baseline">9T Neutral Territory Artistry
+                                                                Palette
+                                                            </td>
+                                                            <td class="align-bottom price">$9.80</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="filters">
+                                                <div>
+                                                    <p class="filter">Neutral</p>
+                                                    <p class="filter">Light</p>
+                                                    <p class="filter">Product</p>
+                                                    <p class="filter">Autumn</p>
+                                                    <p class="filter">Dark</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <a target="_blank"
-                            href="https://www.ulta.com/p/retro-eyeshadow-palette-pimprod2037977?sku=2606186">
-                            <div class="card">
-                                <div>
-                                    <div class="img-container">
-                                        <img class="card-img img2" src="img/Retro Eyeshadow Palette.png"
-                                            alt="Retro Eyeshadow Palette">
-                                    </div>
-                                    <div class="card-body">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="align-baseline">Retro Eyeshadow Palette
-                                                    </td>
-                                                    <td class="align-bottom price">$69.00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="filters">
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                <a target="_blank"
+                                    href="https://www.ulta.com/p/retro-eyeshadow-palette-pimprod2037977?sku=2606186">
+                                    <div class="card">
                                         <div>
-                                            <p class="filter">Cool</p>
-                                            <p class="filter">Light</p>
-                                            <p class="filter">Product</p>
-                                            <p class="filter">Winter</p>
-                                            <p class="filter">Dark</p>
+                                            <div class="img-container">
+                                                <img class="card-img img2" src="img/Retro Eyeshadow Palette.png"
+                                                    alt="Retro Eyeshadow Palette">
+                                            </div>
+                                            <div class="card-body">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="align-baseline">Retro Eyeshadow Palette
+                                                            </td>
+                                                            <td class="align-bottom price">$69.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="filters">
+                                                <div>
+                                                    <p class="filter">Cool</p>
+                                                    <p class="filter">Light</p>
+                                                    <p class="filter">Product</p>
+                                                    <p class="filter">Winter</p>
+                                                    <p class="filter">Dark</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <a target="_blank"
-                            href="https://www.ulta.com/p/golden-hour-eyeshadow-palette-pimprod2043129?sku=2620700">
-                            <div class="card">
-                                <div>
-                                    <div class="img-container">
-                                        <img class="card-img img2" src="img/Golden Hour Eyeshadow Palette.png"
-                                            alt="Golden Hour Eyeshadow Palette">
-                                    </div>
-                                    <div class="card-body">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="align-baseline">Golden Hour Eyeshadow Palette
-                                                    </td>
-                                                    <td class="align-bottom price">$24.00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="filters">
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                <a target="_blank"
+                                    href="https://www.ulta.com/p/golden-hour-eyeshadow-palette-pimprod2043129?sku=2620700">
+                                    <div class="card">
                                         <div>
-                                            <p class="filter">Warm</p>
-                                            <p class="filter">Light</p>
-                                            <p class="filter">Product</p>
-                                            <p class="filter">Spring</p>
-                                            <p class="filter">Dark</p>
+                                            <div class="img-container">
+                                                <img class="card-img img2" src="img/Golden Hour Eyeshadow Palette.png"
+                                                    alt="Golden Hour Eyeshadow Palette">
+                                            </div>
+                                            <div class="card-body">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="align-baseline">Golden Hour Eyeshadow Palette
+                                                            </td>
+                                                            <td class="align-bottom price">$24.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="filters">
+                                                <div>
+                                                    <p class="filter">Warm</p>
+                                                    <p class="filter">Light</p>
+                                                    <p class="filter">Product</p>
+                                                    <p class="filter">Spring</p>
+                                                    <p class="filter">Dark</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <a target="_blank"
-                            href="https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611600&sku=2611600">
-                            <div class="card">
-                                <div>
-                                    <img class="card-img"
-                                        src="img/Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20.png"
-                                        alt="Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20">
-                                    <div class="card-body">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="align-baseline">Original Pure Serum Radiant Natural
-                                                        Liquid Foundation Mineral SPF 20
-                                                    </td>
-                                                    <td class="align-bottom price">$44.00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="filters">
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                <a target="_blank"
+                                    href="https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611600&sku=2611600">
+                                    <div class="card">
                                         <div>
-                                            <p class="filter">Cool</p>
-                                            <p class="filter">Light</p>
-                                            <p class="filter">Product</p>
-                                            <p class="filter">Summer</p>
-                                            <p class="filter">Light</p>
-                                            <p class="filter">Bright</p>
+                                            <img class="card-img"
+                                                src="img/Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20.png"
+                                                alt="Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20">
+                                            <div class="card-body">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="align-baseline">Original Pure Serum Radiant
+                                                                Natural
+                                                                Liquid Foundation Mineral SPF 20
+                                                            </td>
+                                                            <td class="align-bottom price">$44.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="filters">
+                                                <div>
+                                                    <p class="filter">Cool</p>
+                                                    <p class="filter">Light</p>
+                                                    <p class="filter">Product</p>
+                                                    <p class="filter">Summer</p>
+                                                    <p class="filter">Light</p>
+                                                    <p class="filter">Bright</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <a target="_blank"
-                            href="https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611600&sku=26116006">
-                            <div class="card">
-                                <div>
-                                    <img class="card-img"
-                                        src="img/Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Dark.png"
-                                        alt="Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Dark">
-                                    <div class="card-body">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="align-baseline">Original Pure Serum Radiant Natural
-                                                        Liquid Foundation Mineral SPF 20
-                                                    </td>
-                                                    <td class="align-bottom price">$44.00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="filters">
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                <a target="_blank"
+                                    href="https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611600&sku=26116006">
+                                    <div class="card">
                                         <div>
-                                            <p class="filter">Warm</p>
-                                            <p class="filter">Dark</p>
-                                            <p class="filter">Product</p>
-                                            <p class="filter">Autumn</p>
-                                            <p class="filter">Spring</p>
+                                            <img class="card-img"
+                                                src="img/Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Dark.png"
+                                                alt="Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Dark">
+                                            <div class="card-body">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="align-baseline">Original Pure Serum Radiant
+                                                                Natural
+                                                                Liquid Foundation Mineral SPF 20
+                                                            </td>
+                                                            <td class="align-bottom price">$44.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="filters">
+                                                <div>
+                                                    <p class="filter">Warm</p>
+                                                    <p class="filter">Dark</p>
+                                                    <p class="filter">Product</p>
+                                                    <p class="filter">Autumn</p>
+                                                    <p class="filter">Spring</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <a target="_blank"
-                            href="https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611603">
-                            <div class="card">
-                                <div>
-                                    <img class="card-img"
-                                        src="img/Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Neutral.png"
-                                        alt="Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Neutral">
-                                    <div class="card-body">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="align-baseline">Original Pure Serum Radiant Natural
-                                                        Liquid Foundation Mineral SPF 20
-                                                    </td>
-                                                    <td class="align-bottom price">$44.00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="filters">
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                <a target="_blank"
+                                    href="https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611603">
+                                    <div class="card">
                                         <div>
-                                            <p class="filter">Neutral</p>
-                                            <p class="filter">Light</p>
-                                            <p class="filter">Product</p>
-                                            <p class="filter">Summer</p>
-                                            <p class="filter">Autumn</p>
-                                            <p class="filter">Bright</p>
+                                            <img class="card-img"
+                                                src="img/Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Neutral.png"
+                                                alt="Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Neutral">
+                                            <div class="card-body">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="align-baseline">Original Pure Serum Radiant
+                                                                Natural
+                                                                Liquid Foundation Mineral SPF 20
+                                                            </td>
+                                                            <td class="align-bottom price">$44.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="filters">
+                                                <div>
+                                                    <p class="filter">Neutral</p>
+                                                    <p class="filter">Light</p>
+                                                    <p class="filter">Product</p>
+                                                    <p class="filter">Summer</p>
+                                                    <p class="filter">Autumn</p>
+                                                    <p class="filter">Bright</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <a target="_blank"
-                            href="https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611813">
-                            <div class="card">
-                                <div>
-                                    <img class="card-img"
-                                        src="img/Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Neutral Dark.png"
-                                        alt="Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Neutral Dark">
-                                    <div class="card-body">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="align-baseline">Original Pure Serum Radiant Natural
-                                                        Liquid Foundation Mineral SPF 20
-                                                    </td>
-                                                    <td class="align-bottom price">$44.00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="filters">
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                <a target="_blank"
+                                    href="https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611813">
+                                    <div class="card">
                                         <div>
-                                            <p class="filter">Neutral</p>
-                                            <p class="filter">Dark</p>
-                                            <p class="filter">Product</p>
-                                            <p class="filter">Summer</p>
-                                            <p class="filter">Autumn</p>
-                                            <p class="filter">Dark</p>
+                                            <img class="card-img"
+                                                src="img/Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Neutral Dark.png"
+                                                alt="Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Neutral Dark">
+                                            <div class="card-body">
+                                                <table>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="align-baseline">Original Pure Serum Radiant
+                                                                Natural
+                                                                Liquid Foundation Mineral SPF 20
+                                                            </td>
+                                                            <td class="align-bottom price">$44.00</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="filters">
+                                                <div>
+                                                    <p class="filter">Neutral</p>
+                                                    <p class="filter">Dark</p>
+                                                    <p class="filter">Product</p>
+                                                    <p class="filter">Summer</p>
+                                                    <p class="filter">Autumn</p>
+                                                    <p class="filter">Dark</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                </div>
+                        </div>
 
-            </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </div>
+    </main>
 </body>
 <footer>
     <div class="footer-logo-container">
