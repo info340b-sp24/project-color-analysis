@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jasmine Vuong">
+    <meta name="description" content="Quiz taking page four for color analysis quiz">
+    <title>Quiz Taking 4th Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="quiz">
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div>
+                    <a href="index.html"><img src="img/Logo.png" alt="Color Aura logo" class="logo"></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link margin-link active" aria-current="page" href="quiz.html">Quiz</a>
+                        <a class="nav-link margin-link" href="products.html">Products</a>
+                        <a class="nav-link margin-link upload-link" href="upload.html">Upload</a>
+                        <a class="nav-link" href="profile.html"><span
+                                class="material-icons profile">person</span>Profile</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="body-qt">
+        <div class="big-square-qt">
+            <!-- Question -->
+            <p class="question">What is your lip color?</p>
+
+            <!-- Cards Section for image options -->
+            <div class="cards-qt">
+                <button class="btn btn-primary card-qt pale-pink" aria-label="Select Pale Pink">
+                    <div class="color-name-qt">Pale Pink</div>
+                </button>
+                <button class="btn btn-primary card-qt soft-pink" aria-label="Select Soft Pink">
+                    <div class="color-name-qt">Soft Pink</div>
+                </button>
+                <button class="btn btn-primary card-qt terra-cotta" aria-label="Select Terra Cotta">
+                    <div class="color-name-qt">Terra Cotta</div>
+                </button>
+                <button class="btn btn-primary card-qt natural-blush" aria-label="Select Natural Blush">
+                    <div class="color-name-qt">Natural Blush</div>
+                </button>
+                <button class="btn btn-primary card-qt warm-brown" aria-label="Select Warm Brown">
+                    <div class="color-name-qt">Warm Brown</div>
+                </button>
+                <button class="btn btn-primary card-qt deep-red" aria-label="Select Deep Red">
+                    <div class="color-name-qt">Deep Red</div>
+                </button>
+            </div>
+        
+            <!-- Navigation Button -->
+            <a href="quiz-taking-five.html">
+                <button class="btn btn-primary next-button-qt" aria-label="Go to the next page">
+                    Next <span class="material-icons">arrow_forward</span>
+                </button>
+            </a>
+
+            <!-- Progress Indicators -->
+            <div class="progress-indicators">
+                <span class="progress-dot colored-dot"></span>
+                <span class="progress-dot colored-dot"></span>
+                <span class="progress-dot colored-dot"></span>
+                <span class="progress-dot colored-dot"></span>
+                <span class="progress-dot"></span>
+            </div>
+        </div>
+    </main>
+</body>
+<footer>
+    <div class="footer-logo-container">
+        <img src="img/Logo.png" alt="Color Aura logo" class="footer-logo">
+    </div>
+    <div class="contact">
+        <div class="contact-center">
+            <ul>
+                <li class="footer-text text-contact"><span
+                        class="material-icons footer-icons">email</span>coloranalysis@coloraura.com</li>
+                <li class="footer-text text-contact"><span class="material-icons footer-icons">phone</span>123-456-7890
+                </li>
+                <li class="footer-text text-contact">&copy ColorAura 2024</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</html>
