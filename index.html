@@ -1,3 +1,5 @@
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,177 +22,184 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Color Analysis Home Page</title>
 </head>
-<header>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <div>
-                <a href="index.html"><img src="img/Logo.png" alt="Color Aura logo" class="logo"></a>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link margin-link" aria-current="page" href="quiz.html">Quiz</a>
-                    <a class="nav-link margin-link" href="products.html">Products</a>
-                    <a class="nav-link margin-link upload-link" href="upload.html">Upload</a>
-                    <a class="nav-link" href="profile.html"><span class="material-icons profile">person</span>Profile</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <div class="flex">
-        <div class="col hero-text">
-            <div class="title-hero-text">
-                <h1>Get your <strong>color</strong><span class="block"><strong>analysis</strong> today</span></h1>
-            </div>
-            <div class="body-hero-text">
-                <p>Interested in figuring out what colors best suit your features?
-                    Take the quiz to see your perfect color palette and the
-                    products that go along with it.</p>
-            </div>
-            <div class="quiz-hero-button">
-                <a href="quiz.html"><button class="quiz-button" aria-label="take quiz"><strong class="button-text">Take
-                            quiz</strong><span class="material-icons arrow">north_east</span></button></a>
-            </div>
-        </div>
-        <div class="col">
-            <img src="img/hero.png" class="hero-img"
-                alt="smiling woman on a brown background with pink tear drop and circle decorations">
-        </div>
-    </div>
-</header>
 
 <body class="home">
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div>
+                    <a href="index.html"><img src="img/Logo.png" alt="Color Aura logo" class="logo"></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link margin-link" aria-current="page" href="quiz-landing.html">Quiz</a>
+                        <a class="nav-link margin-link" href="products.html">Products</a>
+                        <a class="nav-link margin-link upload-link" href="upload.html">Upload</a>
+                        <a class="nav-link" href="profile.html"><span
+                                class="material-icons profile">person</span>Profile</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section>
+            <div class="flex">
+                <div class="col hero-text">
+                    <div class="title-hero-text">
+                        <h1>Get your <strong>color</strong><span class="block"><strong>analysis</strong> today</span>
+                        </h1>
+                    </div>
+                    <div class="body-hero-text">
+                        <p>Interested in figuring out what colors best suit your features?
+                            Take the quiz to see your perfect color palette and the
+                            products that go along with it.</p>
+                    </div>
+                    <div class="quiz-hero-button">
+                        <a href="quiz-landing.html"><button class="quiz-button" aria-label="take quiz"><strong
+                                    class="button-text">Take
+                                    quiz</strong><span class="material-icons arrow">north_east</span></button></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="img/hero.png" class="hero-img"
+                        alt="smiling woman on a brown background with pink tear drop and circle decorations">
+                </div>
+            </div>
+        </section>
+    </header>
     <main>
-        <section>
-            <div class="color-analysis-text">
-                <p class="color-analysis-question">What is a color analysis?</p>
-                <p class="color-analysis-answer">A <strong class="highlight">color analysis</strong> is an examination
-                    that
-                    is
-                    meant to determine which colors best
-                    <strong class="highlight">harmonize</strong> with an individual’s skin tone, <strong
-                        class="highlight">enhancing</strong> their features and drawing attention away from wrinkles
-                    and blemishes.
-                </p>
-            </div>
-        </section>
-        <section>
-            <div class="card-instructions flex">
-                <div class="flex-row card-container">
-                    <div class="flex-col col-xl-3">
-                        <div class="card card1">
-                            <div class="card-content card-body">
-                                <div class="card-content-top">
-                                    <h2 class="card-title"><strong>Quiz</strong></h2>
-                                    <p class="card-text">Take the color analysis quiz, answering the questions to the
-                                        best
-                                        of
-                                        your abilities.</p>
-                                </div>
-                                <div class="card-content-bottom">
-                                    <h2 class="step1">01</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-col col-xl-3">
-                        <div>
-                            <div>
-                                <img src="img/Oil drop.png" class="card card-img"
-                                    alt="oil drops on a yellow background">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-col col-xl-3">
-                        <div class="card card2">
-                            <div class="card-content card-body d-flex flex-column">
-                                <div class="card-content-top">
-                                    <h2 class="card-title"><strong>Results</strong></h2>
-                                    <p class="card-text">Get your results for your best color season.</p>
-                                </div>
-                                <div class="card-content-bottom">
-                                    <h2 class="step2">02</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-col col-xl-3">
-                        <div>
-                            <div>
-                                <img src="img/Oil dropper.png" class="card card-img"
-                                    alt="oil dropper with oil on white background">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-row card-container">
-                    <div class="flex-col col-xl-3">
-                        <div>
-                            <div>
-                                <img src="img/cream.png" class="card card-img" alt="zoom in of lotion">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-col col-xl-3">
-                        <div class="card card3">
-                            <div class="card-content card-body">
-                                <div class="card-content-top">
-                                    <h2 class="card-title"><strong>Filter</strong></h2>
-                                    <p class="card-text">Filter through products and clothing that will work best with
-                                        your
-                                        features.</p>
-                                </div>
-                                <div class="card-content-bottom">
-                                    <h2 class="step1">03</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-col col-xl-3">
-                        <div>
-                            <div>
-                                <img src="img/hand with lotion.png" class="card card-img"
-                                    alt="putting lotion on a hand">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-col col-xl-3">
-                        <div class="card card4">
-                            <div class="card-content card-body d-flex flex-column">
-                                <div class="card-content-top">
-                                    <h2 class="card-title"><strong>Upload</strong></h2>
-                                    <p class="card-text">Upload products that work for you.</p>
-                                </div>
-                                <div class="card-content-bottom">
-                                    <h2 class="step2">04</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Color analysis introduction -->
 
-            </div>
-        </section>
-    </main>
-</body>
-<footer>
-    <div class="footer-logo-container">
-        <img src="img/Logo.png" alt="Color Aura logo" class="footer-logo">
-    </div>
-    <div class="contact">
-        <div class="contact-center">
-            <ul>
-                <li class="footer-text text-contact"><span
-                        class="material-icons footer-icons">email</span>coloranalysis@coloraura.com</li>
-                <li class="footer-text text-contact"><span class="material-icons footer-icons">phone</span>123-456-7890
-                </li>
-                <li class="footer-text text-contact">&copy ColorAura 2024</li>
-            </ul>
+        <div class="color-analysis-text">
+            <p class="color-analysis-question">What is a color analysis?</p>
+            <p class="color-analysis-answer">A <strong class="highlight">color analysis</strong> is an examination
+                that
+                is
+                meant to determine which colors best
+                <strong class="highlight">harmonize</strong> with an individual’s skin tone, <strong
+                    class="highlight">enhancing</strong> their features and drawing attention away from wrinkles
+                and blemishes.
+            </p>
         </div>
-    </div>
-</footer>
+
+        <!-- Instruction cards with steps -->
+
+        <div class="card-instructions flex">
+            <div class="flex-row card-container">
+                <div class="flex-col col-xl-3">
+                    <div class="card card1">
+                        <div class="card-content card-body">
+                            <div class="card-content-top">
+                                <h2 class="card-title"><strong>Quiz</strong></h2>
+                                <p class="card-text">Take the color analysis quiz, answering the questions to the
+                                    best
+                                    of
+                                    your abilities.</p>
+                            </div>
+                            <div class="card-content-bottom">
+                                <h2 class="step1">01</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-col col-xl-3">
+                    <div>
+                        <div>
+                            <img src="img/Oil-drop.png" class="card card-img" alt="oil drops on a yellow background">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-col col-xl-3">
+                    <div class="card card2">
+                        <div class="card-content card-body d-flex flex-column">
+                            <div class="card-content-top">
+                                <h2 class="card-title"><strong>Results</strong></h2>
+                                <p class="card-text">Get your results for your best color season.</p>
+                            </div>
+                            <div class="card-content-bottom">
+                                <h2 class="step2">02</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-col col-xl-3">
+                    <div>
+                        <div>
+                            <img src="img/Oil-dropper.png" class="card card-img"
+                                alt="oil dropper with oil on white background">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-row card-container">
+                <div class="flex-col col-xl-3">
+                    <div>
+                        <div>
+                            <img src="img/cream.png" class="card card-img" alt="zoom in of lotion">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-col col-xl-3">
+                    <div class="card card3">
+                        <div class="card-content card-body">
+                            <div class="card-content-top">
+                                <h2 class="card-title"><strong>Filter</strong></h2>
+                                <p class="card-text">Filter through products and clothing that will work best with
+                                    your
+                                    features.</p>
+                            </div>
+                            <div class="card-content-bottom">
+                                <h2 class="step1">03</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-col col-xl-3">
+                    <div>
+                        <div>
+                            <img src="img/hand-with-lotion.png" class="card card-img" alt="putting lotion on a hand">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-col col-xl-3">
+                    <div class="card card4">
+                        <div class="card-content card-body d-flex flex-column">
+                            <div class="card-content-top">
+                                <h2 class="card-title"><strong>Upload</strong></h2>
+                                <p class="card-text">Upload products that work for you.</p>
+                            </div>
+                            <div class="card-content-bottom">
+                                <h2 class="step2">04</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer-logo-container">
+            <img src="img/Logo.png" alt="Color Aura logo" class="footer-logo">
+        </div>
+        <div class="contact">
+            <div class="contact-center">
+                <ul>
+                    <li class="footer-text text-contact"><span
+                            class="material-icons footer-icons">email</span>coloranalysis@coloraura.com</li>
+                    <li class="footer-text text-contact"><span
+                            class="material-icons footer-icons">phone</span>123-456-7890
+                    </li>
+                    <li class="footer-text text-contact">&copy; ColorAura 2024</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
 
 </html>
