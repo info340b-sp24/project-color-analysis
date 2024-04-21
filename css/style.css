@@ -315,131 +315,6 @@ ul {
     align-items: center;
 }
 
-
-@media(min-width: 598px){
-    .title-hero-text {
-        text-align: left;
-    }
-
-    .body-hero-text {
-        text-align: left;
-    }
-
-    .quiz-hero-button {
-        text-align: left;
-    }
-}
-
-@media(min-width: 768px){
-    .title-hero-text {
-        text-align: left;
-    }
-
-    .body-hero-text {
-        text-align: left;
-    }
-
-    .quiz-hero-button {
-        text-align: left;
-    }
-   
-}
-
-@media (min-width: 990px){
-
-	.material-icons.profile{
-		display: inline;
-	}
-}
-
-@media(min-width: 992px){
-
-    .hero-img {
-        display: block;
-        max-width: 310px;
-    }
-
-    .title-hero-text {
-        text-align: left;
-    }
-
-    .body-hero-text {
-        text-align: left;
-    }
-
-    .quiz-hero-button {
-        text-align: left;
-    }
-
-}
-
-@media(min-width: 1100px){
-
-    .hero-img {
-        display: block;
-        max-width: 380px;
-    }
-
-    .title-hero-text {
-        text-align: left;
-    }
-
-    .body-hero-text {
-        text-align: left;
-    }
-
-    .quiz-hero-button {
-        text-align: left;
-    }
-
-}
-
-@media(min-width: 1200px){
-
-    .hero-img {
-        display: block;
-        max-width: 500px;
-    }
-
-    .home .card-img {
-        display: block;
-    }
-
-    .body-hero-text {
-        margin-top: 20px;
-        margin-right: 120px;
-    }
-
-    .title-hero-text {
-        text-align: left;
-    }
-
-    .body-hero-text {
-        text-align: left;
-    }
-
-    .quiz-hero-button {
-        text-align: left;
-    }
-
-    .products .element-checkbox {
-        display: block;
-    }
-
-    .products .col1{
-        width: 20%;
-    }
-    
-    .products .col2{
-        width: 80%;
-    }
-
-    .body-qt {
-        width: 100%;
-    }
-
-}
-
 /* Products page */
 
 .content {
@@ -539,27 +414,9 @@ p.filter {
     font-size: 0.8em;
 }
 
-
-
 .add {
     margin-top: 3px;
     font-size: 15px;
-}
-
-@media (min-width: 1000px) {
-    
-    .products .quiz-button, .filtered .quiz-button {
-        background-color: white;
-        border-radius: 30px/30px;
-        border: 1px solid black;
-        padding: 5px;
-        padding-left: 17px;
-        padding-right: 17px;
-        font-family: 'Manrope', sans-serif;
-        color: black;
-        margin-left: 5px;
-        font-size: 0.8em;
-    }
 }
 
 /* Filtered page */
@@ -589,13 +446,6 @@ p.filter {
   justify-content: center;
   align-items: center;
 }
-
-/* .quiz nav a {
-    color: black;
-    font-family: 'Manrope', sans-serif;
-    font-size: .9em;
-    font-weight: 300;
-} */
 
 .background-color-lp {
     background-color: #F6F3F1;;
@@ -864,88 +714,6 @@ body .body-ws {
 .warm-brown { background-color: #AF564F; }
 .deep-red { background-color: #682629; }
 
-@media (min-width: 1240px) {
-    
-    /* quiz landing */
-    .landing-top-word {
-        font-size: 1.25rem;
-    }
-    
-    .landing-middle-word {
-        font-size: 3.125rem;
-    }
-    
-    .landing-bottom-word-1, .landing-bottom-word-2 {
-        font-size: 0.85rem;
-    }
-
-    /* quiz result */
-    .big-square-qr {
-        width: 62.5rem;
-        height: 37.5rem;
-    }
-
-    .background-color-cs {
-        background-color: #F6E8EF;
-    }
-
-    .background-color-cw {
-        background-color: #005E731A;
-    }
-
-    .background-color-wa {
-        background-color: #983A061A;
-    }
-
-    .background-color-ws {
-        background-color: #FEF7E7;
-    }
-
-    .result-top-word {
-        font-size: 1.5rem;
-    }
-    
-    .result {
-        font-size: 3.125rem;
-        line-height: 1.1;
-    }
-
-    /* quiz taking */
-    .body-qt {
-        background-color: white;
-    }
-    
-    .big-square-qt {
-        width: 78rem;
-        height: 41rem;
-        background-color: rgba(177, 150, 125, 0.1);
-    }
-
-    .question {
-        font-size: 1.5rem;
-        margin-bottom: 1.5625rem;
-    }
-
-    .quiz-option {
-        padding: 0.5rem 0.9375rem;
-        width: 30%;
-        font-size: 1rem;
-        margin: 0.625rem;
-    }
-
-    .next-button-qt {
-        font-size: 0.875rem;
-        padding: 0.25rem 1.875rem;
-        margin-top: 1.5625rem;
-    }
-    
-    .progress-dot, .colored-dot {
-        height: 0.625rem;
-        width: 0.625rem;
-        margin: 0.3125rem;
-    }
-}
-
 /* profile.html */
 .profile-content {
     display: flex;
@@ -1183,48 +951,6 @@ body .body-ws {
     margin-bottom: 2rem;
 }
 
-@media (min-width: 768px) {
-    /* profile.html */
-    .profile-content {
-        flex-direction: row;
-    }
-
-    .flex-box {
-        margin-left: 10%;
-        width: 870px;
-    }
-
-    .flex-subtitle {
-        justify-content: left;
-    }
-
-    .flex-subtitle img {
-        width: 32px;
-        height: 40px;
-    }
-
-    .arrow-button {
-        margin: 1rem 1rem;
-    }
-
-    /* edit-profile */   
-    .edit-profile-box {
-        width: 734px;
-        height: 482px;
-        margin: 10% 25%;
-        flex-direction: row;
-    }
-
-    .section-part1 {
-        margin-right: 2rem;
-        margin-top: 2rem;
-    }
-
-    .section-part2 {
-        margin-right: 5rem;
-    }
-}
-
 /* Upload Page */
 
 .upload h1 {
@@ -1313,6 +1039,7 @@ body .body-ws {
     font-size: 1rem;
     padding-left: 0.625rem;
     padding-bottom: 0;
+    padding-top: 1rem;
 }
 
 .product-info-title {
@@ -1401,8 +1128,278 @@ body .body-ws {
     padding-top: 0;
 }
 
+/* Media queries */
+
+/* Home page */
+
+@media(min-width: 598px){
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
+}
+
+@media(min-width: 768px){
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
+   
+}
+
+@media (min-width: 990px){
+	.material-icons.profile{
+		display: inline;
+	}
+}
+
+@media(min-width: 992px){
+    .hero-img {
+        display: block;
+        max-width: 310px;
+    }
+
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
+
+}
+
+@media(min-width: 1100px){
+    .hero-img {
+        display: block;
+        max-width: 380px;
+    }
+
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
+
+}
+
+@media(min-width: 1200px){
+    .hero-img {
+        display: block;
+        max-width: 500px;
+    }
+
+    .home .card-img {
+        display: block;
+    }
+
+    .body-hero-text {
+        margin-top: 20px;
+        margin-right: 120px;
+    }
+
+    .title-hero-text {
+        text-align: left;
+    }
+
+    .body-hero-text {
+        text-align: left;
+    }
+
+    .quiz-hero-button {
+        text-align: left;
+    }
+
+    .products .element-checkbox {
+        display: block;
+    }
+
+    .products .col1{
+        width: 20%;
+    }
+    
+    .products .col2{
+        width: 80%;
+    }
+
+    .body-qt {
+        width: 100%;
+    }
+
+}
+
+/* Products page */
+
+@media (min-width: 1000px) {
+    .products .quiz-button, .filtered .quiz-button {
+        background-color: white;
+        border-radius: 30px/30px;
+        border: 1px solid black;
+        padding: 5px;
+        padding-left: 17px;
+        padding-right: 17px;
+        font-family: 'Manrope', sans-serif;
+        color: black;
+        margin-left: 5px;
+        font-size: 0.8em;
+    }
+}
+
+/* Quiz page */
+
+@media (min-width: 1240px) {
+    /* quiz landing */
+    .landing-top-word {
+        font-size: 1.25rem;
+    }
+    
+    .landing-middle-word {
+        font-size: 3.125rem;
+    }
+    
+    .landing-bottom-word-1, .landing-bottom-word-2 {
+        font-size: 0.85rem;
+    }
+
+    /* quiz result */
+    .big-square-qr {
+        width: 62.5rem;
+        height: 37.5rem;
+    }
+
+    .background-color-cs {
+        background-color: #F6E8EF;
+    }
+
+    .background-color-cw {
+        background-color: #005E731A;
+    }
+
+    .background-color-wa {
+        background-color: #983A061A;
+    }
+
+    .background-color-ws {
+        background-color: #FEF7E7;
+    }
+
+    .result-top-word {
+        font-size: 1.5rem;
+    }
+    
+    .result {
+        font-size: 3.125rem;
+        line-height: 1.1;
+    }
+
+    /* quiz taking */
+    .body-qt {
+        background-color: white;
+    }
+    
+    .big-square-qt {
+        width: 78rem;
+        height: 41rem;
+        background-color: rgba(177, 150, 125, 0.1);
+    }
+
+    .question {
+        font-size: 1.5rem;
+        margin-bottom: 1.5625rem;
+    }
+
+    .quiz-option {
+        padding: 0.5rem 0.9375rem;
+        width: 30%;
+        font-size: 1rem;
+        margin: 0.625rem;
+    }
+
+    .next-button-qt {
+        font-size: 0.875rem;
+        padding: 0.25rem 1.875rem;
+        margin-top: 1.5625rem;
+    }
+    
+    .progress-dot, .colored-dot {
+        height: 0.625rem;
+        width: 0.625rem;
+        margin: 0.3125rem;
+    }
+}
+
+/* Profile page */
+
+@media (min-width: 768px) {
+    /* profile.html */
+    .profile-content {
+        flex-direction: row;
+    }
+
+    .flex-box {
+        margin-left: 10%;
+        width: 870px;
+    }
+
+    .flex-subtitle {
+        justify-content: left;
+    }
+
+    .flex-subtitle img {
+        width: 32px;
+        height: 40px;
+    }
+
+    .arrow-button {
+        margin: 1rem 1rem;
+    }
+
+    /* edit-profile */   
+    .edit-profile-box {
+        width: 734px;
+        height: 482px;
+        margin: 10% 25%;
+        flex-direction: row;
+    }
+
+    .section-part1 {
+        margin-right: 2rem;
+        margin-top: 2rem;
+    }
+
+    .section-part2 {
+        margin-right: 5rem;
+    }
+}
+
+/* Upload page */
+
 @media (max-width: 1200px) {
-    .material-symbols-outlined {
+    .upload .material-symbols-outlined {
         padding: 12rem; 
     }
 
@@ -1413,7 +1410,6 @@ body .body-ws {
     .upload h1 {
         font-size: 2.75rem;
     }
-
 }
 
 @media (max-width: 930px) {
@@ -1426,12 +1422,11 @@ body .body-ws {
         padding-left: 3.125em;
     }
 
-    .material-symbols-outlined {
+    .upload .material-symbols-outlined {
         padding: 10rem 12rem; 
     }
 
     .upload h1 {
         font-size: 2rem;
-    }
-    
+    }   
 }
