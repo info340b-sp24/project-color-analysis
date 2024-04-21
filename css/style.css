@@ -1403,7 +1403,7 @@ body .body-ws {
 }
 
 @media (max-width: 1200px) {
-    .material-symbols-outlined {
+    .upload .material-symbols-outlined {
         padding: 12rem; 
     }
 
@@ -1427,7 +1427,7 @@ body .body-ws {
         padding-left: 3.125em;
     }
 
-    .material-symbols-outlined {
+    .upload .material-symbols-outlined {
         padding: 10rem 12rem; 
     }
 
