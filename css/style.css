@@ -997,6 +997,27 @@ body .body-ws {
     height: 190px;
 }
 
+.flex-footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-right-section {
+    border: 1px solid black; 
+    margin-right: 20px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+}
+
+.lower-section {
+    margin-top: 20px;
+}
+
 .flex-subtitle {
     display: flex;
     justify-content: center;
