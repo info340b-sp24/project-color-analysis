@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="your name">
-    <meta name="description" content="description of your page">
-    <title>Upload Product</title>
+    <meta name="author" content="Noa Avitan">
+    <meta name="description" content="This page allows users to upload their own products">
+    <title>Upload Product Page</title>
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,7 +76,7 @@
                     Product Information
                 </h2>
 
-                <section class="product-name-type">
+                <form class="product-name-type">
                     <section class="product-name-container"> 
                         <label for="productname" class="product-name">Name</label>
                         <input type="text" id="productname" class="product-name-input" placeholder="Name">
@@ -90,14 +90,14 @@
                             <option value="clothing">Clothing</option>
                         </select>
                     </div>
-                </section>
+                </form>
 
-                <section class="description-name-container">
+                <form class="description-name-container">
                     <label for="desc" class="description-name">Description</label>
                     <textarea id="desc" class="description-input" placeholder="Description"></textarea>
-                </section>
+                </form>
 
-                <section class="categories">
+                <form class="categories">
                     <h3 class="categories-title">
                         Categories
                     </h3>
@@ -138,7 +138,7 @@
                             </select>
                         </div>
                     </section>
-                </section>
+                </form>
                 <div class="upload-finish">
                     <button class="upload-button">Upload Product</button>
                 </div>
