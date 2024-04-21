@@ -42,7 +42,7 @@ a:hover {
     padding-bottom: 80px;
 }
 
-.products li, .filtered li, .home li, .quiz li, .profile li{
+.products li, .filtered li, .home li, .quiz li, .profile li {
     display: inline-block;
     margin-right: 30px;
     font-family: 'Manrope', sans-serif;
