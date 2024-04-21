@@ -32,6 +32,11 @@ a:hover {
 	color: black;
 }
 
+.quiz nav a:hover {
+    text-decoration: none;
+	color: black;
+}
+
 .home header {
     background-color: #EEE4E1;
     padding-bottom: 80px;
@@ -429,6 +434,10 @@ ul {
         width: 80%;
     }
 
+    .body-qt {
+        width: 100%;
+    }
+
 }
 
 /* Products page */
@@ -579,6 +588,13 @@ p.filter {
   align-items: center;
 }
 
+/* .quiz nav a {
+    color: black;
+    font-family: 'Manrope', sans-serif;
+    font-size: .9em;
+    font-weight: 300;
+} */
+
 .background-color-lp {
     background-color: #F6F3F1;;
 }
@@ -725,9 +741,8 @@ body .body-ws {
 /* quiz taking page */
 
 .body-qt {
-    height: 100vh;
-    margin: 0;
     padding: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
