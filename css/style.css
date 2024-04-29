@@ -393,8 +393,13 @@ p.filter {
     font-size: 0.7em;
 }
 
+.heart-box {
+    text-align: end;
+    margin: 10px 0px;
+}
+
 .filters{
-    margin: 15px 15px 20px 15px;
+    margin: 15px 15px 0px 15px;
 }
 
 .products tbody, td, tfoot, th, thead, tr {
