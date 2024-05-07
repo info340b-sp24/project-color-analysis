@@ -1,6 +1,6 @@
 import React from "react";
 
-function Nav() {
+export function Nav() {
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">

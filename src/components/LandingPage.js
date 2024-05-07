@@ -2,6 +2,7 @@ import React from "react";
 import { CardList } from "./CardLists";
 import { Introduction } from "./Introduction";
 import { Hero } from "./Hero";
+import { Footer } from "./Footer";
 
 
 const cardContentList = [{ card: 1, color: 'card1', stepText: 'step1', title: 'Quiz', text: 'Take the color analysis quiz, answering the questions to the best of your abilities.', step: '01' },
@@ -21,6 +22,7 @@ export function LandingPage() {
       <Hero />
       <Introduction />
       <CardList cardContent={cardContentList} cardContentImg={imgCardContent} />
+      <Footer />
     </div>
   );
 }
