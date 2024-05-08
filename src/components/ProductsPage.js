@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 
@@ -67,15 +67,41 @@ function ProductCard(props) {
 function ProductsCardList(props) {
 
     const products = props.products;
+    const [sortFilter, setSortFilter] = useState('null');
 
-    const productsArray = products.map((product) => {
-        return <ProductCard link={product.link} img={product.img} alt={product.alt} title={product.title} price={product.price} filters={product.filters} />
+    const handleClick = (event) => {
+        setSortFilter(event.currentTarget.name);
+        console.log(event.currentTarget.name);
+        console.log(sortedArray.length);
+    }
+
+    const sortedArray = products;
+
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].filters.includes(sortFilter)) {
+            sortedArray.push(products[i]);
+        }
+    }
+
+    const productsArray = sortedArray.map((product, index) => {
+        return <ProductCard key={index} link={product.link} img={product.img} alt={product.alt} title={product.title} price={product.price} filters={product.filters} />
     })
 
     return (
-        <div class="col-xl-10 col-lg-10 products-col">
-            <div class="row">
-                {productsArray}
+        <div>
+            <div className="flex-filters">
+                <div className="col">
+                    <ButtonFilter name='Products' onClick={handleClick} label={'Products'}/>
+                    <ButtonFilter name='Clothing' onClick={handleClick} label={'Clothing'}/>
+                </div>
+            </div>
+            <div className="row">
+                <FiltersList filters={filtArray} />
+                <div className="col-xl-10 col-lg-10 products-col">
+                    <div className="row">
+                        {productsArray}
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -108,8 +134,8 @@ function FiltersList(props) {
 
     const filters = props.filters;
 
-    const filtersArray = filters.map((filter) => {
-        return <Filter title={filter.title} filters={filter.filters} />
+    const filtersArray = filters.map((filter, index) => {
+        return <Filter key={index} title={filter.title} filters={filter.filters} />
     })
 
     return (
@@ -122,19 +148,18 @@ function FiltersList(props) {
     )
 }
 
-function ButtonFilter() {
+function ButtonFilter(props) {
+
+    const callback = props.onClick;
+    const label = props.label;
 
     return (
-        <div className="flex-filters">
-            <div className="col">
-                <a href="filteredProducts.html"><button className="quiz-button" aria-label="products">Products<span
-                    className="material-icons add">add</span></button></a>
-                <a href="filteredClothing.html"><button className="quiz-button" aria-label="clothing">Clothing<span
-                    className="material-icons add">add</span></button></a>
-            </div>
-        </div>
+        <button name={props.name} className="quiz-button" aria-label="products" onClick={callback}>{label}<span
+            className="material-icons add">add</span></button>
     )
 }
+
+
 
 export function ProductsPage() {
 
@@ -143,11 +168,7 @@ export function ProductsPage() {
             <Nav />
             <div className="products">
                 <div className="content">
-                    <ButtonFilter />
-                    <div class="row">
-                        <FiltersList filters={filtArray}/>
-                        <ProductsCardList products={productsList} />
-                    </div>
+                    <ProductsCardList products={productsList} />
                 </div>
             </div>
             <Footer />
