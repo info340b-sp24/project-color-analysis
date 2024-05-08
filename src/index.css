@@ -354,6 +354,10 @@ a {
   display: block;
 }
 
+label {
+  margin-left: 10px;
+}
+
 .products h1 {
   font-family: 'DM Sans', sans-serif;
   font-size: 1.5em;
