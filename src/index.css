@@ -438,8 +438,7 @@ tr {
   border-style: none;
 }
 
-.products .quiz-button,
-.filtered .quiz-button {
+.products .quiz-button {
   background-color: white;
   border-radius: 30px/30px;
   border: 1px solid black;
@@ -459,7 +458,7 @@ tr {
 
 /* Filtered page */
 
-.filtered .products-button {
+.products .products-button {
   background-color: #EEE4E1;
   border-radius: 30px/30px;
   border: 1px solid black;
@@ -1364,7 +1363,22 @@ body .body-ws {
     margin-left: 5px;
     font-size: 0.8em;
   }
+
+  .products .products-button{
+    background-color: #EEE4E1;
+    border-radius: 30px/30px;
+    border: 1px solid black;
+    padding: 5px;
+    padding-left: 17px;
+    padding-right: 17px;
+    font-family: 'Manrope', sans-serif;
+    color: black;
+    margin-left: 5px;
+    font-size: 0.8em;
+  }
 }
+
+
 
 /* Quiz page */
 
