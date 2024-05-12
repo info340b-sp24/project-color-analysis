@@ -13,8 +13,8 @@ function App() {
   return (
     <div>
       {/* <LandingPage/> */}
-      <ProductsPage/>
-      {/* <QuizLanding/> */}
+      {/* <ProductsPage/> */}
+      <QuizLanding/>
       {/* <QuizResultCW/> */}
       {/* <QuizResultWA/> */}
       {/* <QuizResultWS/> */}

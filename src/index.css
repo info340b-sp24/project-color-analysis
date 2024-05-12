@@ -520,7 +520,7 @@ tr {
 
 .landing-middle-word {
   font-size: 2.5rem;
-  line-height: .5;
+  line-height: .8;
 }
 
 .landing-bottom-word-1,
@@ -693,6 +693,7 @@ body .body-ws {
   margin-top: 2rem;
   margin-bottom: 4rem;
   text-decoration: none;
+  padding: 0.5rem 2rem;
 }
 
 /* profile.html */
@@ -1327,7 +1328,6 @@ body .body-ws {
   /* quiz taking */
   .next-button-qt {
     font-size: 1rem;
-    padding: 0.5rem 2rem;
   }
 }
 
