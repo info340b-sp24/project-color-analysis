@@ -3,29 +3,15 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 
 const quizQuestions = [
-  {
-    question: "What is your natural hair color?",
-    options: ["Black", "Blonde", "Brown", "Red"],
-  },
-  {
-    question: "What is your eye color?",
-    options: ["Blue", "Brown", "Green", "Hazel"],
-  },
-  {
-    question: "What is your skin tone?",
-    options: ["Fair", "Light", "Medium", "Olive", "Brown", "Dark Brown"],
-  },
-  {
-    question: "What is your lip color?",
-    options: ["Pale Pink", "Soft Pink", "Terra Cotta", "Natural Blush", "Warm Brown", "Deep Red"],
-  },
-  {
-    question: "What is your vein tone?",
-    options: ["Blue", "Green", "Purple", "Unsure"],
-  }
+  { question: "What is your natural hair color?", options: ["Black", "Blonde", "Brown", "Red"] },
+  { question: "What is your eye color?", options: ["Blue", "Brown", "Green", "Hazel"] },
+  { question: "What is your skin tone?", options: ["Fair", "Light", "Medium", "Olive", "Brown", "Dark Brown"] },
+  { question: "What is your lip color?", options: ["Pale Pink", "Soft Pink", "Terra Cotta", "Natural Blush", "Warm Brown", "Deep Red"] },
+  { question: "What is your vein tone?", options: ["Blue", "Green", "Purple", "Unsure"] }
 ];
 
-function QuestionCard({ question, options }) {
+function QuestionCard(props) {
+  const { question, options } = props;
   const [selectedOption, setSelectedOption] = useState(null);
 
   return (

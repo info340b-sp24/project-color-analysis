@@ -14,12 +14,12 @@ function App() {
     <div>
       {/* <LandingPage/> */}
       {/* <ProductsPage/> */}
-      <QuizLanding/>
+      {/* <QuizLanding/> */}
       {/* <QuizResultCW/> */}
       {/* <QuizResultWA/> */}
       {/* <QuizResultWS/> */}
       {/* <QuizResultCS/> */}
-      {/* <QuizTaking/> */}
+      <QuizTaking/>
     </div>
   );
 }
