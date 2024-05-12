@@ -34,7 +34,7 @@ function QuizTaking() {
         {quizQuestions.map((q, index) => (
           <QuestionCard key={index} question={q.question} options={q.options} />
         ))}
-        <a href="quiz-result-wa.html" className="next-button-qt" aria-label="Get quiz results">
+        <a href="QuizResultWA.js" className="next-button-qt" aria-label="Get quiz results">
           Get Results!
         </a>
       </main>
