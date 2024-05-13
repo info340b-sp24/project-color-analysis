@@ -17,9 +17,9 @@ function App() {
       {/* <QuizLanding/> */}
       {/* <QuizResultCW/> */}
       {/* <QuizResultWA/> */}
-      {/* <QuizResultWS/> */}
+      <QuizResultWS/>
       {/* <QuizResultCS/> */}
-      <QuizTaking/>
+      {/* <QuizTaking/> */}
     </div>
   );
 }

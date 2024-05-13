@@ -13,6 +13,10 @@ function QuizResultCW() {
 }
 
 function MainContent() {
+  const handleClick = function(event) {
+    console.log("Button clicked to view recommended products for Cool Winter");
+  }
+
   return (
     <main className="body-quiz">
       <section>
@@ -23,7 +27,9 @@ function MainContent() {
           <p className="result">
             Cool Winter!
           </p>
-          <button className="btn btn-primary next-button-qr" aria-label="View recommended products">
+          <button className="btn btn-primary next-button-qr" 
+                  aria-label="View recommended products" 
+                  onClick={handleClick}>
             Recommended Products Here <span className="material-icons">arrow_forward</span>
           </button>
         </div>
@@ -31,5 +37,6 @@ function MainContent() {
     </main>
   );
 }
+
 
 export default QuizResultCW;

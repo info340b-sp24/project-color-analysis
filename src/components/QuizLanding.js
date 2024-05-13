@@ -45,9 +45,14 @@ function QuizDescription() {
 }
 
 function StartQuizButton() {
+  const handleStartQuizClick = function(event) {
+    console.log("Navigate to quiz");
+  }
   return (
     <div className="center-button-lp">
-      <a href="QuizTaking.js" className="btn btn-primary next-button-lp" aria-label="Start the quiz">Start Quiz!</a>
+      <button className="btn btn-primary next-button-lp" aria-label="Start the quiz" onClick={handleStartQuizClick}>
+        Start Quiz!
+      </button>
     </div>
   );
 }
