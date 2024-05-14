@@ -24,6 +24,20 @@ function ProductCard(props) {
 
     const { link, img, alt, title, price, filters } = props;
 
+    // const [isLiked, setIsLiked] = useState(false);
+    // const [icon, setIcon] = useState('favorite_border');
+    // let heartColor = "black";
+
+    // const handleClick = (event) => {
+    //     setIsLiked(!isLiked);
+    // }
+
+    // if (isLiked) {
+    //     setIcon('favorite');
+    //     heartColor = "red";
+    // }
+
+    // style ={{color:heartColor}}
     const filtersArray = filters.map((filter) => {
         return <p className="filter">{filter}</p>
     })
@@ -32,33 +46,35 @@ function ProductCard(props) {
     return (
 
         <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-            <a href={link}>
-                <div className="card">
-                    <div>
+            {/* <a href={link}> */}
+            <div className="card">
+                <div>
+                    <a href={link}>
                         <img className="card-img" src={img}
                             alt={alt} />
-                        <div className="card-body">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td className="align-baseline">{title}
-                                        </td>
-                                        <td className="align-bottom price">{price}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    </a>
+                    <div className="card-body">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td className="align-baseline">{title}
+                                    </td>
+                                    <td className="align-bottom price">{price}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className="filters">
+                        <div>
+                            {filtersArray}
                         </div>
-                        <div className="filters">
-                            <div>
-                                {filtersArray}
-                            </div>
-                            <div className="heart-box">
-                                <span className="material-icons heart">favorite_border</span>
-                            </div>
+                        <div className="heart-box">
+                            <span className="material-icons heart">favorite_border</span>
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
+            {/* </a> */}
         </div>
 
     )
@@ -160,11 +176,11 @@ export function ProductsPage() {
             let arr = [...filterArr];
 
             // Add filter name to an array, if it is already there, remove it
-            if (!arr.includes(event.currentTarget.name)){
+            if (!arr.includes(event.currentTarget.name)) {
                 arr = [event.currentTarget.name, ...filterArr];
             } else {
                 const index = arr.indexOf(event.currentTarget.name);
-                if (index > -1){
+                if (index > -1) {
                     arr.splice(index, 1);
                 }
             }
@@ -210,13 +226,13 @@ export function ProductsPage() {
             if (filterArr.length !== 0) {
                 cardList = cardList.filter((product) => {
                     let count = 0;
-                    for (let i = 0; i < filterArr.length; i++){
-                        if (product.filters.includes(filterArr[i])){
+                    for (let i = 0; i < filterArr.length; i++) {
+                        if (product.filters.includes(filterArr[i])) {
                             count++;
                         }
                     }
 
-                    if (count === filterArr.length){
+                    if (count === filterArr.length) {
                         return product;
                     }
                 })
@@ -224,18 +240,18 @@ export function ProductsPage() {
         } else if (filterArr.length !== 0) {
             cardList = cardList.filter((product) => {
                 let count = 0;
-                for (let i = 0; i < filterArr.length; i++){
-                    if (product.filters.includes(filterArr[i])){
+                for (let i = 0; i < filterArr.length; i++) {
+                    if (product.filters.includes(filterArr[i])) {
                         count++;
                     }
                 }
 
-                if (count === filterArr.length){
+                if (count === filterArr.length) {
                     return product;
                 }
             })
         }
-    } 
+    }
     // else if (!fullPage && checkboxFilter !== '') {
     //     cardList = cardList.filter((product) => {
     //         if (checkboxFilter !== '') {
