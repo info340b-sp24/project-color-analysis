@@ -88,10 +88,14 @@ function Filter(props) {
     const title = props.title;
     const filters = props.filters;
 
+    const handleClick = (event) => {
+        props.onclick(event);
+    }
+
     const filtersArray = filters.map((filter) => {
         return (
             <div className="element-checkbox">
-                <input type="checkbox" id={filter} name={filter} />
+                <input onClick={handleClick} type="checkbox" id={filter} name={filter} />
                 <label for={filter}>{filter}</label>
             </div>
         )
@@ -110,7 +114,7 @@ function FiltersList(props) {
     const filters = props.filters;
 
     const filtersArray = filters.map((filter, index) => {
-        return <Filter key={index} title={filter.title} filters={filter.filters} />
+        return <Filter key={index} title={filter.title} filters={filter.filters} onclick={props.onclick} />
     })
 
     return (
@@ -126,13 +130,12 @@ function FiltersList(props) {
 function ButtonFilter(props) {
 
     let iconClasses = "";
-    if (props.active) { 
+    if (props.active) {
         iconClasses += ` products-button`;
-        console.log("hello " + props.name); 
     };
 
     const handleClick = (event) => {
-        props.applyFilterCallback(event.currentTarget.name);
+        props.applyFilterCallback(event);
     }
 
     return (
@@ -146,15 +149,44 @@ function ButtonFilter(props) {
 export function ProductsPage() {
 
     const [buttonFilter, setButtonFilter] = useState('');
-    const [fullPage, setFullPage] = useState(false);
+    const [fullPage, setFullPage] = useState(false); //true means all the products are being shown
+    const [checkboxFilter, setCheckboxFilter] = useState('');
+    const [filterArr, setFilterArr] = useState([]);
 
-    const applyFilter = (filter) => {
-        setButtonFilter(filter);
-        
+    const applyFilter = (event) => {
 
-        if (!fullPage && (filter === buttonFilter)){
-            setFullPage(true);
-            console.log(fullPage);
+        if (event.currentTarget.type === 'checkbox') {
+            setCheckboxFilter(event.currentTarget.name);
+            let arr = [...filterArr];
+
+            // Add filter name to an array, if it is already there, remove it
+            if (!arr.includes(event.currentTarget.name)){
+                arr = [event.currentTarget.name, ...filterArr];
+            } else {
+                const index = arr.indexOf(event.currentTarget.name);
+                if (index > -1){
+                    arr.splice(index, 1);
+                }
+            }
+
+            // Set filter array
+            setFilterArr(arr);
+            console.log(filterArr);
+        } else {
+            setButtonFilter(event.currentTarget.name);
+        }
+
+        // Decide when to display all the items 
+        if (!fullPage && (event.currentTarget.name === buttonFilter)) {
+            if (checkboxFilter === '') {
+                setFullPage(true);
+            }
+            setButtonFilter('');
+        } else if (!fullPage && (event.currentTarget.name === checkboxFilter)) {
+            if (buttonFilter === '' && filterArr <= 0) {
+                setFullPage(true);
+            }
+            setCheckboxFilter('');
         } else {
             setFullPage(false);
         }
@@ -162,17 +194,60 @@ export function ProductsPage() {
 
     let cardList = productsList;
 
-    if (!fullPage){
-        cardList = productsList.filter((product) => {
-            if (buttonFilter !== '') {
-                if (product.category === buttonFilter) {
+    // Decide what items to display
+    if (!fullPage) {
+        if (buttonFilter !== '') {
+            cardList = productsList.filter((product) => {
+                if (buttonFilter !== '') {
+                    if (product.category === buttonFilter) {
+                        return product;
+                    }
+                } else {
                     return product;
                 }
-            } else {
-                return product;
+            })
+
+            if (filterArr.length !== 0) {
+                cardList = cardList.filter((product) => {
+                    let count = 0;
+                    for (let i = 0; i < filterArr.length; i++){
+                        if (product.filters.includes(filterArr[i])){
+                            count++;
+                        }
+                    }
+
+                    if (count === filterArr.length){
+                        return product;
+                    }
+                })
             }
-        })
-    }
+        } else if (filterArr.length !== 0) {
+            cardList = cardList.filter((product) => {
+                let count = 0;
+                for (let i = 0; i < filterArr.length; i++){
+                    if (product.filters.includes(filterArr[i])){
+                        count++;
+                    }
+                }
+
+                if (count === filterArr.length){
+                    return product;
+                }
+            })
+        }
+    } 
+    // else if (!fullPage && checkboxFilter !== '') {
+    //     cardList = cardList.filter((product) => {
+    //         if (checkboxFilter !== '') {
+    //             if (product.filters.includes(checkboxFilter)) {
+    //                 return product;
+    //             }
+    //         } else {
+    //             return product;
+    //         }
+    //     })
+
+    // }
 
     return (
         <div>
@@ -182,12 +257,12 @@ export function ProductsPage() {
                     <div>
                         <div className="flex-filters">
                             <div className="col">
-                                <ButtonFilter name="Product" buttonName="Products" applyFilterCallback={applyFilter} active={(buttonFilter === "Product" && !fullPage)? true : false} icon={(buttonFilter === "Product" && !fullPage)? "close" : "add"}/>
-                                <ButtonFilter name="Clothing" buttonName="Clothing" applyFilterCallback={applyFilter} active={(buttonFilter === "Clothing" && !fullPage)? true : false} icon={(buttonFilter === "Clothing" && !fullPage)? "close" : "add"} />
+                                <ButtonFilter name="Product" buttonName="Products" applyFilterCallback={applyFilter} active={(buttonFilter === "Product" && !fullPage) ? true : false} icon={(buttonFilter === "Product" && !fullPage) ? "close" : "add"} />
+                                <ButtonFilter name="Clothing" buttonName="Clothing" applyFilterCallback={applyFilter} active={(buttonFilter === "Clothing" && !fullPage) ? true : false} icon={(buttonFilter === "Clothing" && !fullPage) ? "close" : "add"} />
                             </div>
                         </div>
                         <div className="row">
-                            <FiltersList filters={filtArray} />
+                            <FiltersList filters={filtArray} onclick={applyFilter} />
                             <ProductsCardList products={cardList} />
                         </div>
                     </div>
