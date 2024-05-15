@@ -1,6 +1,7 @@
 import React from "react";
 import { LandingPage } from "./components/LandingPage";
 import { ProductsPage } from "./components/ProductsPage";
+import { UploadPage } from "./components/UploadPage";
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <div>
       {/* <LandingPage/> */}
       <ProductsPage/>
+      <UploadPage/>
     </div>
   );
 }
