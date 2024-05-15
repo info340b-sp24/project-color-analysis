@@ -7,7 +7,6 @@ import QuizResultCW from './components/QuizResultCW';
 import QuizResultWA from './components/QuizResultWA';
 import QuizResultWS from './components/QuizResultWS';
 import QuizResultCS from './components/QuizResultCS';
-import QuizResult from './components/QuizResult';
 
 function App() {
 
@@ -15,13 +14,12 @@ function App() {
     <div>
       {/* <LandingPage/> */}
       {/* <ProductsPage/> */}
-      {/* <QuizLanding/> */}
+      <QuizLanding/>
       {/* <QuizResultCW/> */}
       {/* <QuizResultWA/> */}
       {/* <QuizResultWS/> */}
       {/* <QuizResultCS/> */}
       {/* <QuizTaking/> */}
-      <QuizResult/>
     </div>
   );
 }
