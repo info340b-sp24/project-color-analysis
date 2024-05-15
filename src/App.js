@@ -14,11 +14,11 @@ function App() {
 
   return (
     <div>
-      {/* <LandingPage/> */}
+      <LandingPage/>
       {/* <ProductsPage/> */}
       {/* <ProfilePage/> */}
       {/* <EditProfilePage/> */}
-      <QuizLanding/>
+      {/* <QuizLanding/> */}
       {/* <QuizResultCW/> */}
       {/* <QuizResultWA/> */}
       {/* <QuizResultWS/> */}

@@ -170,7 +170,7 @@ p {
 }
 
 .hero-text {
-  margin-left: 120px;
+  margin-left: 20px;
 }
 
 .title-hero-text {
@@ -1148,9 +1148,14 @@ body .body-ws {
   .quiz-hero-button {
     text-align: left;
   }
+
+  .hero-text {
+    margin-left: 120px;
+  }
 }
 
 @media(min-width: 768px) {
+
   .title-hero-text {
     text-align: left;
   }
@@ -1165,6 +1170,14 @@ body .body-ws {
 
 }
 
+@media(min-width: 782px) {
+  .hero-img {
+    display: block;
+    max-width: 310px;
+    padding-top: 100px;
+  }
+}
+
 @media (min-width: 990px) {
   .material-icons.profile {
     display: inline;
@@ -1175,6 +1188,7 @@ body .body-ws {
   .hero-img {
     display: block;
     max-width: 310px;
+    padding-top: 0;
   }
 
   .title-hero-text {
