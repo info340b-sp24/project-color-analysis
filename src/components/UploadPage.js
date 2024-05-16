@@ -1,40 +1,46 @@
 import React from "react";
+import { Nav } from './Nav';
+import { Footer } from './Footer';
+import { MaterialSymbol } from "react-material-symbols";
 
 function Title() {
     return (
-        <h1>
-            Upload Product
-        </h1>
+        <section className="upload"> 
+            <h1 className="upload-heading-1">
+                Upload Product
+            </h1>
+        </section>
     )
 }
 
 function UploadPicture() {
     return (
-        <div className="flex-item-left">
-        <div className="icon-item"> 
-            <span className="material-symbols-outlined">
-                upload
-            </span>
-        </div>
+        <section className="upload">
+            <div className="icon-item"> 
+                    <span className="material-icons material-symbols-outlined">upload</span>
+            </div>
     
-        <div className="upload-file-buttons">
+            <div className="upload-file-buttons">
                 <div className="file-input">
                     <input type="file" className="file-input" id="file-input" class="file-input__input"/>
                     <label className="file-input__label" for="file-input">
                       <span className="file-input-span">Choose file</span>
+            
                     </label>
                 </div>
                 <div className="reset-button">
                     <button className="reset">Reset</button>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 
+
+
 function UploadInfo() {
     return (
-        <section className="flex-item-right">
+        <section className="upload">
             <h2 className="product-info-title">
                 Product Information
             </h2>
@@ -60,8 +66,8 @@ function UploadInfo() {
                 <textarea id="desc" className="description-input" placeholder="Description"></textarea>
             </form>
 
-            <form className="categories">
-                <h3 className="categories-title">
+            <form className="upload categories">
+                <h3>
                     Categories
                 </h3>
                 <div className="season-temperature"> 
@@ -114,9 +120,19 @@ function UploadInfo() {
 export function UploadPage() {
     return (
       <div>
-        <Title />
-        <UploadPicture />
-        <UploadInfo />
+        <Nav />
+        <main>
+            <Title />
+            <section className="flex-container-upload">
+                <section className="flex-item-left">
+                    <UploadPicture />
+                </section>
+                <section className="flex-item-right">
+                    <UploadInfo />
+                </section>
+            </section>
+        </main>
+        <Footer />
       </div>
     );
 }

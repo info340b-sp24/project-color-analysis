@@ -9,12 +9,14 @@ import QuizResultCW from './components/QuizResultCW';
 import QuizResultWA from './components/QuizResultWA';
 import QuizResultWS from './components/QuizResultWS';
 import QuizResultCS from './components/QuizResultCS';
+import { UploadPage } from "./components/UploadPage";
 
 function App() {
 
   return (
     <div>
-      <LandingPage/>
+      {/* <LandingPage/> */}
+      <UploadPage/>
       {/* <ProductsPage/> */}
       {/* <ProfilePage/> */}
       {/* <EditProfilePage/> */}
