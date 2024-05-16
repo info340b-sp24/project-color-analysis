@@ -971,10 +971,13 @@ body .body-ws {
     font-family: "Manrope";
     font-weight: 400;
     font-size: 1.875rem;
+    text-align: center;
 }
 
 .product-info-title {
     padding-top: 0;
+    text-align: center;
+    padding-bottom: 2rem;
 }
 
 .upload body {
@@ -998,6 +1001,9 @@ body .body-ws {
     flex: 1; 
     padding: 3.125em;
     padding-top: 0.9375em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .upload .material-symbols-outlined {
@@ -1007,6 +1013,7 @@ body .body-ws {
     border: 0.0625rem solid #949494;
     border-radius: 1em;
 }
+
 
 .upload-finish {
     text-align: center;
@@ -1060,6 +1067,10 @@ body .body-ws {
     display: flex; 
 }
 
+.season-temperature {
+    padding-top: 0.625rem;
+}
+
 .upload-file-buttons, .product-name-container, .type, .season, .temperature, .value, .chroma {
     flex: 1;
     padding: 0.625rem;
@@ -1078,6 +1089,7 @@ body .body-ws {
 .description-name-container {
     padding-left: 0.625rem;
     padding-right: 0.625rem;
+    padding-bottom: 0.6.25rem;
 }
 
 .description-input {
