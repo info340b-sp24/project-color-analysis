@@ -680,6 +680,15 @@ body .body-ws {
   padding: 0.5rem;
 }
 
+.quiz-option:hover {
+  background-color: #C0C0C0;
+}
+
+.quiz-option:active, .quiz-option:focus, .quiz-option.selected {
+  background-color: black;
+  color: white;
+}
+
 .next-button-qt {
   font-family: 'Manrope', sans-serif;
   font-size: 0.9rem;
@@ -693,6 +702,15 @@ body .body-ws {
   margin-bottom: 4rem;
   text-decoration: none;
   padding: 0.5rem 2rem;
+}
+
+.next-button-qt:hover {
+  background-color: #C0C0C0;
+}
+
+.next-button-qt:active, .next-button-qt:focus, .next-button-qt.selected {
+  background-color: black;
+  color: white;
 }
 
 /* profile.html */

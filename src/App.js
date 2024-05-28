@@ -16,7 +16,7 @@ function App() {
   return (
     <div>
       {/* <LandingPage/> */}
-      <UploadPage/>
+      {/* <UploadPage/> */}
       {/* <ProductsPage/> */}
       {/* <ProfilePage/> */}
       {/* <EditProfilePage/> */}
@@ -25,7 +25,7 @@ function App() {
       {/* <QuizResultWA/> */}
       {/* <QuizResultWS/> */}
       {/* <QuizResultCS/> */}
-      {/* <QuizTaking/> */}
+      <QuizTaking/>
     </div>
   );
 }
