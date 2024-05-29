@@ -1,4 +1,6 @@
 import React from "react";
+import { Nav } from "./Nav";
+import { Footer } from "./Footer";
 
 const profileInfo = {img: 'img/profile_image.png', alt: "profile image", name: "Bella", age: "21", email: "bella@uw.edu"}
 
@@ -102,6 +104,7 @@ export function ProfilePage() {
 
     return (
       <div className="profile">
+        <Nav />
         <div className="profile-content">
           <section className="section-one">
             <h1>My profile</h1>
@@ -134,6 +137,7 @@ export function ProfilePage() {
             </div>
           </section>
         </div>
+        <Footer />
       </div>
     );
   }
