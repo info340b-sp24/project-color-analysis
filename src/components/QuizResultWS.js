@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav } from './Nav';
 import { Footer } from './Footer';
+import { Link } from 'react-router-dom';
 
 function QuizResultWS() {
   return (
@@ -13,7 +14,7 @@ function QuizResultWS() {
 }
 
 function MainContent() {
-  const handleClick = function(event) {
+  const handleClick = function (event) {
     console.log("Button clicked to view recommended products for Warm Spring");
   }
 
@@ -27,11 +28,13 @@ function MainContent() {
           <p className="result">
             Warm Spring!
           </p>
-          <button className="btn btn-primary next-button-qr" 
-                  aria-label="View recommended products" 
-                  onClick={handleClick}>
-            Recommended Products Here <span className="material-icons">arrow_forward</span>
-          </button>
+          <Link to="../profile">
+            <button className="btn btn-primary next-button-qr"
+              aria-label="View recommended products"
+              onClick={handleClick}>
+              Recommended Products Here <span className="material-icons">arrow_forward</span>
+            </button>
+          </Link>
         </div>
       </section>
     </main>

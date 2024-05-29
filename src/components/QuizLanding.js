@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav } from './Nav';
 import { Footer } from './Footer';
+import { Link } from 'react-router-dom';
 
 function QuizLanding() {
   return (
@@ -50,9 +51,11 @@ function StartQuizButton() {
   }
   return (
     <div className="center-button-lp">
+      <Link to="../quiztaking">
       <button className="btn btn-primary next-button-lp" aria-label="Start the quiz" onClick={handleStartQuizClick}>
         Start Quiz!
       </button>
+      </Link>
     </div>
   );
 }

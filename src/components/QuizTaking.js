@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
+import { Link } from 'react-router-dom';
 
 const quizQuestions = [
   { question: "What is your natural hair color?", options: ["Black", "Blonde", "Brown", "Red"] },
@@ -134,7 +135,7 @@ function QuizTaking() {
     }
   };
 
-  const handleClick = function() {
+  const handleClick = function () {
     console.log(`Button clicked to view recommended products for ${season.replace('-', ' ')}`);
   };
 
@@ -165,11 +166,13 @@ function QuizTaking() {
             <div className={getBackgroundClass(season)}>
               <p className="result-top-word">You are a...</p>
               <p className="result">{season.replace('-', ' ')}</p>
-              <button className="btn btn-primary next-button-qr" 
-                      aria-label="View recommended products" 
-                      onClick={handleClick}>
-                Recommended Products Here <span className="material-icons">arrow_forward</span>
-              </button>
+              <Link to="../profile">
+                <button className="btn btn-primary next-button-qr"
+                  aria-label="View recommended products"
+                  onClick={handleClick}>
+                  Recommended Products Here <span className="material-icons">arrow_forward</span>
+                </button>
+              </Link>
             </div>
           </section>
         </main>

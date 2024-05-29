@@ -23,7 +23,6 @@ function App() {
 
   return (
     <div>
-      {/* <Nav/> */}
       <Routes>
         <Route index element={<LandingPage />} />
         <Route path="upload" element={<UploadPage />} />
@@ -31,14 +30,8 @@ function App() {
         <Route path="profile" element={<ProfilePage />} />
         <Route path="edit" element={<EditProfilePage />} />
         <Route path="quiz" element={<QuizLanding/>} />
-
-      {/* <QuizResultCW/>
-      <QuizResultWA/>
-      <QuizResultWS/>
-      <QuizResultCS/>
-      <QuizTaking/> */}
+        <Route path="quiztaking" element={<QuizTaking/>} />
       </Routes>
-      {/* <Footer/> */}
     </div>
   );
 }
