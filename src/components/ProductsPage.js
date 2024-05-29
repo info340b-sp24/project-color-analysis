@@ -36,12 +36,12 @@ function ProductCard(props) {
 
     const database = getDatabase();
     const likedRef = ref(database, "liked")
-    const [likedList, setLikedList] = useState([]);
+    // const [likedList, setLikedList] = useState([]);
 
     const itemsRef = ref(database, "items")
-    const [productsList, setProductsList] = useState([]);
+    // const [productsList, setProductsList] = useState([]);
 
-    const [liked, setLiked] = useState([]);
+    const [liked, setLiked] = useState(false);
 
 
     const handleClick = (event) => {
@@ -111,7 +111,7 @@ function ProductCard(props) {
                     <div className="heart-box">
                         <button className="btn" onClick={handleClick}>
                             <div className="heart-box">
-                                <span className="material-icons heart">{(liked) ? "favorite_border" : "favorite" }</span>
+                                <span className="material-icons heart">{(liked) ? "favorite" : "favorite_border" }</span>
                             </div>
                         </button>
                     </div>
