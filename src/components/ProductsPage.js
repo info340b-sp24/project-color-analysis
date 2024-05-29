@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
-import { getDatabase, DataSnapshot, ref, push as firebasePush, onValue } from 'firebase/database';
+import { getDatabase, DataSnapshot, ref, push as firebasePush, onValue, child } from 'firebase/database';
 
 // const database = getDatabase();
 // const itemsRef = ref(database, "items")
@@ -29,25 +29,57 @@ const filtArray = [{ title: 'Season', filters: ['Autumn', 'Winter', 'Spring', 'S
 
 function ProductCard(props) {
 
-    const { link, img, alt, title, price, filters } = props;
-
-    // const [isLiked, setIsLiked] = useState(false);
-    // const [icon, setIcon] = useState('favorite_border');
-    // let heartColor = "black";
-
-    // const handleClick = (event) => {
-    //     setIsLiked(!isLiked);
-    // }
-
-    // if (isLiked) {
-    //     setIcon('favorite');
-    //     heartColor = "red";
-    // }
-
-    // style ={{color:heartColor}}
+    const { link, img, alt, title, price, filters, arraykey } = props;
     const filtersArray = filters.map((filter) => {
         return <p className="filter">{filter}</p>
     })
+
+    const database = getDatabase();
+    const likedRef = ref(database, "liked")
+    const [likedList, setLikedList] = useState([]);
+
+    const itemsRef = ref(database, "items")
+    const [productsList, setProductsList] = useState([]);
+
+    const [liked, setLiked] = useState([]);
+
+
+    const handleClick = (event) => {
+        
+        const keyRef = ref(database, arraykey)
+        console.log(arraykey);
+        console.log(keyRef);
+        // firebasePush(likedRef, {key: arraykey});
+
+        if (liked){
+            setLiked(false);
+        } else {
+            setLiked(true);
+        }
+
+        onValue(itemsRef, (snapshot) => {
+
+            const allItemsObject = snapshot.val();
+            // const allItemsKeys = Object.keys(allItemsObject);
+
+            const itemArray = (keyRef) => {
+                const singleItemCopy = { ...allItemsObject[keyRef] };
+                singleItemCopy.key = keyRef;
+                return singleItemCopy;
+            }
+
+            // const newArray = [...likedList, itemArray]
+            console.log(itemArray(arraykey));
+            firebasePush(likedRef, itemArray(arraykey));
+            // console.log(allItemsArray);
+            // setLikedList(newArray);
+            // firebasePush(likedRef, likedList);
+
+        })
+
+
+
+    }
 
     // Ask about target='_blank' to open links on another page
     return (
@@ -75,9 +107,13 @@ function ProductCard(props) {
                         <div>
                             {filtersArray}
                         </div>
-                        <div className="heart-box">
-                            <span className="material-icons heart">favorite_border</span>
-                        </div>
+                    </div>
+                    <div className="heart-box">
+                        <button className="btn" onClick={handleClick}>
+                            <div className="heart-box">
+                                <span className="material-icons heart">{(liked) ? "favorite_border" : "favorite" }</span>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -92,7 +128,7 @@ function ProductsCardList(props) {
     const products = props.products;
 
     const productsArray = products.map((product, index) => {
-        return <ProductCard key={index} link={product.link} img={product.img} alt={product.alt} title={product.title} price={product.price} filters={product.filters} />
+        return <ProductCard arraykey={product.key} key={index} link={product.link} img={product.img} alt={product.alt} title={product.title} price={product.price} filters={product.filters} />
     })
 
     return (
@@ -205,7 +241,7 @@ export function ProductsPage() {
                 return singleItemCopy;
             })
 
-            console.log(allItemsArray);
+            // console.log(allItemsArray);
             setProductsList(allItemsArray);
 
         })
