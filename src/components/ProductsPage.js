@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
-import { getDatabase, DataSnapshot, ref, push as firebasePush, onValue, child } from 'firebase/database';
+import { getDatabase, DataSnapshot, ref, push as firebasePush, onValue, set as firebaseSet } from 'firebase/database';
 
 // const database = getDatabase();
 // const itemsRef = ref(database, "items")
@@ -30,53 +30,70 @@ const filtArray = [{ title: 'Season', filters: ['Autumn', 'Winter', 'Spring', 'S
 function ProductCard(props) {
 
     const { link, img, alt, title, price, filters, arraykey } = props;
+    let likedProduct = props.likedProduct;
     const filtersArray = filters.map((filter) => {
         return <p className="filter">{filter}</p>
     })
 
     const database = getDatabase();
-    const likedRef = ref(database, "liked")
+    // const likedRef = ref(database, "liked")
     // const [likedList, setLikedList] = useState([]);
 
     const itemsRef = ref(database, "items")
     // const [productsList, setProductsList] = useState([]);
 
     const [liked, setLiked] = useState(false);
+    
+    const productRef = ref(database, "items/"+arraykey+"/likedProduct");
+    const keyRef1 = ref(database, "items/"+arraykey+"/key");
+    firebaseSet(keyRef1, arraykey);
+    // firebasePush(productRef, arraykey);
 
 
     const handleClick = (event) => {
-        
-        const keyRef = ref(database, arraykey)
-        console.log(arraykey);
-        console.log(keyRef);
-        // firebasePush(likedRef, {key: arraykey});
 
-        if (liked){
+        const keyRef = ref(database, arraykey)
+        // console.log(arraykey);
+        // console.log(keyRef);
+        // firebasePush(likedRef, {key: arraykey});
+        // firebasePush(productRef, {key:arraykey});
+
+        //change Sarah's age to 43 (happy birthday!)
+        // const newValueForSarahAge = 43;
+
+        //assign the new value in the database
+        
+
+        if (liked) {
             setLiked(false);
+            // likedProduct = false;
+            firebaseSet(productRef, false);
+
         } else {
             setLiked(true);
+            // likedProduct = true;
+            firebaseSet(productRef, true);
         }
 
-        onValue(itemsRef, (snapshot) => {
+        // onValue(itemsRef, (snapshot) => {
 
-            const allItemsObject = snapshot.val();
-            // const allItemsKeys = Object.keys(allItemsObject);
+        //     const allItemsObject = snapshot.val();
+        //     // const allItemsKeys = Object.keys(allItemsObject);
 
-            const itemArray = (keyRef) => {
-                const singleItemCopy = { ...allItemsObject[keyRef] };
-                singleItemCopy.key = keyRef;
-                return singleItemCopy;
-            }
+        //     const itemArray = (keyRef) => {
+        //         const singleItemCopy = { ...allItemsObject[keyRef] };
+        //         singleItemCopy.key = keyRef;
+        //         return singleItemCopy;
+        //     }
 
-            // const newArray = [...likedList, itemArray]
-            console.log(itemArray(arraykey));
-            firebasePush(likedRef, itemArray(arraykey));
-            // console.log(allItemsArray);
-            // setLikedList(newArray);
-            // firebasePush(likedRef, likedList);
+        //     // const newArray = [...likedList, itemArray]
+        //     console.log(itemArray(arraykey));
+        //     firebasePush(likedRef, itemArray(arraykey));
+        //     // console.log(allItemsArray);
+        //     // setLikedList(newArray);
+        //     // firebasePush(likedRef, likedList);
 
-        })
-
+        // })
 
 
     }
@@ -111,7 +128,7 @@ function ProductCard(props) {
                     <div className="heart-box">
                         <button className="btn" onClick={handleClick}>
                             <div className="heart-box">
-                                <span className="material-icons heart">{(liked) ? "favorite" : "favorite_border" }</span>
+                                <span className="material-icons heart">{(liked) ? "favorite" : "favorite_border"}</span>
                             </div>
                         </button>
                     </div>
@@ -128,7 +145,7 @@ function ProductsCardList(props) {
     const products = props.products;
 
     const productsArray = products.map((product, index) => {
-        return <ProductCard arraykey={product.key} key={index} link={product.link} img={product.img} alt={product.alt} title={product.title} price={product.price} filters={product.filters} />
+        return <ProductCard arraykey={product.key} key={index} link={product.link} img={product.img} alt={product.alt} title={product.title} price={product.price} filters={product.filters} likedProduct={products.liked} />
     })
 
     return (
@@ -215,18 +232,18 @@ export function ProductsPage() {
     useEffect(() => {
         onValue(itemsRef, (snapshot) => {
             if (snapshot.val() === "") {
-                firebasePush(itemsRef, { link: "https://www.ulta.com/p/naked2-basics-eyeshadow-palette-xlsImpprod11151037?sku=2278485", img: 'img/Naked2.png', alt: 'naked2 basics eyeshadow palette', title: 'Naked2 Basics Eyeshadow Palette', price: '$35.00', filters: ['Neutral', 'Muted', 'Light', 'Product', 'Autumn', 'Dark'], category: 'Product' })
-                firebasePush(itemsRef, { link: "https://www.ulta.com/p/9t-neutral-territory-artistry-palette-pimprod2022883?sku=2578256&sku=2578256", img: 'img/9T-Neutral-Territory-Artistry-Palette.png', alt: '9T Neutral Territory Artistry Palette', title: '9T Neutral Territory Artistry Palette', price: '$9.80', filters: ['Neutral', 'Light', 'Product', 'Autumn', 'Dark'], category: 'Product' })
-                firebasePush(itemsRef, { link: "https://www.ulta.com/p/retro-eyeshadow-palette-pimprod2037977?sku=2606186", img: 'img/Retro.png', alt: 'Retro Eyeshadow Palette', title: 'Retro Eyeshadow Palette', price: '$69.00', filters: ['Cool', 'Light', 'Product', 'Winter', 'Dark'], category: 'Product' })
-                firebasePush(itemsRef, { link: "https://www.ulta.com/p/golden-hour-eyeshadow-palette-pimprod2043129?sku=2620700", img: 'img/Golden-Hour-Eyeshadow-Palette.png', alt: 'Golden Hour Eyeshadow Palette', title: 'Golden Hour Eyeshadow Palette', price: '$24.00', filters: ['Warm', 'Light', 'Product', 'Spring', 'Dark'], category: 'Product' })
-                firebasePush(itemsRef, { link: "https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611600&sku=2611600", img: 'img/Serum-light.png', alt: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20', title: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20', price: '$44.00', filters: ['Cool', 'Light', 'Product', 'Summer', 'Bright'], category: 'Product' })
-                firebasePush(itemsRef, { link: "https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611600&sku=26116006", img: 'img/Serum-Dark.png', alt: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Dark', title: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20', price: '$44.00', filters: ['Warm', 'Dark', 'Product', 'Autumn', 'Spring'], category: 'Product' })
-                firebasePush(itemsRef, { link: "https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611603", img: 'img/Serum-light2.png', alt: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Neutral', title: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20', price: '$24.00', filters: ['Neutral', 'Light', 'Product', 'Summer', 'Autumn', 'Bright'], category: 'Product' })
-                firebasePush(itemsRef, { link: "https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611813", img: 'img/Serum-MedDark.png', alt: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Neutral Dark', title: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20', price: '$44.00', filters: ['Neutral', 'Dark', 'Product', 'Summer', 'Autumn'], category: 'Product' })
-                firebasePush(itemsRef, { link: "https://www.quince.com/women/mongolian-cashmere-mock-neck-sweater?color=raspberry&g_network=x&g_productchannel=online&g_adid=&g_acctid=978-058-8398&g_keyword=&g_adtype=pla&g_keywordid=&g_ifcreative=&g_adgroupid=&g_productid=44880494133418&g_merchantid=128669708&g_partition=&g_campaignid=20497894231&g_ifproduct=product&g_campaign=&utm_source=google&utm_medium=paid_search&utm_campaign=&utm_term=44880494133418&gad_source=1&gclid=Cj0KCQjwiYOxBhC5ARIsAIvdH51Wuvx_u9RaBjjWJavOLOLnS-M6h8d5fWn2QkqNku_demjFxnLM0J0aAhK_EALw_wcB", img: 'img/Mongolian-sweater.png', alt: 'Mongolian Cashmere Mock Neck Sweater', title: 'Mongolian Cashmere Mock Neck Sweater', price: '$79.90', filters: ['Cool', 'Light', 'Clothing', 'Winter', 'Summer', 'Bright'], category: 'Clothing' })
-                firebasePush(itemsRef, { link: "https://www.quince.com/women/100-organic-cotton-boyfriend-crew?color=rust&g_network=x&g_productchannel=online&g_adid=&g_acctid=978-058-8398&g_keyword=&g_adtype=pla&g_keywordid=&g_ifcreative=&g_adgroupid=&g_productid=43441704108202&g_merchantid=128669708&g_partition=&g_campaignid=20656732069&g_ifproduct=product&g_campaign=&utm_source=google&utm_medium=paid_search&utm_campaign=&utm_term=43441704108202&gad_source=1&gclid=Cj0KCQjwiYOxBhC5ARIsAIvdH518A18LtnCJY3c8eLeeY7hbs_uOWlRZe5BwUd9cUAXVpmkVmagGDKsaAhAwEALw_wcB", img: 'img/Organic-Cotton-Boyfriend-Crew-Sweater.png', alt: '100% Organic Cotton Boyfriend Crew Sweater', title: '100% Organic Cotton Boyfriend Crew Sweater', price: '$49.90', filters: ['Warm', 'Light', 'Clothing', 'Autumn', 'Muted'], category: 'Clothing' })
-                firebasePush(itemsRef, { link: "https://www.shopcider.com/product/detail?pid=1036728&style_id=141099&sku_id=193534&currency=USD&local=en&country=US&utm_source=google_shopping&utm_campaign=AdTiger_PLA_US_1_mia_0704&link_id=7001c7f1ab7d435ab832881bd57ad010&gad_source=1&gclid=Cj0KCQjwiYOxBhC5ARIsAIvdH50n6ouXVwN5xnavhxPnW2QrNPJmRMHJnhzkSyVZ39SC8bE_tIenCOsaAjIzEALw_wcB", img: 'img/v-neck.png', alt: 'Santorini Beach Vacation V-Neck Ruffle Knotted Crop Tank Top', title: 'Santorini Beach Vacation V-Neck Ruffle Knotted Crop Tank Top', price: '$24.00', filters: ['Cool', 'Light', 'Clothing', 'Summer', 'Muted'], category: 'Clothing' })
-                firebasePush(itemsRef, { link: "https://bananarepublicfactory.gapfactory.com/browse/product.do?pid=8888370310001&vid=1&tid=bfpl000032&kwid=1&ap=7&gad_source=1&gclid=Cj0KCQjwiYOxBhC5ARIsAIvdH53zGJnsS0TpOiVuLYR844vcBBSt4TgMH1YqEzZ8dvZeTSSOFlyk8GsaAn9iEALw_wcB&gclsrc=aw.ds#pdp-page-content", img: 'img/Chiffon-Pleated-Maxi-Dress.png', alt: 'Chiffon Pleated Maxi Dress', title: 'Chiffon Pleated Maxi Dress', price: '$102.00', filters: ['Warm', 'Bright', 'Clothing', 'Spring', 'Light'], category: 'Clothing' })
+                firebasePush(itemsRef, { link: "https://www.ulta.com/p/naked2-basics-eyeshadow-palette-xlsImpprod11151037?sku=2278485", img: 'img/Naked2.png', alt: 'naked2 basics eyeshadow palette', title: 'Naked2 Basics Eyeshadow Palette', price: '$35.00', filters: ['Neutral', 'Muted', 'Light', 'Product', 'Autumn', 'Dark'], category: 'Product', likedProduct: false })
+                firebasePush(itemsRef, { link: "https://www.ulta.com/p/9t-neutral-territory-artistry-palette-pimprod2022883?sku=2578256&sku=2578256", img: 'img/9T-Neutral-Territory-Artistry-Palette.png', alt: '9T Neutral Territory Artistry Palette', title: '9T Neutral Territory Artistry Palette', price: '$9.80', filters: ['Neutral', 'Light', 'Product', 'Autumn', 'Dark'], category: 'Product', likedProduct: false })
+                firebasePush(itemsRef, { link: "https://www.ulta.com/p/retro-eyeshadow-palette-pimprod2037977?sku=2606186", img: 'img/Retro.png', alt: 'Retro Eyeshadow Palette', title: 'Retro Eyeshadow Palette', price: '$69.00', filters: ['Cool', 'Light', 'Product', 'Winter', 'Dark'], category: 'Product', likedProduct: false })
+                firebasePush(itemsRef, { link: "https://www.ulta.com/p/golden-hour-eyeshadow-palette-pimprod2043129?sku=2620700", img: 'img/Golden-Hour-Eyeshadow-Palette.png', alt: 'Golden Hour Eyeshadow Palette', title: 'Golden Hour Eyeshadow Palette', price: '$24.00', filters: ['Warm', 'Light', 'Product', 'Spring', 'Dark'], category: 'Product', likedProduct: false })
+                firebasePush(itemsRef, { link: "https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611600&sku=2611600", img: 'img/Serum-light.png', alt: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20', title: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20', price: '$44.00', filters: ['Cool', 'Light', 'Product', 'Summer', 'Bright'], category: 'Product', likedProduct: false })
+                firebasePush(itemsRef, { link: "https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611600&sku=26116006", img: 'img/Serum-Dark.png', alt: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Dark', title: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20', price: '$44.00', filters: ['Warm', 'Dark', 'Product', 'Autumn', 'Spring'], category: 'Product', likedProduct: false })
+                firebasePush(itemsRef, { link: "https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611603", img: 'img/Serum-light2.png', alt: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Neutral', title: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20', price: '$24.00', filters: ['Neutral', 'Light', 'Product', 'Summer', 'Autumn', 'Bright'], category: 'Product', likedProduct: false })
+                firebasePush(itemsRef, { link: "https://www.ulta.com/p/original-pure-serum-radiant-natural-liquid-foundation-mineral-spf-20-pimprod2040524?sku=2611813", img: 'img/Serum-MedDark.png', alt: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20 Neutral Dark', title: 'Original Pure Serum Radiant Natural Liquid Foundation Mineral SPF 20', price: '$44.00', filters: ['Neutral', 'Dark', 'Product', 'Summer', 'Autumn'], category: 'Product', likedProduct: false })
+                firebasePush(itemsRef, { link: "https://www.quince.com/women/mongolian-cashmere-mock-neck-sweater?color=raspberry&g_network=x&g_productchannel=online&g_adid=&g_acctid=978-058-8398&g_keyword=&g_adtype=pla&g_keywordid=&g_ifcreative=&g_adgroupid=&g_productid=44880494133418&g_merchantid=128669708&g_partition=&g_campaignid=20497894231&g_ifproduct=product&g_campaign=&utm_source=google&utm_medium=paid_search&utm_campaign=&utm_term=44880494133418&gad_source=1&gclid=Cj0KCQjwiYOxBhC5ARIsAIvdH51Wuvx_u9RaBjjWJavOLOLnS-M6h8d5fWn2QkqNku_demjFxnLM0J0aAhK_EALw_wcB", img: 'img/Mongolian-sweater.png', alt: 'Mongolian Cashmere Mock Neck Sweater', title: 'Mongolian Cashmere Mock Neck Sweater', price: '$79.90', filters: ['Cool', 'Light', 'Clothing', 'Winter', 'Summer', 'Bright'], category: 'Clothing', likedProduct: false })
+                firebasePush(itemsRef, { link: "https://www.quince.com/women/100-organic-cotton-boyfriend-crew?color=rust&g_network=x&g_productchannel=online&g_adid=&g_acctid=978-058-8398&g_keyword=&g_adtype=pla&g_keywordid=&g_ifcreative=&g_adgroupid=&g_productid=43441704108202&g_merchantid=128669708&g_partition=&g_campaignid=20656732069&g_ifproduct=product&g_campaign=&utm_source=google&utm_medium=paid_search&utm_campaign=&utm_term=43441704108202&gad_source=1&gclid=Cj0KCQjwiYOxBhC5ARIsAIvdH518A18LtnCJY3c8eLeeY7hbs_uOWlRZe5BwUd9cUAXVpmkVmagGDKsaAhAwEALw_wcB", img: 'img/Organic-Cotton-Boyfriend-Crew-Sweater.png', alt: '100% Organic Cotton Boyfriend Crew Sweater', title: '100% Organic Cotton Boyfriend Crew Sweater', price: '$49.90', filters: ['Warm', 'Light', 'Clothing', 'Autumn', 'Muted'], category: 'Clothing', likedProduct: false })
+                firebasePush(itemsRef, { link: "https://www.shopcider.com/product/detail?pid=1036728&style_id=141099&sku_id=193534&currency=USD&local=en&country=US&utm_source=google_shopping&utm_campaign=AdTiger_PLA_US_1_mia_0704&link_id=7001c7f1ab7d435ab832881bd57ad010&gad_source=1&gclid=Cj0KCQjwiYOxBhC5ARIsAIvdH50n6ouXVwN5xnavhxPnW2QrNPJmRMHJnhzkSyVZ39SC8bE_tIenCOsaAjIzEALw_wcB", img: 'img/v-neck.png', alt: 'Santorini Beach Vacation V-Neck Ruffle Knotted Crop Tank Top', title: 'Santorini Beach Vacation V-Neck Ruffle Knotted Crop Tank Top', price: '$24.00', filters: ['Cool', 'Light', 'Clothing', 'Summer', 'Muted'], category: 'Clothing', likedProduct: false })
+                firebasePush(itemsRef, { link: "https://bananarepublicfactory.gapfactory.com/browse/product.do?pid=8888370310001&vid=1&tid=bfpl000032&kwid=1&ap=7&gad_source=1&gclid=Cj0KCQjwiYOxBhC5ARIsAIvdH53zGJnsS0TpOiVuLYR844vcBBSt4TgMH1YqEzZ8dvZeTSSOFlyk8GsaAn9iEALw_wcB&gclsrc=aw.ds#pdp-page-content", img: 'img/Chiffon-Pleated-Maxi-Dress.png', alt: 'Chiffon Pleated Maxi Dress', title: 'Chiffon Pleated Maxi Dress', price: '$102.00', filters: ['Warm', 'Bright', 'Clothing', 'Spring', 'Light'], category: 'Clothing', likedProduct: false })
             }
         })
 
@@ -238,6 +255,7 @@ export function ProductsPage() {
             const allItemsArray = allItemsKeys.map((key) => {
                 const singleItemCopy = { ...allItemsObject[key] };
                 singleItemCopy.key = key;
+                // singleItemCopy.likedProduct = false;
                 return singleItemCopy;
             })
 
