@@ -47,53 +47,18 @@ function ProductCard(props) {
     const productRef = ref(database, "items/"+arraykey+"/likedProduct");
     const keyRef1 = ref(database, "items/"+arraykey+"/key");
     firebaseSet(keyRef1, arraykey);
-    // firebasePush(productRef, arraykey);
 
 
     const handleClick = (event) => {
 
-        const keyRef = ref(database, arraykey)
-        // console.log(arraykey);
-        // console.log(keyRef);
-        // firebasePush(likedRef, {key: arraykey});
-        // firebasePush(productRef, {key:arraykey});
-
-        //change Sarah's age to 43 (happy birthday!)
-        // const newValueForSarahAge = 43;
-
-        //assign the new value in the database
-        
-
         if (liked) {
             setLiked(false);
-            // likedProduct = false;
             firebaseSet(productRef, false);
 
         } else {
             setLiked(true);
-            // likedProduct = true;
             firebaseSet(productRef, true);
         }
-
-        // onValue(itemsRef, (snapshot) => {
-
-        //     const allItemsObject = snapshot.val();
-        //     // const allItemsKeys = Object.keys(allItemsObject);
-
-        //     const itemArray = (keyRef) => {
-        //         const singleItemCopy = { ...allItemsObject[keyRef] };
-        //         singleItemCopy.key = keyRef;
-        //         return singleItemCopy;
-        //     }
-
-        //     // const newArray = [...likedList, itemArray]
-        //     console.log(itemArray(arraykey));
-        //     firebasePush(likedRef, itemArray(arraykey));
-        //     // console.log(allItemsArray);
-        //     // setLikedList(newArray);
-        //     // firebasePush(likedRef, likedList);
-
-        // })
 
 
     }
