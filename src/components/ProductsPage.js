@@ -46,19 +46,46 @@ function ProductCard(props) {
     
     const productRef = ref(database, "items/"+arraykey+"/likedProduct");
     const keyRef1 = ref(database, "items/"+arraykey+"/key");
+    let heartRef;
+    
     firebaseSet(keyRef1, arraykey);
+    // console.log(liked);
 
 
     const handleClick = (event) => {
 
+        onValue(productRef, (snapshot) => {
+
+            if (snapshot.val()) {
+                heartRef = true;
+            } else {
+                heartRef = false;
+            }
+
+            // console.log("original: "+heartRef);
+            
+            // setLiked(heartRef);
+
+        })
+
         if (liked) {
             setLiked(false);
             firebaseSet(productRef, false);
+            // heartRef = !heartRef;
+            // console.log("heartRef: " + heartRef);
+            // console.log("liked: " + liked);
+            // console.log(productRef);
 
         } else {
             setLiked(true);
             firebaseSet(productRef, true);
+            // heartRef = !heartRef;
+            // console.log("heartRef: " + heartRef);
+            // console.log("liked: " + liked);
+            // console.log(productRef);
         }
+
+        
 
 
     }
