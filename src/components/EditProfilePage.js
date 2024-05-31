@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const profileInfo = {img: 'img/profile_image.png', alt: "profile image"}
 
@@ -21,23 +22,19 @@ export function EditProfilePage() {
                 <button type="button" className="btn-color rounded-5">Upload Picture</button>
             </div>
             <div className="section-part2">
-                <dl>
-                    <div className="name-plus-box">
-                        <dt>Name</dt>
-                        <dd>
-                            <p>Name</p>
-                        </dd>
+                <form className="userInfo">
+                    <div className="userName">
+                        <label for="userName">Name</label>
+                        <input type="text" placeholder="Name"/>
                     </div>
-                    <div className="name-plus-box">
-                        <dt>Age</dt>
-                        <dd>
-                            <p>Age</p>
-                        </dd>
+                    <div className="userAge">
+                        <label for="userAge">Age</label>
+                        <input type="text" placeholder="Age"/>
                     </div>
-                    <a href="ProfilePage.js">
+                    <Link to="../profile">
                         <button type="button" className="btn-color rounded-5">Save</button> 
-                    </a>
-                </dl>
+                    </Link>
+                </form>
             </div>
         </div>
     );

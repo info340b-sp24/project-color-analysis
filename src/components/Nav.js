@@ -6,7 +6,7 @@ export function Nav() {
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
                 <div>
-                    <Link to=".."><img src="img/Logo.png" alt="Color Aura logo" class="logo" /></Link>
+                    <Link to="../home"><img src="img/Logo.png" alt="Color Aura logo" class="logo" /></Link>
                 </div>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
