@@ -3,11 +3,16 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Link } from 'react-router-dom';
 import { getDatabase, ref, onValue } from "@firebase/database";
+import { getAuth, signOut } from 'firebase/auth';
 
 const profileInfo = {img: 'img/profile_image.png', alt: "profile image", name: "Bella", age: "21", email: "bella@uw.edu"}
 
 const recommendationList = [{src: 'img/profile_saved.png', alt: "saved items", info: "Naked2 Basics Eyeshadow Palette $35.00"},
 {src: 'img/profile_saved.png', alt: "saved items", info: "Naked2 Basics Eyeshadow Palette $35.00"}]
+
+const handleSignOut = (event) => {
+  signOut(getAuth());
+}
 
 function Profile(props) {
   
@@ -90,7 +95,11 @@ function RecommendationItem(props) {
 }
 
 function RecommendationItems(props) {
-  
+  // const db = getDatabase();
+  // const itemsRef = ref(db, "items");
+
+  // const [recItems, setRecItems] = useState([]);
+
   const saved = props.items;
 
   const RecommendationItemsArray = saved.map((item, index) => (
@@ -126,6 +135,9 @@ export function ProfilePage() {
             <Profile items={profileInfo} />
             <Link to="../edit">
               <button type="button" class="btn-color rounded-5">Edit Profile</button>
+            </Link>
+            <Link to="../signin">
+              <button type="button" class="btn-color rounded-5" onClick={handleSignOut}>Sign Out</button> 
             </Link>
           </section>
           <section className="section-two">

@@ -12,6 +12,7 @@
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.3.1",
+    "react-firebaseui": "https://gitpkg.now.sh/gvillenave/firebaseui-web-react/dist",
     "react-material-symbols": "^4.4.0",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
