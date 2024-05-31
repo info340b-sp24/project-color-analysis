@@ -15,7 +15,7 @@ import { Footer } from "./components/Footer";
 import { SignInPage } from "./components/SignInPage";
 // import { getDatabase, DataSnapshot, ref, push as firebasePush, onValue } from 'firebase/database';
 
-import { Route, Routes, Navigate, useNavigate, Outlet } from "react-router-dom";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 
@@ -48,28 +48,15 @@ function App() {
         <Route index element={<SignInPage />} />
         <Route path="home" element={<LandingPage />} />
         <Route path="signin" element={<SignInPage />} />
-
-        <Route element={<ProtectedPage currentUser={currentUser} />}>
-          <Route path="upload" element={<UploadPage />} />
-          <Route path="products" element={<ProductsPage />} />
-          <Route path="profile" element={<ProfilePage />} />
-          <Route path="edit" element={<EditProfilePage />} />
-          <Route path="quiz" element={<QuizLanding/>} />
-          <Route path="quiztaking" element={<QuizTaking/>} />
-        </Route>
-
+        <Route path="upload" element={<UploadPage />} />
+        <Route path="products" element={<ProductsPage />} />
+        <Route path="profile" element={<ProfilePage />} />
+        <Route path="edit" element={<EditProfilePage />} />
+        <Route path="quiz" element={<QuizLanding/>} />
+        <Route path="quiztaking" element={<QuizTaking/>} />
       </Routes>
     </div>
   );
-}
-
-function ProtectedPage(props) {
-  if(props.currentUser === null) {
-    return <Navigate to="/signin" />
-  }
-  else {
-    return <Outlet />
-  }
 }
 
 export default App;
