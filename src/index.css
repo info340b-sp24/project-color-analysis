@@ -874,6 +874,8 @@ body .body-ws {
 }
 
 .section-part1 {
+  display: flex;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -883,7 +885,7 @@ body .body-ws {
   font-size: 27px;
   font-weight: 700;
   margin-top: 5%;
-  margin-left: 5%;
+  margin-left: 20%;
   margin-right: auto;
 }
 
@@ -894,60 +896,40 @@ body .body-ws {
 }
 
 .section-part1 button {
-  margin-top: 6%;
-  margin-left: 20%;
-  margin-right: 3.8rem;
+  margin: 6% 15%;
   font-weight: 500;
-  font-size: 20px;
-  padding-left: 4%;
-  padding-right: 4%;
+  font-size: 18px;
 }
 
 .section-part2 {
-  margin-top: 10%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.name-plus-box {
+.section-part2 .userName, .section-part2 .userAge {
   display: flex;
   flex-direction: column;
 }
 
-.section-part2 dd {
-  box-sizing: border-box;
-  width: 239px;
-  height: 45px;
-  border: 1px solid #949494;
+.userInfo label {
+  font-size: 18px;
+}
+
+.userInfo input {
+  font-size: 20px;
   text-align: center;
-  border-radius: 10px;
-  color: #949494;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.section-part2 dt {
-  margin-bottom: 2%;
-  margin-left: 1rem;
-  display: block;
-  text-align: left;
-}
-
-.section-part2 dd p {
-  margin-top: 3%;
+  border-radius: 5px;
 }
 
 .section-part2 button {
-  margin-top: 4%;
+  margin: 7% 29%;
   text-align: center;
-  width: 98px;
-  height: 40px;
-  margin-left: 4.5rem;
+  width: 90px;
+  height: 33px;
   font-weight: 500;
-  font-size: 20px;
-  margin-bottom: 2rem;
+  font-size: 18px;
 }
 
 /* Upload Page */
@@ -1413,8 +1395,7 @@ body .body-ws {
   }
 
   .section-part1 {
-    margin-right: 2rem;
-    margin-top: 2rem;
+    margin: 7% 12%;
   }
 
   .section-part2 {

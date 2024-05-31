@@ -1,12 +1,10 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
+import { Link } from 'react-router-dom';
+import { getDatabase, ref, onValue } from "@firebase/database";
 
 const profileInfo = {img: 'img/profile_image.png', alt: "profile image", name: "Bella", age: "21", email: "bella@uw.edu"}
-
-const savedList = [{src: 'img/profile_saved.png', alt: "saved items", info: "Naked2 Basics Eyeshadow Palette $35.00"},
-{src: 'img/profile_saved.png', alt: "saved items", info: "Naked2 Basics Eyeshadow Palette $35.00"},
-{src: 'img/profile_saved.png', alt: "saved items", info: "Naked2 Basics Eyeshadow Palette $35.00"}]
 
 const recommendationList = [{src: 'img/profile_saved.png', alt: "saved items", info: "Naked2 Basics Eyeshadow Palette $35.00"},
 {src: 'img/profile_saved.png', alt: "saved items", info: "Naked2 Basics Eyeshadow Palette $35.00"}]
@@ -25,25 +23,42 @@ function Profile(props) {
   )
 }
 
-function SavedItem(props) {
-  
-  const { src, alt, info } = props;
-
+function SavedItem({ img, alt, title, price, link }) {
   return (
     <div className="flex-img-text">
-      <img src={src} alt={alt}/>
-      <p>{info}</p>
+      <a href={link}>
+        <img src={img} alt={alt}/>
+      </a>
+      <p>{title} {price}</p>
     </div>
   )
 }
 
 function SavedItems(props) {
+  const db = getDatabase();
+  const itemsRef = ref(db, "items");
+  
+  const [savedItems, setSavedItems] = useState([]);
 
-  const saved = props.items;
+  useEffect(() => {
+    onValue(itemsRef, (snapshot) => {
+      const allItemsObject = snapshot.val();
+      const allItemsKeys = Object.keys(allItemsObject);
 
-  const SavedItemsArray = saved.map((item, index) => (
-    <SavedItem key={index} src={item.src} alt={item.alt} info={item.info} />
+      const allLikedItems = allItemsKeys.filter((key) => allItemsObject[key].likedProduct).map((key) => {
+        const { img, alt, title, price, link } = allItemsObject[key];
+        return { img, alt, title, price, link };
+      });
+
+      console.log(allLikedItems);
+      setSavedItems(allLikedItems); 
+    })
+  })
+
+  const SavedItemsArray = savedItems.map((item, index) => (
+    <SavedItem key={index} img={item.img} alt={item.alt} title={item.title} price={item.price} link={item.link} />
   ))
+
   return (
     <div className="flex-item-arrow">
       <div className="flex-item">
@@ -109,9 +124,9 @@ export function ProfilePage() {
           <section className="section-one">
             <h1>My profile</h1>
             <Profile items={profileInfo} />
-            <a href="EditProfilePage.js">
+            <Link to="../edit">
               <button type="button" class="btn-color rounded-5">Edit Profile</button>
-            </a>
+            </Link>
           </section>
           <section className="section-two">
             <div className="flex-box bg-color">
@@ -126,7 +141,7 @@ export function ProfilePage() {
                 <img src="img/saved_items_icon.png" alt="saved items icon"/>
                 <h2>Saved Items</h2>
               </div>
-              <SavedItems items={savedList} />
+              <SavedItems/>
             </div>
             <div className="flex-box">
               <div className="flex-subtitle">
