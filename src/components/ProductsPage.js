@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
-import { getDatabase, DataSnapshot, ref, push as firebasePush, onValue, set as firebaseSet } from 'firebase/database';
+import { getDatabase, DataSnapshot, ref, off, push as firebasePush, onValue, set as firebaseSet } from 'firebase/database';
 
 // const database = getDatabase();
 // const itemsRef = ref(database, "items")
@@ -43,13 +43,21 @@ function ProductCard(props) {
     // const [productsList, setProductsList] = useState([]);
 
     const [liked, setLiked] = useState(false);
-    
-    const productRef = ref(database, "items/"+arraykey+"/likedProduct");
-    const keyRef1 = ref(database, "items/"+arraykey+"/key");
+
+    const productRef = ref(database, "items/" + arraykey + "/likedProduct");
+    const keyRef1 = ref(database, "items/" + arraykey + "/key");
     let heartRef;
-    
+
     firebaseSet(keyRef1, arraykey);
     // console.log(liked);
+
+    useEffect(() => {
+        setLiked(JSON.parse(window.localStorage.getItem('liked')));
+    }, []);
+
+    useEffect(() => {
+        window.localStorage.setItem('liked', liked);
+    }, [liked]);
 
 
     const handleClick = (event) => {
@@ -63,7 +71,7 @@ function ProductCard(props) {
             }
 
             // console.log("original: "+heartRef);
-            
+
             // setLiked(heartRef);
 
         })
@@ -71,21 +79,14 @@ function ProductCard(props) {
         if (liked) {
             setLiked(false);
             firebaseSet(productRef, false);
-            // heartRef = !heartRef;
-            // console.log("heartRef: " + heartRef);
-            // console.log("liked: " + liked);
-            // console.log(productRef);
 
         } else {
             setLiked(true);
             firebaseSet(productRef, true);
-            // heartRef = !heartRef;
-            // console.log("heartRef: " + heartRef);
-            // console.log("liked: " + liked);
-            // console.log(productRef);
+
         }
 
-        
+
 
 
     }
@@ -216,12 +217,14 @@ function ButtonFilter(props) {
 
 export function ProductsPage() {
 
-    const database = getDatabase();
-    const itemsRef = ref(database, "items")
+    // const database = getDatabase();
+    // const itemsRef = ref(database, "items")
     const [productsList, setProductsList] = useState([]);
 
     //items
     useEffect(() => {
+        const database = getDatabase();
+        const itemsRef = ref(database, "items")
         onValue(itemsRef, (snapshot) => {
             if (snapshot.val() === "") {
                 firebasePush(itemsRef, { link: "https://www.ulta.com/p/naked2-basics-eyeshadow-palette-xlsImpprod11151037?sku=2278485", img: 'img/Naked2.png', alt: 'naked2 basics eyeshadow palette', title: 'Naked2 Basics Eyeshadow Palette', price: '$35.00', filters: ['Neutral', 'Muted', 'Light', 'Product', 'Autumn', 'Dark'], category: 'Product', likedProduct: false })
@@ -254,9 +257,13 @@ export function ProductsPage() {
             // console.log(allItemsArray);
             setProductsList(allItemsArray);
 
+            return () => {
+                off(itemsRef);
+            };
+
         })
 
-    })
+    }, [])
 
     const [buttonFilter, setButtonFilter] = useState('');
     const [fullPage, setFullPage] = useState(false); //true means all the products are being shown
