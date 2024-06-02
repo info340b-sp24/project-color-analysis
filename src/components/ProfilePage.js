@@ -2,32 +2,14 @@ import { React, useEffect, useState } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Link } from 'react-router-dom';
-import { getDatabase, ref, onValue, off, get } from "@firebase/database";
+import { getDatabase, ref, onValue, off } from "@firebase/database";
 import { getAuth, signOut } from 'firebase/auth';
-
-
-// const profileInfo = {img: 'img/profileImage_default.png', alt: "profile image", name: "", email: ""}
 
 const handleSignOut = (event) => {
   signOut(getAuth());
 }
 
-// function Profile(props) {
-  
-//   const info = props.items;
-
-//   console.log("debug1");
-//   return (
-//     <div>
-//       <img src={info.img} alt={info.alt} className="rounded-circle border border-dark"/>
-//       <p>Name : {info.name}</p>
-//       <p>Email : {info.email}</p>
-//     </div>
-//   )
-// }
-
 function SavedItem({ img, alt, title, price, link }) {
-  console.log("debug2");
   return (
     <div className="flex-img-text">
       <a href={link}>
@@ -39,29 +21,32 @@ function SavedItem({ img, alt, title, price, link }) {
 }
 
 function SavedItems(props) {
-  console.log("debug3");
+  const user = props.user;
   const db = getDatabase();
-  const itemsRef = ref(db, "items");
+  const userLikedRef = ref(db, "userData/" + user.uid + "/liked");
   
   const [savedItems, setSavedItems] = useState([]);
 
   useEffect(() => {
-    onValue(itemsRef, (snapshot) => {
-      const allItemsObject = snapshot.val();
-      const allItemsKeys = Object.keys(allItemsObject);
-
-      const allLikedItems = allItemsKeys.filter((key) => allItemsObject[key].likedProduct).map((key) => {
-        const { img, alt, title, price, link } = allItemsObject[key];
-        return { img, alt, title, price, link };
-      });
-
-      // console.log(allLikedItems);
-      setSavedItems(allLikedItems); 
+    onValue(userLikedRef, (snapshot) => {
+      const likedObject = snapshot.val();
+      if (likedObject) {
+        const likedKeys = Object.keys(likedObject);
+        const likedItems = likedKeys.filter((key) => {
+          const item = likedObject[key];
+          return item.img
+        }).map((key) => {
+          const { img, alt, title, price, link } = likedObject[key];
+          return { img, alt, title, price, link };
+        })
+        setSavedItems(likedItems);
+      } else {
+        setSavedItems([]);
+      }
     })
-    console.log("debug4");
     return () => {
-      off(itemsRef);
-    };
+      off(userLikedRef);
+    }
   }, [])
 
   const SavedItemsArray = savedItems.map((item, index) => (
@@ -87,7 +72,7 @@ function SavedItems(props) {
 }
 
 function RecommendationItem({ img, alt, title, price, link }) {
-  console.log("debug5");
+  // console.log("debug1");
   return (
     <div className="flex-img-text">
       <a href={link}>
@@ -99,10 +84,11 @@ function RecommendationItem({ img, alt, title, price, link }) {
 }
 
 function RecommendationItems(props) {
-  console.log("debug6");
+  const user = props.user;
+  // console.log("debug2");
   const db = getDatabase();
   const itemsRef = ref(db, "items");
-  const resultRef = ref(db, "userData/HfUVYKVenWhsohGsCshV2rKLR743");
+  const userRef = ref(db, "userData/" + user.uid);
 
   const [recItems, setRecItems] = useState([]);
   const [resultTemp, setResultTemp] = useState(null);
@@ -110,17 +96,15 @@ function RecommendationItems(props) {
 
 
   useEffect(() => {
-    onValue(resultRef, (snapshot) => {
-      const resultObject = snapshot.val();
-      console.log(resultObject);
-      // const result = Object.keys(resultObject)[0];
+    onValue(userRef, (snapshot) => {
+      const userObject = snapshot.val();
 
-      setResultTemp(resultObject.temp);
-      setResultSeason(resultObject.season);
-    });
+      setResultTemp(userObject.temp);
+      setResultSeason(userObject.season);
+    })
 
     onValue(itemsRef, (snapshot) => {
-      console.log("debug7");
+      // console.log("debug3");
       const allItemsObject = snapshot.val();
       const allRecItems = Object.keys(allItemsObject).filter((key) => {
         
@@ -133,16 +117,17 @@ function RecommendationItems(props) {
         const { img, alt, title, price, link } = allItemsObject[key];
         return { img, alt, title, price, link };
       });
-      console.log("debug12");
+      // console.log("debug4");
       // console.log(allRecItems);
       setRecItems(allRecItems); 
-      console.log("debug13");
+      // console.log("debug5");
     })
 
     return () => {
       off(itemsRef);
-    };
-  }, [])
+      off(userRef);
+    }
+  })
 
   const RecommendationItemsArray = recItems.map((item, index) => (
     <RecommendationItem key={index} img={item.img} alt={item.alt} title={item.title} price={item.price} link={item.link} />
@@ -168,26 +153,25 @@ function RecommendationItems(props) {
 
 export function ProfilePage(props) {
 
-    const user = props.user
+    const user = props.user;
+
     const db = getDatabase();
-    const resultRef = ref(db, "userData/HfUVYKVenWhsohGsCshV2rKLR743");
-    const userEmailRef = ref(db, "userData/" + user.uid + "/email");
-    const userNameRef = ref(db, "userData/" + user.uid + "/name")
-    const email = get(userEmailRef);
-    console.log(email);
+    const userRef = ref(db, "userData/" + user.uid);
 
     const [resultTemp, setResultTemp] = useState(null);
     const [resultSeason, setResultSeason] = useState(null);
+    const [userEmail, setUserEmail] = useState('');
+    const [userName, setUserName] = useState('');
+
 
     useEffect(() => {
-      onValue(resultRef, (snapshot) => {
-        const resultObject = snapshot.val();
-        console.log(resultObject);
-        // const result = Object.keys(resultObject)[0];
-  
-        setResultTemp(resultObject.temp);
-        setResultSeason(resultObject.season);
-      });
+      onValue(userRef, (snapshot) => {
+        const userObject = snapshot.val();
+        setResultTemp(userObject.temp);
+        setResultSeason(userObject.season);
+        setUserEmail(userObject.email);
+        setUserName(userObject.name);
+      })
     }, [])
     
     return (
@@ -198,8 +182,8 @@ export function ProfilePage(props) {
             <h1>My profile</h1>
             <div>
               <img src='img/profileImage_default.png' alt="profile image" className="rounded-circle border border-dark"/>
-              <p>Name : </p>
-              <p>Email : </p>
+              <p>Name : {userName}</p>
+              <p>Email : {userEmail}</p>
             </div>
             <Link to="../edit">
               <button type="button" class="btn-color rounded-5">Edit Profile</button>
@@ -223,14 +207,14 @@ export function ProfilePage(props) {
                 <img src="img/saved_items_icon.png" alt="saved items icon"/>
                 <h2>Saved Items</h2>
               </div>
-              <SavedItems/>
+              <SavedItems user={user}/>
             </div>
             <div className="flex-box">
               <div className="flex-subtitle">
                 <img src="img/recommendations_icon.png" alt="recommendations icon"/>
                 <h2>Recommendations</h2>
               </div>
-              <RecommendationItems/>
+              <RecommendationItems user={user}/>
             </div>
           </section>
         </div>
