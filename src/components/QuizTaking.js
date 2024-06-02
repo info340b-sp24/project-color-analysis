@@ -150,20 +150,24 @@ function QuizTaking(props) {
     const resultSeason = determineSeason(selectedAnswers);
     setSeason(resultSeason);
     seasonResult = resultSeason;
+
+    let seasonResultSeperate = seasonResult.split('-');
     
+    let temp = seasonResultSeperate[0];
+    let season = seasonResultSeperate[1];
+    
+    temp = temp.charAt(0).toUpperCase() + temp.slice(1);
+    season = season.charAt(0).toUpperCase() + season.slice(1);
+
     const db = getDatabase();
     const resultRef = ref(db, "results");
-    firebasePush(resultRef, { season: seasonResult });
+    firebasePush(resultRef, { temp: temp, season: season });
   };
 
   const questionCards = quizQuestions.map((q, index) => {
     return (
       <QuestionCard
-        key={index}
-        question={q.question}
-        options={q.options}
-        selectedOption={answers[q.question]}
-        onOptionSelect={(option) => handleOptionSelect(q.question, option)}
+        key={index} question={q.question} options={q.options} selectedOption={answers[q.question]} onOptionSelect={(option) => handleOptionSelect(q.question, option)}
       />
     );
   });
