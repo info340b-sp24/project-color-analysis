@@ -152,10 +152,8 @@ function QuizTaking(props) {
     seasonResult = resultSeason;
 
     let seasonResultSeperate = seasonResult.split('-');
-    
     let temp = seasonResultSeperate[0];
     let season = seasonResultSeperate[1];
-    
     temp = temp.charAt(0).toUpperCase() + temp.slice(1);
     season = season.charAt(0).toUpperCase() + season.slice(1);
 
