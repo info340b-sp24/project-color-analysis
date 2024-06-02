@@ -18,7 +18,7 @@ function QuestionCard(props) {
   const {question, options, selectedOption, onOptionSelect} = props;
   const optionButtons = options.map((option) => {
     return (
-      <button key={option} className={"quiz-option " + (selectedOption === option ? "selected" : "")} onClick={() => onOptionSelect(option)}>
+      <button key={option} className={"quiz-option " + (selectedOption === option && "selected")} onClick={() => onOptionSelect(option)}>
         {option}
       </button>
     );
