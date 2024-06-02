@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Link } from 'react-router-dom';
+import { getDatabase, ref, push as firebasePush } from 'firebase/database';
 
 const quizQuestions = [
   {question: "What is your natural hair color?", options: ["Black", "Blonde", "Brown", "Red"]},
@@ -149,16 +150,22 @@ function QuizTaking(props) {
     const resultSeason = determineSeason(selectedAnswers);
     setSeason(resultSeason);
     seasonResult = resultSeason;
+
+    let seasonResultSeperate = seasonResult.split('-');
+    let temp = seasonResultSeperate[0];
+    let season = seasonResultSeperate[1];
+    temp = temp.charAt(0).toUpperCase() + temp.slice(1);
+    season = season.charAt(0).toUpperCase() + season.slice(1);
+
+    const db = getDatabase();
+    const resultRef = ref(db, "results");
+    firebasePush(resultRef, { temp: temp, season: season });
   };
 
   const questionCards = quizQuestions.map((q, index) => {
     return (
       <QuestionCard
-        key={index}
-        question={q.question}
-        options={q.options}
-        selectedOption={answers[q.question]}
-        onOptionSelect={(option) => handleOptionSelect(q.question, option)}
+        key={index} question={q.question} options={q.options} selectedOption={answers[q.question]} onOptionSelect={(option) => handleOptionSelect(q.question, option)}
       />
     );
   });
