@@ -2,33 +2,32 @@ import { React, useEffect, useState } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Link } from 'react-router-dom';
-import { getDatabase, ref, onValue } from "@firebase/database";
+import { getDatabase, ref, onValue, off, get } from "@firebase/database";
 import { getAuth, signOut } from 'firebase/auth';
 
-const profileInfo = {img: 'img/profile_image.png', alt: "profile image", name: "Bella", age: "21", email: "bella@uw.edu"}
 
-const recommendationList = [{src: 'img/profile_saved.png', alt: "saved items", info: "Naked2 Basics Eyeshadow Palette $35.00"},
-{src: 'img/profile_saved.png', alt: "saved items", info: "Naked2 Basics Eyeshadow Palette $35.00"}]
+// const profileInfo = {img: 'img/profileImage_default.png', alt: "profile image", name: "", email: ""}
 
 const handleSignOut = (event) => {
   signOut(getAuth());
 }
 
-function Profile(props) {
+// function Profile(props) {
   
-  const info = props.items;
+//   const info = props.items;
 
-  return (
-    <div>
-      <img src={info.img} alt={info.alt} className="rounded-circle border border-dark"/>
-      <p>Name : {info.name}</p>
-      <p>Age : {info.age}</p>
-      <p>Email : {info.email}</p>
-    </div>
-  )
-}
+//   console.log("debug1");
+//   return (
+//     <div>
+//       <img src={info.img} alt={info.alt} className="rounded-circle border border-dark"/>
+//       <p>Name : {info.name}</p>
+//       <p>Email : {info.email}</p>
+//     </div>
+//   )
+// }
 
 function SavedItem({ img, alt, title, price, link }) {
+  console.log("debug2");
   return (
     <div className="flex-img-text">
       <a href={link}>
@@ -40,6 +39,7 @@ function SavedItem({ img, alt, title, price, link }) {
 }
 
 function SavedItems(props) {
+  console.log("debug3");
   const db = getDatabase();
   const itemsRef = ref(db, "items");
   
@@ -55,10 +55,14 @@ function SavedItems(props) {
         return { img, alt, title, price, link };
       });
 
-      console.log(allLikedItems);
+      // console.log(allLikedItems);
       setSavedItems(allLikedItems); 
     })
-  })
+    console.log("debug4");
+    return () => {
+      off(itemsRef);
+    };
+  }, [])
 
   const SavedItemsArray = savedItems.map((item, index) => (
     <SavedItem key={index} img={item.img} alt={item.alt} title={item.title} price={item.price} link={item.link} />
@@ -82,28 +86,66 @@ function SavedItems(props) {
   )
 }
 
-function RecommendationItem(props) {
-  
-  const { src, alt, info } = props;
-
+function RecommendationItem({ img, alt, title, price, link }) {
+  console.log("debug5");
   return (
     <div className="flex-img-text">
-      <img src={src} alt={alt}/>
-      <p>{info}</p>
+      <a href={link}>
+        <img src={img} alt={alt}/>
+        <p>{title} {price}</p>
+      </a>
     </div>
   )
 }
 
 function RecommendationItems(props) {
-  // const db = getDatabase();
-  // const itemsRef = ref(db, "items");
+  console.log("debug6");
+  const db = getDatabase();
+  const itemsRef = ref(db, "items");
+  const resultRef = ref(db, "userData/HfUVYKVenWhsohGsCshV2rKLR743");
 
-  // const [recItems, setRecItems] = useState([]);
+  const [recItems, setRecItems] = useState([]);
+  const [resultTemp, setResultTemp] = useState(null);
+  const [resultSeason, setResultSeason] = useState(null);
 
-  const saved = props.items;
 
-  const RecommendationItemsArray = saved.map((item, index) => (
-    <RecommendationItem key={index} src={item.src} alt={item.alt} info={item.info} />
+  useEffect(() => {
+    onValue(resultRef, (snapshot) => {
+      const resultObject = snapshot.val();
+      console.log(resultObject);
+      // const result = Object.keys(resultObject)[0];
+
+      setResultTemp(resultObject.temp);
+      setResultSeason(resultObject.season);
+    });
+
+    onValue(itemsRef, (snapshot) => {
+      console.log("debug7");
+      const allItemsObject = snapshot.val();
+      const allRecItems = Object.keys(allItemsObject).filter((key) => {
+        
+        const itemFilters = allItemsObject[key].filters;
+        const matchingTemp = itemFilters.includes(resultTemp);
+        const matchingSeason = itemFilters.includes(resultSeason);
+
+        return matchingTemp && matchingSeason;
+      }).map((key) => {
+        const { img, alt, title, price, link } = allItemsObject[key];
+        return { img, alt, title, price, link };
+      });
+      console.log("debug12");
+      // console.log(allRecItems);
+      setRecItems(allRecItems); 
+      console.log("debug13");
+    })
+
+    return () => {
+      off(itemsRef);
+    };
+  }, [])
+
+  const RecommendationItemsArray = recItems.map((item, index) => (
+    <RecommendationItem key={index} img={item.img} alt={item.alt} title={item.title} price={item.price} link={item.link} />
   ))
 
   return (
@@ -124,15 +166,41 @@ function RecommendationItems(props) {
   )
 }
 
-export function ProfilePage() {
+export function ProfilePage(props) {
 
+    const user = props.user
+    const db = getDatabase();
+    const resultRef = ref(db, "userData/HfUVYKVenWhsohGsCshV2rKLR743");
+    const userEmailRef = ref(db, "userData/" + user.uid + "/email");
+    const userNameRef = ref(db, "userData/" + user.uid + "/name")
+    const email = get(userEmailRef);
+    console.log(email);
+
+    const [resultTemp, setResultTemp] = useState(null);
+    const [resultSeason, setResultSeason] = useState(null);
+
+    useEffect(() => {
+      onValue(resultRef, (snapshot) => {
+        const resultObject = snapshot.val();
+        console.log(resultObject);
+        // const result = Object.keys(resultObject)[0];
+  
+        setResultTemp(resultObject.temp);
+        setResultSeason(resultObject.season);
+      });
+    }, [])
+    
     return (
       <div className="profile">
         <Nav />
         <div className="profile-content">
           <section className="section-one">
             <h1>My profile</h1>
-            <Profile items={profileInfo} />
+            <div>
+              <img src='img/profileImage_default.png' alt="profile image" className="rounded-circle border border-dark"/>
+              <p>Name : </p>
+              <p>Email : </p>
+            </div>
             <Link to="../edit">
               <button type="button" class="btn-color rounded-5">Edit Profile</button>
             </Link>
@@ -141,12 +209,14 @@ export function ProfilePage() {
             </Link>
           </section>
           <section className="section-two">
-            <div className="flex-box bg-color">
+            <div className="flex-box bg-color quizBox">
               <div className="flex-subtitle">
                 <img src="img/quiz_result_icon.png" alt="quiz result icon"/>
                 <h2>Quiz Result</h2>                
               </div>
-              <p>You are a Warm Autumn!</p>
+              {resultTemp && resultSeason &&
+                <p>You are a {resultTemp} {resultSeason}!</p> 
+              }
             </div>
             <div className="flex-box">
               <div className="flex-subtitle">
@@ -160,7 +230,7 @@ export function ProfilePage() {
                 <img src="img/recommendations_icon.png" alt="recommendations icon"/>
                 <h2>Recommendations</h2>
               </div>
-              <RecommendationItems items={recommendationList} />
+              <RecommendationItems/>
             </div>
           </section>
         </div>
