@@ -29,6 +29,8 @@ const filtArray = [{ title: 'Season', filters: ['Autumn', 'Winter', 'Spring', 'S
 
 function ProductCard(props) {
 
+    const user = props.user;
+
     const { link, img, alt, title, price, filters, arraykey } = props;
     let likedProduct = props.likedProduct;
     const filtersArray = filters.map((filter) => {
@@ -44,8 +46,14 @@ function ProductCard(props) {
 
     const [liked, setLiked] = useState(false);
 
+    const [likedArray, setLikedArray] = useState([]);
+
     const productRef = ref(database, "items/" + arraykey + "/likedProduct");
     const keyRef1 = ref(database, "items/" + arraykey + "/key");
+    const wholeProductRef = ref(database, "items/" + arraykey);
+    const userLikedRef = ref(database, "userData/" + user.uid + "/liked");
+    const userLikedItemRef = ref(database, "userData/" + user.uid + "/liked/" + arraykey);
+    
     let heartRef;
 
     firebaseSet(keyRef1, arraykey);
@@ -80,11 +88,60 @@ function ProductCard(props) {
             setLiked(false);
             firebaseSet(productRef, false);
 
+            onValue(wholeProductRef, (snapshot) => {
+
+                const allItemsObject = snapshot.val();
+                const key = allItemsObject.key;
+                // const allItemsKeys = Object.keys(allItemsObject);
+    
+                // const allItemsArray = allItemsKeys.map((key) => {
+                //     const singleItemCopy = [ ...allItemsObject];
+                //     singleItemCopy.key = key;
+                //     // singleItemCopy.likedProduct = false;
+                //     return singleItemCopy;
+                // })
+    
+                console.log(allItemsObject);
+
+                if (allItemsObject != ""){
+                    firebaseSet(userLikedItemRef, "");
+                }
+                
+                // setLikedArray(allItemsArray);
+    
+                // return () => {
+                //     off(wholeProductRef);
+                // };
+    
+            })
+
+            
+
+
         } else {
             setLiked(true);
             firebaseSet(productRef, true);
 
+            onValue(wholeProductRef, (snapshot) => {
+
+                // if(snapshot.val() != null) {
+                    firebaseSet(userLikedItemRef, snapshot.val());
+                // }
+            
+               
+                console.log(snapshot.val());
+                // firebaseSet(userLikedItemRef, allItemsObject);
+
+                
+    
+            })
+
+            
+            
+
         }
+
+        // console.log(likedArray);
 
 
 
@@ -138,7 +195,7 @@ function ProductsCardList(props) {
     const products = props.products;
 
     const productsArray = products.map((product, index) => {
-        return <ProductCard arraykey={product.key} key={index} link={product.link} img={product.img} alt={product.alt} title={product.title} price={product.price} filters={product.filters} likedProduct={products.liked} />
+        return <ProductCard user={props.user} arraykey={product.key} key={index} link={product.link} img={product.img} alt={product.alt} title={product.title} price={product.price} filters={product.filters} likedProduct={products.liked} />
     })
 
     return (
@@ -215,8 +272,9 @@ function ButtonFilter(props) {
 
 
 
-export function ProductsPage() {
+export function ProductsPage(props) {
 
+    const user = props.user; 
     // const database = getDatabase();
     // const itemsRef = ref(database, "items")
     const [productsList, setProductsList] = useState([]);
@@ -380,7 +438,7 @@ export function ProductsPage() {
                         </div>
                         <div className="row">
                             <FiltersList filters={filtArray} onclick={applyFilter} />
-                            <ProductsCardList products={cardList} />
+                            <ProductsCardList products={cardList} user = {user} />
                         </div>
                     </div>
                 </div>

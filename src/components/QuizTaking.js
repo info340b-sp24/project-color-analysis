@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { Link } from 'react-router-dom';
-import { getDatabase, ref, push as firebasePush } from 'firebase/database';
+import { getDatabase, ref, push as firebasePush, set as firebaseSet } from 'firebase/database';
 
 const quizQuestions = [
   {question: "What is your natural hair color?", options: ["Black", "Blonde", "Brown", "Red"]},
@@ -136,6 +136,7 @@ function handleClick(event) {
 }
 
 function QuizTaking(props) {
+  const user = props.user;
   const [answers, setAnswers] = useState({});
   const [season, setSeason] = useState('');
 
@@ -158,8 +159,10 @@ function QuizTaking(props) {
     season = season.charAt(0).toUpperCase() + season.slice(1);
 
     const db = getDatabase();
-    const resultRef = ref(db, "results");
-    firebasePush(resultRef, { temp: temp, season: season });
+    const userTempRef = ref(db, "userData/" + user.uid + "/temp");
+    const userSznRef = ref(db, "userData/" + user.uid + "/season");
+    firebaseSet(userTempRef, temp); 
+    firebaseSet(userSznRef, season);
   };
 
   const questionCards = quizQuestions.map((q, index) => {
@@ -203,8 +206,5 @@ function QuizTaking(props) {
   );
 }
 
-export function getSeason() {
-  return seasonResult;
-}
 
 export default QuizTaking;

@@ -33,15 +33,17 @@ function App() {
       if (user) {
         console.log("signing in as", user.displayName);
         setCurrentUser(user);
-        
+
         // console.log("is not null");
         if (user.uid != null) {
           // console.log("test is not null")
-          const userRef = ref(database, "userData/" + user.uid + "/dob");
-          firebaseSet(userRef, "09/20/03");
+          const userNameRef = ref(database, "userData/" + user.uid + "/name");
+          const userEmailRef = ref(database, "userData/" + user.uid + "/email");
+          firebaseSet(userNameRef, user.displayName);
+          firebaseSet(userEmailRef, user.email);
+          
         }
-        // const userRef = ref(database, "userData/" + currentUser.uid + "/dob");
-        // firebaseSet(userRef, "09/20/03");
+        
 
 
       }
@@ -64,11 +66,11 @@ function App() {
 
         <Route element={<ProtectedPage currentUser={currentUser} />}>
           <Route path="upload" element={<UploadPage />} />
-          <Route path="products" element={<ProductsPage />} />
+          <Route path="products" element={<ProductsPage user = {currentUser} />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="edit" element={<EditProfilePage />} />
           <Route path="quiz" element={<QuizLanding />} />
-          <Route path="quiztaking" element={<QuizTaking />} />
+          <Route path="quiztaking" element={<QuizTaking user = {currentUser}/>} />
         </Route>
 
       </Routes>
