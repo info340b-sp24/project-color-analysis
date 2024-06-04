@@ -3,7 +3,7 @@ import { Nav } from './Nav';
 import { Footer } from './Footer';
 import { MaterialSymbol } from "react-material-symbols";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-// import { updateProfile} from 'firebase/auth';
+// import { updateProfile } from 'firebase/auth';
 import { getDatabase, ref as dbRef, set as firebaseSet, push as firebasePush, onValue } from 'firebase/database';
 
 
@@ -22,6 +22,7 @@ function UploadPicture(props) {
 
     const key = props.index;
     const setKey = props.clearIndex;
+    const uploaded = props.uploaded;
 
     
 
@@ -34,6 +35,11 @@ function UploadPicture(props) {
 
     //image uploading!
     const handleChange = (event) => {
+
+        if (uploaded == false){
+            alert("Please fill out product description first.")
+        }
+
         if (event.target.files.length > 0 && event.target.files[0]) {
             const imageFile = event.target.files[0]
             setImageFile(imageFile);
@@ -42,25 +48,28 @@ function UploadPicture(props) {
     }
 
     const handleImageUpload = async (event) => {
-        //upload the file to the storage db
-        console.log("Uploading", imageFile);
-        const storage = getStorage();
-        const imageRef = ref(storage, "userImages/hello.png");
-        await uploadBytes(imageRef, imageFile)
+        if (uploaded == false){
+            alert("Please fill out product description first.")
+        } else {
+            //upload the file to the storage db
+            console.log("Uploading", imageFile);
+            const storage = getStorage();
+            const imageRef = ref(storage, "userImages/hello.png");
+            await uploadBytes(imageRef, imageFile)
 
-        // get the url to this uploaded file so we can reference it from the web
-        const downloadUrlString = await getDownloadURL(imageRef);
-        console.log(downloadUrlString);
+            // get the url to this uploaded file so we can reference it from the web
+            const downloadUrlString = await getDownloadURL(imageRef);
+            console.log(downloadUrlString);
 
 
-        //also put in real time database (for fun)
-        const db = getDatabase();
-        const userImgRef = dbRef(db, "items/" + key + "/img");
-        console.log(key);
-        await firebaseSet(userImgRef, downloadUrlString);
-        setKey('');
-        alert("Product uploaded successfully");
-
+            //also put in real time database (for fun)
+            const db = getDatabase();
+            const userImgRef = dbRef(db, "items/" + key + "/img");
+            console.log(key);
+            await firebaseSet(userImgRef, downloadUrlString);
+            setKey('');
+            alert("Product uploaded successfully");
+        }
     }
 
     return (
@@ -86,7 +95,6 @@ function UploadPicture(props) {
                 </div> */}
             </div>
         </section>
-
 
     )
 }
@@ -119,6 +127,8 @@ function UploadInfo() {
     const [index, setIndex] = useState(0);
     const [count, setCount] = useState(0);
 
+    const [uploaded, setUploaded] = useState(false);
+
     const [typedValueDesc, setTypedValueDesc] = useState("");
     const [selectedValueType, setSelectedValueType] = useState("");
     const [selectedValueTemp, setSelectedValueTemp] = useState("");
@@ -127,11 +137,9 @@ function UploadInfo() {
     const [selectedValueValue, setSelectedValueValue] = useState("");
 
 
-
     // const handleChange = (event) => {
     //      //update state and re-render!
     // }
-
 
 
     const handleChangeDesc = (event) => {
@@ -151,8 +159,6 @@ function UploadInfo() {
             productInfoCopy[name] = newValue;
 
         }
-
-
 
         setProductInfo(productInfoCopy);
     }
@@ -175,8 +181,6 @@ function UploadInfo() {
 
         }
 
-
-
         setProductInfo(productInfoCopy);
     }
 
@@ -197,8 +201,6 @@ function UploadInfo() {
             productInfoCopy[name] = newValue;
 
         }
-
-
 
         setProductInfo(productInfoCopy);
     }
@@ -221,8 +223,6 @@ function UploadInfo() {
 
         }
 
-
-
         setProductInfo(productInfoCopy);
     }
 
@@ -244,8 +244,6 @@ function UploadInfo() {
 
         }
 
-
-
         setProductInfo(productInfoCopy);
     }
 
@@ -266,8 +264,6 @@ function UploadInfo() {
             productInfoCopy[name] = newValue;
 
         }
-
-
 
         setProductInfo(productInfoCopy);
     }
@@ -293,8 +289,6 @@ function UploadInfo() {
 
         }
 
-
-
         setProductInfo(productInfoCopy);
 
     }
@@ -303,30 +297,31 @@ function UploadInfo() {
 
     const validateAndSubmit = (event) => {
 
-        // firebaseSet(keyRef1, arraykey); 
-        firebasePush(imageRef, productInfo);
-        console.log("pushed");
-        alert("Item Description submitted");
+        try {
+            // firebaseSet(keyRef1, arraykey); 
+            firebasePush(imageRef, productInfo);
+            console.log("pushed");
+            alert("Item Description submitted");
 
-        onValue(imageRef, (snapshot) => {
+            onValue(imageRef, (snapshot) => {
 
-            const products = snapshot.val();
-            const length = Object.keys(products).length - 1;
+                const products = snapshot.val();
+                const length = Object.keys(products).length - 1;
 
-            setKey(Object.keys(products)[length]);
+                setKey(Object.keys(products)[length]);
+                setUploaded(true);
 
-            // console.log("original: "+heartRef);
+                // console.log("original: "+heartRef);
+                // setLiked(heartRef);
 
-            // setLiked(heartRef);
-
-        })
+            })
+        } catch (error) {
+            alert("An error occurred while uploading the product description.")
+        }
     }
 
 
-
-
     return (
-
         <section className="flex-container-upload">
             {/* <section className="flex-item-left">
                 <UploadPicture index={key} clearIndex={setKey}/>
@@ -479,7 +474,7 @@ function UploadInfo() {
                 </section >
             </section>
             <section className="flex-item-left">
-                <UploadPicture index={key} clearIndex={setKey}/>
+                <UploadPicture index={key} clearIndex={setKey} uploaded={uploaded}/>
             </section>
 
             {/* <UploadInfo
@@ -492,9 +487,6 @@ function UploadInfo() {
 
 
         </section>
-
-
-
 
 
     )
