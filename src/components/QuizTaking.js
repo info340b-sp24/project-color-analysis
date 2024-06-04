@@ -17,11 +17,8 @@ let seasonResult = '';
 function QuestionCard(props) {
   const {question, options, selectedOption, onOptionSelect} = props;
   const optionButtons = options.map((option) => {
-    return (
-      <button key={option} className={"quiz-option " + (selectedOption === option && "selected")} onClick={() => onOptionSelect(option)}>
-        {option}
-      </button>
-    );
+    let qButton = <button key={option} className={"quiz-option " + (selectedOption === option && "selected")} onClick={() => onOptionSelect(option)}> {option} </button>
+    return qButton;
   });
 
   return (
@@ -120,9 +117,9 @@ function getBackgroundClass(props) {
   const baseClass = 'big-square-qr background-color-';
   if (props === 'cool-winter') {
     return baseClass + 'cw';
-  } else if (props === 'cool-spring') {
+  } else if (props  === 'cool-spring') {
     return baseClass + 'cs';
-  } else if (props === 'warm-autumn') {
+  } else if (props  === 'warm-autumn') {
     return baseClass + 'wa';
   } else {
     return baseClass + 'ws';
@@ -164,11 +161,8 @@ function QuizTaking(props) {
   };
 
   const questionCards = quizQuestions.map((q, index) => {
-    return (
-      <QuestionCard
-        key={index} question={q.question} options={q.options} selectedOption={answers[q.question]} onOptionSelect={(option) => handleOptionSelect(q.question, option)}
-      />
-    );
+    let qCard = <QuestionCard key={index} question={q.question} options={q.options} selectedOption={answers[q.question]} onOptionSelect={(option) => handleOptionSelect(q.question, option)}/>
+    return qCard;
   });
 
   return (
@@ -203,6 +197,5 @@ function QuizTaking(props) {
     </div>
   );
 }
-
 
 export default QuizTaking;
