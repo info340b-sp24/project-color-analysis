@@ -17,7 +17,7 @@ let seasonResult = '';
 function QuestionCard(props) {
   const {question, options, selectedOption, onOptionSelect} = props;
   const optionButtons = options.map((option) => {
-    let qButton = <button key={option} className={"quiz-option " + (selectedOption === option && "selected")} aria-label="Select option" onClick={() => onOptionSelect(option)}> {option} </button>
+    let qButton = <button key={option} className={"quiz-option " + (selectedOption === option && "selected")} onClick={() => onOptionSelect(option)}> {option} </button>
     return qButton;
   });
 
@@ -171,7 +171,7 @@ function QuizTaking(props) {
       {!season && (
         <main className="body-qt">
           {questionCards}
-          <button className="next-button-qt" aria-label="Get results" onClick={handleGetResultsClick}>
+          <button className="next-button-qt" onClick={handleGetResultsClick}>
             Get Results!
           </button>
         </main>
