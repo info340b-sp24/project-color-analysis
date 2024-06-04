@@ -59,13 +59,13 @@ function ProductCard(props) {
     firebaseSet(keyRef1, arraykey);
     // console.log(liked);
 
-    useEffect(() => {
-        setLiked(JSON.parse(window.localStorage.getItem('liked')));
-    }, []);
+    // useEffect(() => {
+    //     setLiked(JSON.parse(window.localStorage.getItem('liked')));
+    // }, []);
 
-    useEffect(() => {
-        window.localStorage.setItem('liked', liked);
-    }, [liked]);
+    // useEffect(() => {
+    //     window.localStorage.setItem('liked', liked);
+    // }, [liked]);
 
 
     const handleClick = (event) => {

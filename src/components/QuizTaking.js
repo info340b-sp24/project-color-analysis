@@ -17,11 +17,8 @@ let seasonResult = '';
 function QuestionCard(props) {
   const {question, options, selectedOption, onOptionSelect} = props;
   const optionButtons = options.map((option) => {
-    return (
-      <button key={option} className={"quiz-option " + (selectedOption === option && "selected")} onClick={() => onOptionSelect(option)}>
-        {option}
-      </button>
-    );
+    let qButton = <button key={option} className={"quiz-option " + (selectedOption === option && "selected")} onClick={() => onOptionSelect(option)}> {option} </button>
+    return qButton;
   });
 
   return (
@@ -32,7 +29,7 @@ function QuestionCard(props) {
   );
 }
 
-function determineSeason(answers) {
+function determineSeason(props) {
   let scores = {
     "cool-winter": 0,
     "cool-spring": 0,
@@ -40,7 +37,7 @@ function determineSeason(answers) {
     "warm-summer": 0
   };
 
-  answers.forEach((answer) => {
+  props.forEach((answer) => {
     if (["Black", "Brown"].includes(answer)) {
       scores["cool-winter"]++;
       scores["warm-autumn"]++;
@@ -116,18 +113,16 @@ function determineSeason(answers) {
   return resultSeason;
 }
 
-function getBackgroundClass(season) {
+function getBackgroundClass(props) {
   const baseClass = 'big-square-qr background-color-';
-  if (season === 'cool-winter') {
+  if (props === 'cool-winter') {
     return baseClass + 'cw';
-  } else if (season === 'cool-spring') {
+  } else if (props  === 'cool-spring') {
     return baseClass + 'cs';
-  } else if (season === 'warm-autumn') {
+  } else if (props  === 'warm-autumn') {
     return baseClass + 'wa';
-  } else if (season === 'warm-summer') {
-    return baseClass + 'ws';
   } else {
-    return baseClass + 'cw';
+    return baseClass + 'ws';
   }
 }
 
@@ -166,11 +161,8 @@ function QuizTaking(props) {
   };
 
   const questionCards = quizQuestions.map((q, index) => {
-    return (
-      <QuestionCard
-        key={index} question={q.question} options={q.options} selectedOption={answers[q.question]} onOptionSelect={(option) => handleOptionSelect(q.question, option)}
-      />
-    );
+    let qCard = <QuestionCard key={index} question={q.question} options={q.options} selectedOption={answers[q.question]} onOptionSelect={(option) => handleOptionSelect(q.question, option)}/>
+    return qCard;
   });
 
   return (
@@ -191,9 +183,7 @@ function QuizTaking(props) {
               <p className="result-top-word">You are a...</p>
               <p className="result">{season.replace('-', ' ')}</p>
               <Link to="../profile">
-                <button className="btn btn-primary next-button-qr" 
-                        aria-label="View recommended products" 
-                        onClick={handleClick}>
+                <button className="btn btn-primary next-button-qr" aria-label="View recommended products" onClick={handleClick}>
                   Recommended Products Here <span className="material-icons">arrow_forward</span>
                 </button>
               </Link>
@@ -206,5 +196,8 @@ function QuizTaking(props) {
   );
 }
 
+export function getSeason() {
+  return seasonResult;
+}
 
 export default QuizTaking;
