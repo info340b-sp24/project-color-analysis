@@ -762,7 +762,11 @@ body .body-ws {
   margin-bottom: 5%;
   margin-left: 0;
   width: 100%;
-  height: 190px;
+  height: 230px;
+}
+
+.quizBox{
+  height: 160px;
 }
 
 .flex-footer {
@@ -894,10 +898,14 @@ body .body-ws {
   margin-top: 3%;
 }
 
-.section-part1 button {
+.section-part1 label {
   margin: 6% 15%;
   font-weight: 500;
   font-size: 18px;
+}
+
+.section-part1 label:hover {
+  background-color: #5566FF;
 }
 
 .section-part2 {

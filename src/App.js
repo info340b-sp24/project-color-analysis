@@ -67,7 +67,7 @@ function App() {
         <Route element={<ProtectedPage currentUser={currentUser} />}>
           <Route path="upload" element={<UploadPage />} />
           <Route path="products" element={<ProductsPage user = {currentUser} />} />
-          <Route path="profile" element={<ProfilePage />} />
+          <Route path="profile" element={<ProfilePage user={currentUser}/>} />
           <Route path="edit" element={<EditProfilePage />} />
           <Route path="quiz" element={<QuizLanding />} />
           <Route path="quiztaking" element={<QuizTaking user = {currentUser}/>} />

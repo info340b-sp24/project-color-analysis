@@ -1,25 +1,15 @@
-import React from "react";
+import { React } from "react";
 import { Link } from 'react-router-dom';
 
-const profileInfo = {img: 'img/profile_image.png', alt: "profile image"}
-
-function Profile(props) {
-  
-    const info = props.items;
-  
-    return (
-        <img src={info.img} alt={info.alt} className="rounded-circle border border-dark"/>
-    )
-}
-
-export function EditProfilePage() {
+export function EditProfilePage(props) {
 
     return (
         <div className="edit-profile-box">
             <div className="section-part1">
                 <h1>Edit Profile</h1>
-                <Profile items={profileInfo} />
-                <button type="button" className="btn-color rounded-5">Upload Picture</button>
+                <img src='img/profileImage_default.png' alt="default image" className="rounded-circle border border-dark"/> 
+                <label htmlFor="imageUploadInput" className="btn btn-color rounded-5">Upload Picture</label>
+                <input type="file" name="image" id="imageUploadInput" className="d-none"/>
             </div>
             <div className="section-part2">
                 <form className="userInfo">
