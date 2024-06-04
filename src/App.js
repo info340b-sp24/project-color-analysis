@@ -25,7 +25,6 @@ function App() {
 
   // const userDataRef = ref(database, "userData");
 
-
   useEffect(() => {
     const auth = getAuth();
 

@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getDatabase, ref, onValue, off } from "@firebase/database";
 import { getAuth, signOut } from 'firebase/auth';
 
@@ -9,48 +9,8 @@ const handleSignOut = (event) => {
   signOut(getAuth());
 }
 
-function Profile(props) {
-  const user = props.user;
-  console.log("debug1");
-
-  const db = getDatabase();
-  const userRef = ref(db, "userData/" + user.uid);
-
-  const [userEmail, setUserEmail] = useState('');
-  const [userName, setUserName] = useState('');
-
-  useEffect(() => {
-    onValue(userRef, (snapshot) => {
-      const userObject = snapshot.val();
-      setUserEmail(userObject.email);
-      setUserName(userObject.name);
-    })
-    return () => {
-      off(userRef);
-    }
-  }, [])
-
-  return (
-    <section className="section-one">
-      <h1>My profile</h1>
-      <div>
-        <img src='img/profileImage_default.png' alt="profile image" className="rounded-circle border border-dark"/>
-        <p>Name : {userName}</p>
-        <p>Email : {userEmail}</p>
-      </div>
-      <Link to="../edit">
-        <button type="button" class="btn-color rounded-5">Edit Profile</button>
-      </Link>
-      <Link to="../signin">
-        <button type="button" class="btn-color rounded-5" onClick={handleSignOut}>Sign Out</button> 
-      </Link>
-    </section>
-  )
-}
-
 function QuizResult(props) {
   const user = props.user;
-  console.log("debug2");
 
   const db = getDatabase();
   const userRef = ref(db, "userData/" + user.uid);
@@ -172,8 +132,8 @@ function RecommendationItems(props) {
       const allRecItems = Object.keys(allItemsObject).filter((key) => {
         
         const itemFilters = allItemsObject[key].filters;
-        const matchingTemp = itemFilters.includes(resultTemp);
-        const matchingSeason = itemFilters.includes(resultSeason);
+        const matchingTemp = itemFilters && itemFilters.includes(resultTemp);
+        const matchingSeason = itemFilters && itemFilters.includes(resultSeason);
 
         return matchingTemp && matchingSeason;
       }).map((key) => {
@@ -213,14 +173,26 @@ function RecommendationItems(props) {
 }
 
 export function ProfilePage(props) {
-
     const user = props.user;
 
     return (
       <div className="profile">
         <Nav />
         <div className="profile-content">
-          <Profile user={user}/>
+          <section className="section-one">
+            <h1>My profile</h1>
+            <div>
+              <img src='img/profileImage_default.png' alt="profile image" className="rounded-circle border border-dark"/>
+              <p>Name : {user.displayName}</p>
+              <p>Email : {user.email}</p>
+            </div>
+            <Link to="../edit">
+              <button type="button" class="btn-color rounded-5">Edit Profile</button>
+            </Link>
+            <Link to="../signin">
+              <button type="button" class="btn-color rounded-5" onClick={handleSignOut}>Sign Out</button> 
+            </Link>
+          </section>
           <section className="section-two">
             <div className="flex-box bg-color quizBox">
               <div className="flex-subtitle">
