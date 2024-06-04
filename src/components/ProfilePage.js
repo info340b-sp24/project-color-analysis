@@ -9,6 +9,72 @@ const handleSignOut = (event) => {
   signOut(getAuth());
 }
 
+function Profile(props) {
+  const user = props.user;
+  console.log("debug1");
+
+  const db = getDatabase();
+  const userRef = ref(db, "userData/" + user.uid);
+
+  const [userEmail, setUserEmail] = useState('');
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    onValue(userRef, (snapshot) => {
+      const userObject = snapshot.val();
+      setUserEmail(userObject.email);
+      setUserName(userObject.name);
+    })
+    return () => {
+      off(userRef);
+    }
+  }, [])
+
+  return (
+    <section className="section-one">
+      <h1>My profile</h1>
+      <div>
+        <img src='img/profileImage_default.png' alt="profile image" className="rounded-circle border border-dark"/>
+        <p>Name : {userName}</p>
+        <p>Email : {userEmail}</p>
+      </div>
+      <Link to="../edit">
+        <button type="button" class="btn-color rounded-5">Edit Profile</button>
+      </Link>
+      <Link to="../signin">
+        <button type="button" class="btn-color rounded-5" onClick={handleSignOut}>Sign Out</button> 
+      </Link>
+    </section>
+  )
+}
+
+function QuizResult(props) {
+  const user = props.user;
+  console.log("debug2");
+
+  const db = getDatabase();
+  const userRef = ref(db, "userData/" + user.uid);
+
+  const [resultTemp, setResultTemp] = useState(null);
+  const [resultSeason, setResultSeason] = useState(null);
+  
+  useEffect(() => {
+    onValue(userRef, (snapshot) => {
+      const userObject = snapshot.val();
+      setResultTemp(userObject.temp);
+      setResultSeason(userObject.season);
+    })
+    return () => {
+      off(userRef);
+    }
+  }, [])
+
+  return (
+    (resultTemp && resultSeason) &&
+    <p>You are a {resultTemp} {resultSeason}!</p>
+  )
+}
+
 function SavedItem({ img, alt, title, price, link }) {
   return (
     <div className="flex-img-text">
@@ -72,7 +138,6 @@ function SavedItems(props) {
 }
 
 function RecommendationItem({ img, alt, title, price, link }) {
-  // console.log("debug1");
   return (
     <div className="flex-img-text">
       <a href={link}>
@@ -85,7 +150,6 @@ function RecommendationItem({ img, alt, title, price, link }) {
 
 function RecommendationItems(props) {
   const user = props.user;
-  // console.log("debug2");
   const db = getDatabase();
   const itemsRef = ref(db, "items");
   const userRef = ref(db, "userData/" + user.uid);
@@ -104,7 +168,6 @@ function RecommendationItems(props) {
     })
 
     onValue(itemsRef, (snapshot) => {
-      // console.log("debug3");
       const allItemsObject = snapshot.val();
       const allRecItems = Object.keys(allItemsObject).filter((key) => {
         
@@ -117,10 +180,8 @@ function RecommendationItems(props) {
         const { img, alt, title, price, link } = allItemsObject[key];
         return { img, alt, title, price, link };
       });
-      // console.log("debug4");
       // console.log(allRecItems);
       setRecItems(allRecItems); 
-      // console.log("debug5");
     })
 
     return () => {
@@ -155,52 +216,18 @@ export function ProfilePage(props) {
 
     const user = props.user;
 
-    const db = getDatabase();
-    const userRef = ref(db, "userData/" + user.uid);
-
-    const [resultTemp, setResultTemp] = useState(null);
-    const [resultSeason, setResultSeason] = useState(null);
-    const [userEmail, setUserEmail] = useState('');
-    const [userName, setUserName] = useState('');
-
-
-    useEffect(() => {
-      onValue(userRef, (snapshot) => {
-        const userObject = snapshot.val();
-        setResultTemp(userObject.temp);
-        setResultSeason(userObject.season);
-        setUserEmail(userObject.email);
-        setUserName(userObject.name);
-      })
-    }, [])
-    
     return (
       <div className="profile">
         <Nav />
         <div className="profile-content">
-          <section className="section-one">
-            <h1>My profile</h1>
-            <div>
-              <img src='img/profileImage_default.png' alt="profile image" className="rounded-circle border border-dark"/>
-              <p>Name : {userName}</p>
-              <p>Email : {userEmail}</p>
-            </div>
-            <Link to="../edit">
-              <button type="button" class="btn-color rounded-5">Edit Profile</button>
-            </Link>
-            <Link to="../signin">
-              <button type="button" class="btn-color rounded-5" onClick={handleSignOut}>Sign Out</button> 
-            </Link>
-          </section>
+          <Profile user={user}/>
           <section className="section-two">
             <div className="flex-box bg-color quizBox">
               <div className="flex-subtitle">
                 <img src="img/quiz_result_icon.png" alt="quiz result icon"/>
                 <h2>Quiz Result</h2>                
               </div>
-              {resultTemp && resultSeason &&
-                <p>You are a {resultTemp} {resultSeason}!</p> 
-              }
+              <QuizResult user={user}/>
             </div>
             <div className="flex-box">
               <div className="flex-subtitle">
