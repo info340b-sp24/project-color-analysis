@@ -23,6 +23,8 @@ function UploadPicture(props) {
     const key = props.index;
     const setKey = props.clearIndex;
 
+    
+
     //   const currentUser = props.currentUser;
     //   const displayName = props.currentUser.userName;
 
@@ -79,9 +81,9 @@ function UploadPicture(props) {
                     <button className="btn btn-sm btn-success" onClick={handleImageUpload}>Upload to Database</button>
                     <input type="file" name="image" id="imageUploadInput" className="d-none" onChange={handleChange} />
                 </div>
-                <div className="reset-button">
+                {/* <div className="reset-button">
                     <button className="reset">Reset</button>
-                </div>
+                </div> */}
             </div>
         </section>
 
@@ -326,9 +328,9 @@ function UploadInfo() {
     return (
 
         <section className="flex-container-upload">
-            <section className="flex-item-left">
+            {/* <section className="flex-item-left">
                 <UploadPicture index={key} clearIndex={setKey}/>
-            </section>
+            </section> */}
             <section className="flex-item-right">
                 < section className="upload" >
 
@@ -475,6 +477,9 @@ function UploadInfo() {
                     </div>
 
                 </section >
+            </section>
+            <section className="flex-item-left">
+                <UploadPicture index={key} clearIndex={setKey}/>
             </section>
 
             {/* <UploadInfo
