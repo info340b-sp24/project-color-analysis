@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getDatabase, ref, onValue, off } from "@firebase/database";
 import { getAuth, signOut } from 'firebase/auth';
 
