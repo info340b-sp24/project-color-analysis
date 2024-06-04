@@ -124,10 +124,8 @@ function getBackgroundClass(season) {
     return baseClass + 'cs';
   } else if (season === 'warm-autumn') {
     return baseClass + 'wa';
-  } else if (season === 'warm-summer') {
-    return baseClass + 'ws';
   } else {
-    return baseClass + 'cw';
+    return baseClass + 'ws';
   }
 }
 
