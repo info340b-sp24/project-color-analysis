@@ -32,7 +32,7 @@ function QuestionCard(props) {
   );
 }
 
-function determineSeason(answers) {
+function determineSeason(props) {
   let scores = {
     "cool-winter": 0,
     "cool-spring": 0,
@@ -40,7 +40,7 @@ function determineSeason(answers) {
     "warm-summer": 0
   };
 
-  answers.forEach((answer) => {
+  props.forEach((answer) => {
     if (["Black", "Brown"].includes(answer)) {
       scores["cool-winter"]++;
       scores["warm-autumn"]++;
@@ -116,13 +116,13 @@ function determineSeason(answers) {
   return resultSeason;
 }
 
-function getBackgroundClass(season) {
+function getBackgroundClass(props) {
   const baseClass = 'big-square-qr background-color-';
-  if (season === 'cool-winter') {
+  if (props === 'cool-winter') {
     return baseClass + 'cw';
-  } else if (season === 'cool-spring') {
+  } else if (props === 'cool-spring') {
     return baseClass + 'cs';
-  } else if (season === 'warm-autumn') {
+  } else if (props === 'warm-autumn') {
     return baseClass + 'wa';
   } else {
     return baseClass + 'ws';
